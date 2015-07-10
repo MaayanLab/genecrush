@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Enrichr Game</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<header>
+    <aside>June, 19, 2015- </aside>
+    <a href="http://images.huffingtonpost.com/2014-10-13-What_the_hell.png" rel="author">Azu Lee</a>
+</header>
+<h1>GAME NAME TBD</h1>
+
+<aside style="margin-top:20px;"id="score"></aside>
+<aside style="margin-top:150px;"id="timer"></aside>
+<aside style="margin-top:300px;">
+    <p>Undo : </p>
+    <button type="button" , onclick="undo()">Undo</button>
+    <p>Sort to original:</p>
+    <button type="button" , onclick="reset()">Reset</button>
+    <p>Sort Descending Order : </p>
+    <button type="button" , onclick="sort_descending()">Sort Descending</button>
+    <p>Sort Ascending Order : </p>
+    <button type="button" , onclick="sort_ascending()">Sort Ascending</button>
+    <p></p>
+    <input id="same_gene" type="checkbox" value="on">Show Same Gene<br>
+    <p>To use random colors instead of predefined colors, comment out line 57,58 of make_viz.js</p>
+
+    <p>Built with <a href="http://d3js.org/">d3.js</a>.
+</aside>
+
+
+<!-- Libraries -->
+<script src="js/library/d3.min.js"></script>
+<script src="js/library/jquery-2.1.4.min.js"></script>
+<script src="js/library/underscore-min.js"></script>
+<script src="js/library/backbone-min.js"></script>
+<script src="js/library/randomColor.min.js"></script>
+<script src="js/library/timer.js"></script>
+<script src="js/library/tourist.min.js"></script>
+<script src="js/library/seen.min.js"></script>
+
+<!-- my codes -->
+<script src="js/tutorial.js"></script>
+<script src="js/mk_sound.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/score_bd.js"></script>
+<script src="js/calc_score.js"></script>
+<script src="js/re_order.js"></script>
+<script src="js/make_viz.js"></script>
+<script src="js/main.js"></script>
+<script src="js/timer_bd.js"></script>
+<script src="js/debug.js"></script>
+
+

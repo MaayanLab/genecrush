@@ -1,0 +1,1748 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tems",
+				"temps_y"
+			],
+			[
+				"temps",
+				"temps_x"
+			],
+			[
+				"arr",
+				"array_gene_unq"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"gne",
+				"genes_unq"
+			],
+			[
+				"sca",
+				"scale_color"
+			],
+			[
+				"temp",
+				"temp_y"
+			],
+			[
+				"temp2",
+				"temp_2_index"
+			],
+			[
+				"this",
+				"this_row_order"
+			],
+			[
+				"tem",
+				"temp_2_value"
+			],
+			[
+				"temp1",
+				"temp_1_value"
+			],
+			[
+				"temp_",
+				"temp_1_value"
+			],
+			[
+				"ind",
+				"indexOf"
+			],
+			[
+				"h",
+				"header	Tag"
+			],
+			[
+				"temp_y",
+				"temp_y_row"
+			],
+			[
+				"hover",
+				"hover_label"
+			],
+			[
+				"cur",
+				"current_index_order"
+			],
+			[
+				"selec",
+				"selected_index_1"
+			],
+			[
+				"select",
+				"selected_index_1"
+			],
+			[
+				"sele",
+				"select"
+			],
+			[
+				"row_label",
+				"row_label"
+			],
+			[
+				"se",
+				"selected_index_1"
+			],
+			[
+				"v",
+				"v"
+			],
+			[
+				"clas",
+				"classed"
+			],
+			[
+				"cel",
+				"cell"
+			],
+			[
+				"ran",
+				"rangeBand"
+			],
+			[
+				"range",
+				"rangeBand"
+			],
+			[
+				"scal",
+				"scale_y"
+			],
+			[
+				"current",
+				"current_index_order"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"scale",
+				"scale_xy"
+			],
+			[
+				"curr",
+				"current_index_order"
+			],
+			[
+				"cu",
+				"current_index_order"
+			],
+			[
+				"sel",
+				"selected_index_1"
+			],
+			[
+				"selected",
+				"selected_index_1"
+			],
+			[
+				"genes",
+				"genes_unq"
+			],
+			[
+				"terms",
+				"terms"
+			],
+			[
+				"name",
+				"name"
+			],
+			[
+				"group",
+				"groupIdx"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"na",
+				"name"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"selectedr",
+				"selectedRow1"
+			],
+			[
+				"selecte",
+				"selectedRow2"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"fill",
+				"fill-opacity"
+			],
+			[
+				"cells",
+				"cells_of_rows"
+			],
+			[
+				"cell",
+				"cells_of_rows"
+			],
+			[
+				"ins_",
+				"inst_select_class"
+			],
+			[
+				"inst_",
+				"inst_select_class"
+			],
+			[
+				"Color",
+				"color"
+			],
+			[
+				"s",
+				"font-size"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"calc_ra",
+				"calc_rank_of_list〔function〕"
+			],
+			[
+				"calc",
+				"calc_rank_of_list〔function〕"
+			],
+			[
+				"to",
+				"top_tfs〔variable〕"
+			],
+			[
+				"kea",
+				"kea_x2k_sig"
+			],
+			[
+				"combine",
+				"combined_kinase_results"
+			],
+			[
+				"perturb",
+				"perturbations"
+			],
+			[
+				"pv",
+				"pval_bh"
+			],
+			[
+				"ptm_",
+				"ptm_31_data"
+			],
+			[
+				"featre",
+				"feature_type"
+			],
+			[
+				"num_",
+				"num_card_no"
+			],
+			[
+				"num_ca",
+				"num_card_yes"
+			],
+			[
+				"apper",
+				"row_appear_2"
+			],
+			[
+				"appera_",
+				"appear_4"
+			],
+			[
+				"ape",
+				"appear_4"
+			],
+			[
+				"inst_ap",
+				"inst_appear"
+			],
+			[
+				"inst_app",
+				"inst_appear_genes"
+			],
+			[
+				"ist",
+				"inst_appear_arr"
+			],
+			[
+				"appar",
+				"appear_2"
+			],
+			[
+				"ins",
+				"inst_feat"
+			],
+			[
+				"appear",
+				"appear_4"
+			],
+			[
+				"instli",
+				"inst_list_name"
+			],
+			[
+				"lis_t",
+				"list_name"
+			],
+			[
+				"mou",
+				"mouse_pheno"
+			],
+			[
+				"mult",
+				"mult_list_mut"
+			],
+			[
+				"al",
+				"all_mut"
+			],
+			[
+				"fea_",
+				"feat_other"
+			],
+			[
+				"fou",
+				"fount_feat"
+			],
+			[
+				"ch",
+				"child_of_root"
+			],
+			[
+				"my_ca",
+				"my_cases_all"
+			],
+			[
+				"my_",
+				"my_cases_all"
+			],
+			[
+				"incas",
+				"incaseHHE"
+			],
+			[
+				"in_ca",
+				"in_case_HHE"
+			],
+			[
+				"not_in_",
+				"not_in_case_HHE"
+			],
+			[
+				"HH",
+				"HHE_genes"
+			],
+			[
+				"c",
+				"calc_overlap_groups"
+			],
+			[
+				"qu",
+				"qoutes"
+			],
+			[
+				"correcteD",
+				"Corrected"
+			],
+			[
+				"corrected_",
+				"corrected_pvalues_str"
+			],
+			[
+				"corrected",
+				"corrected_pvalues_str"
+			],
+			[
+				"calculate",
+				"calculateGeneFill"
+			],
+			[
+				"buildNe",
+				"buildNetworkModal"
+			],
+			[
+				"term",
+				"terms"
+			],
+			[
+				"quant",
+				"quantilenorm"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"dex",
+				"dex"
+			],
+			[
+				"Dex",
+				"Dex"
+			],
+			[
+				"PPI_AG",
+				"PPI_AG"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1405,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "inst",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Remove Package"
+			],
+			[
+				"remoev",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"g",
+				"Git: Quick Commit"
+			],
+			[
+				"ad",
+				"Git: Add..."
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"q",
+				"Git: Quick Commit"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"gad",
+				"Git: Add..."
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"packag",
+				"Package Control: List Packages"
+			],
+			[
+				"extrac",
+				"Extract Sublime Package: Extract all packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"extract",
+				"Extract Sublime Package: Extract all packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"extrc",
+				"Vintageous: Exit from command mode"
+			],
+			[
+				"git: ad",
+				"Git: Add..."
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git q",
+				"Git: Quick Commit"
+			],
+			[
+				"git",
+				"Git: Open..."
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"c",
+				"Git: Commit"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Quick Commit"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"qui",
+				"Git: Quick Commit"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"quio",
+				"Git: Quick Commit"
+			],
+			[
+				"qu",
+				"Git: Quick Commit"
+			],
+			[
+				"sta",
+				"Git: Status"
+			],
+			[
+				"ADD",
+				"Git: Add..."
+			],
+			[
+				"puah",
+				"Git: Pull Current Branch"
+			],
+			[
+				"qiu",
+				"Git: Quick Commit"
+			],
+			[
+				"QUI",
+				"Git: Quick Commit"
+			],
+			[
+				"diff",
+				"Git: Diff All Files"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"qi",
+				"Git: Quick Commit"
+			],
+			[
+				"q	ui",
+				"Git: Quick Commit"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"a",
+				"Git: Add..."
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"qio",
+				"Git: Quick Commit"
+			],
+			[
+				"puh",
+				"Git: Push"
+			],
+			[
+				"statu",
+				"Git: Status"
+			],
+			[
+				"pul",
+				"Git: Pull"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"pu",
+				"Git: Pull"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git checkout",
+				"Git: Checkout Tag"
+			],
+			[
+				"git check",
+				"Git: Checkout Tag"
+			],
+			[
+				"quick",
+				"Git: Quick Commit"
+			],
+			[
+				"git checkout ",
+				"Git: Checkout Tag"
+			],
+			[
+				"git: push ",
+				"Git: Push"
+			],
+			[
+				"remote",
+				"Git: Track Remote Branch"
+			],
+			[
+				"push ",
+				"Git: Push"
+			],
+			[
+				"git ini",
+				"Git: Init"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: install package ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"FileDiffs",
+				"FileDiffs: Menu"
+			],
+			[
+				"filed",
+				"FileDiffs: Menu"
+			],
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":exit",
+				"Set Syntax: Regular Expressions (Python)"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 51.0,
+		"history":
+		[
+			"git status"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game"
+	],
+	"file_history":
+	[
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/perfect_example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/index(original).html",
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/Phosphatase_Substrates_SAMPLE.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/index2.html",
+		"/Users/AtoTheZ/Desktop/04-basic-3d-geometries-cube.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/style.css",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/perfect_example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/java/ProcessText2json.java",
+		"/Users/AtoTheZ/.Trash/example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/perfect_example.txt",
+		"/Users/AtoTheZ/Documents/workspace/MyCodes/perfect_example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/Phosphatase_Substrates_SAMPLE.txt",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/txt2json.py",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/txt2json.java",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/game.sublime-workspace",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.ccle.exp/update_adj_matrix.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.ccle.exp/js/foundation.topbar.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/example_index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/miserables.json",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/les.miserables.sublime-workspace",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/les.miserables.sublime-project",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/10_scatterplot 2.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/chart.svg",
+		"/Users/AtoTheZ/Desktop/d3_adj_matrix_miserables/example.json",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/09_axes.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/css/foundation.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/js/click_functions.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/css/specific.css",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/05_data_values.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/02_chain_syntax.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/00_empty_page_template.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/01_selecting_elements.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/networks/act_exp_std_0.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/update_adj_matrix.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/js/d3_connect_map_expression.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/cst_ccle_exp_map/js/d3_connect_map.js",
+		"/Users/nickfernandez/Documents/cst_python/kinase_kd_geo/gene_list_files/ABL1_druginhibition_77_GSE24493_dn.txt",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/kea_x2k_sig.json",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_premerge.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_nslc_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/run_x2k_cst.py",
+		"/Users/nickfernandez/Documents/cst_python/find_evidence_x2k_tfs.py",
+		"/Users/nickfernandez/Documents/cst_python/compare_kin_ptm_x2k_sig.py",
+		"/Users/nickfernandez/Documents/cst_python/calc_kin_enr_CST_phospho_anti_merge.py",
+		"/Users/nickfernandez/Documents/cst_python/proc_ccle_zscore_all_cl.py",
+		"/Users/nickfernandez/Documents/cst_python/calc_kin_enr_CST_phospho.py",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/missing_cell_lines.txt",
+		"/Users/nickfernandez/Documents/cst_python/cst_common.py",
+		"/Users/nickfernandez/Documents/cst_python/run_x2k.py",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_all_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_updn_backup.json",
+		"/Users/nickfernandez/Documents/cst_python/proc_ccle_exp_enr.py",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle.json",
+		"<untitled 0>",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/CCLE_all_cell_lines/CCLE_Expression_Entrez_2012-09-29.gct",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_merge_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/unused_scripts.py",
+		"/Users/nickfernandez/Documents/cst_python/run_l1000geo_cst.py",
+		"/Users/nickfernandez/Documents/cst_python/make_exp_clustergram.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/ccle_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/notes_after_presentation.txt",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/kin_sig.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/CCLE_gene_exp_CST_NSCLC_cell_lines.xlsx",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_cst.json",
+		"/Users/nickfernandez/Documents/cst_python/gather_top_ptms.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr.json",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_prot_updn_enr_merge_anti.json",
+		"/Users/nickfernandez/Documents/cst_python/compare_merge_and_no_merge.py",
+		"/Users/nickfernandez/Documents/cst_python/d3_clustergram.py",
+		"/Users/nickfernandez/Documents/cst_python/tmp.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/calc_kin_enr_CST_phospho_anti_merge_working.py",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/A549_up_genes.txt_tf.csv",
+		"/Users/nickfernandez/Documents/cst_python/notes_presentation_5-18-2015.txt",
+		"/Users/nickfernandez/Documents/cst_python/enz_and_tf_lists_gmts/KIN/kinase_substrate.gmt",
+		"/Users/nickfernandez/Documents/cst_python/enz_and_tf_lists_gmts/KIN/Kinase_psite.gmt",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_prot_updn_enr.json",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/top_kin_evi_proc.txt",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/top_kin_mult_evi.txt",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/kin_evi.json",
+		"/Users/nickfernandez/Documents/cst_python/find_dict_in_list.py",
+		"/Users/nickfernandez/Documents/cst_python/notes_CST_python.txt",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_merge_anti.json",
+		"/Users/nickfernandez/Documents/cst_python/enz_and_tf_lists_gmts/KIN/kin_psite_wpsiteplus.json",
+		"/Users/nickfernandez/Documents/kinase_substrate_gmts/our_kin_sub_gmts/Kinase_psite.gmt",
+		"/Users/nickfernandez/Documents/cst_python/calc_enrichment_gl_gmt.py",
+		"/Users/nickfernandez/Documents/cst_python/cell_lines.txt",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/NSCLC_CCLE_cell_lines.txt",
+		"/Users/nickfernandez/Documents/cst_python/run_x2k_kit.py",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/A549_tf.csv",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/A549_kinase.csv",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/H1781_dn_genes.txt_kinase.csv",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/A549_dn_genes.txt_kinase.csv",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/H1781_dn_genes.txt_tf.csv",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/something.xml",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/test_x2k.py",
+		"/Users/nickfernandez/Documents/cst_python/test_x2k.py",
+		"/Users/nickfernandez/Documents/X2K_jar/output_tf.csv",
+		"/Users/nickfernandez/Documents/cst_python/kinase_kd_geo/kinase_gene_geo_up.gmt",
+		"/Users/nickfernandez/Documents/cst_python/kinase_kd_l1000/kinase_gene_l1000_dn.gmt",
+		"/Users/nickfernandez/Documents/cst_python/kinase_kd_l1000/kinase_gene_l1000_up.gmt",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/gene_list_files/A549_dn_genes.txt",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/gene_list_files/H1650_up_genes.txt",
+		"/Users/nickfernandez/Documents/cst_python/export_d3_corr_viz.py",
+		"/Users/nickfernandez/Documents/cst_python/interesting_proteins.txt",
+		"/Users/nickfernandez/Documents/cst_python/example_fuzzy.java",
+		"/Users/nickfernandez/Documents/cst_python/old_kin_enr_cst.py",
+		"/Users/nickfernandez/Documents/cst_python/combine_tf_gmts.py",
+		"/Users/nickfernandez/Documents/cst_python/process_and_load_ptm_31.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/prot_corr.json",
+		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/matlab H1650 PY top up ptms",
+		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/A549 PY top up ptms.txt",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_comb_anti.json",
+		"/Users/nickfernandez/Documents/cst_python/known_drivers/drivers.json",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/top_10.json",
+		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/python_H1650_PY.txt",
+		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/A549 manual top 50 PY"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"",
+			"*.js",
+			"",
+			"*py",
+			"",
+			"*.py",
+			"",
+			"*",
+			"*.py",
+			".py",
+			"",
+			"<open folders>",
+			"C:\\Users\\Nick Fernandez\\Documents\\MATLAB",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"foreach",
+			"\");\n",
+			");\n",
+			"terms_dic",
+			"v++",
+			"scale_xy.y",
+			"console",
+			"d",
+			"scale_xy_",
+			"width",
+			"xy",
+			"console.log(",
+			"+ 1",
+			"1, 2, 3",
+			"test",
+			"xy",
+			"translate",
+			"text",
+			"row",
+			"      \n",
+			"matrix",
+			"azu",
+			".on(",
+			".on(\"click",
+			".on(\"mousedown",
+			".on",
+			"on",
+			"group",
+			"reset",
+			"by Man",
+			"#",
+			"undo",
+			"counter",
+			"green",
+			"count",
+			"group",
+			"size",
+			"font",
+			"transition",
+			"enter",
+			"type",
+			"equal",
+			"cell",
+			"tmp",
+			"row_function",
+			"change",
+			"x2",
+			"console",
+			"nodes",
+			"force",
+			"forcedrag",
+			"drag",
+			"fixed",
+			"order",
+			"delay",
+			"row",
+			"fill",
+			"color",
+			"width",
+			"background",
+			"text",
+			"row text",
+			"delay",
+			"text",
+			"tmp",
+			"active",
+			"row text",
+			"active",
+			"value",
+			"name",
+			"by Name",
+			"choose_protein",
+			"d3",
+			"generate_connect_map_expression",
+			"kinase",
+			"phosphatase",
+			"phophatase",
+			"kinase",
+			"kinase_",
+			"kinase",
+			"generate_connect_map_expression",
+			"tmp",
+			"applications",
+			"x2k_cst/",
+			"x2k_cst",
+			".array",
+			"dn_zscore",
+			"i]",
+			",i",
+			"bloo",
+			"missing",
+			"ccle[",
+			"ptm_31_data/ccle",
+			"load_cell_lines",
+			"ccle",
+			"ccle_updn",
+			"ccle",
+			"predict",
+			"pdgfra",
+			"look",
+			"tf",
+			"int_genes",
+			"egfrn",
+			"egfr",
+			"argsort",
+			"norm",
+			"cst_ptm_updn.json",
+			"x2k_cst.json",
+			" \n",
+			"merge_anti_kin_enr",
+			"calc_kin_enrichment",
+			"'val'",
+			"tmp_updn",
+			"cst_ptm_updn",
+			"enr",
+			".json",
+			"kin_evi",
+			"wpsite",
+			"ptpn11	",
+			"top_kin",
+			"top_kin_mult",
+			"alk",
+			"fw",
+			"itemgetter",
+			"cos_sim",
+			"30",
+			"cst_ptm_updn",
+			"cst_ptm_updn_enr"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"crow_6",
+			"));\n",
+			"",
+			"export_lists",
+			"feature_type",
+			"load_cardiac_data",
+			"rand_sample",
+			"inst_gmt_name",
+			"card_bar",
+			"mut",
+			"card_mut",
+			"mult_list_genes",
+			"feat_pos",
+			"feat_end",
+			"\nfeat_begin"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1405,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 165.0
+	},
+	"output.git":
+	{
+		"height": 25.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "enrichr_game.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				".json",
+				"networks_nsclczc/dmet_exp_all.json"
+			],
+			[
+				"d3_conn",
+				"js/d3_connect_map_expression.js"
+			],
+			[
+				"update_adj",
+				"update_adj_matrix.js"
+			],
+			[
+				"d3_connect_map_expre",
+				"js/d3_connect_map_expression.js"
+			],
+			[
+				"d3_",
+				"js/d3_connect_map.js"
+			],
+			[
+				"add",
+				"kinase_kd_geo/gene_list_files/ABL1_druginhibition_77_GSE24493_dn.txt"
+			],
+			[
+				"d3_clu",
+				"d3_clustergram.py"
+			],
+			[
+				"make_ex_",
+				"make_exp_clustergram.py"
+			],
+			[
+				"ccle_ns",
+				"CCLE/ccle_nslc_updn.json"
+			],
+			[
+				"proc_ccle_",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"",
+				"proc_ccle_zscore_all_cl.py"
+			],
+			[
+				"ccle_up",
+				"CCLE/ccle_updn.json"
+			],
+			[
+				"ccle.json",
+				"CCLE/ccle.json"
+			],
+			[
+				"unus",
+				"unused_scripts.py"
+			],
+			[
+				"run_x2k_cs",
+				"run_x2k_cst.py"
+			],
+			[
+				"run_l",
+				"run_l1000geo_cst.py"
+			],
+			[
+				"proc_ccle_e",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"make_exp_cls",
+				"make_exp_clustergram.py"
+			],
+			[
+				"find_eviden",
+				"find_evidence_x2k_tfs.py"
+			],
+			[
+				"compare_kin_",
+				"compare_kin_ptm_x2k_sig.py"
+			],
+			[
+				"proc_cc",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"notes",
+				"notes_CST_python.txt"
+			],
+			[
+				"cst_ptm_mer",
+				"ptm_31_data/cst_ptm_merge_updn.json"
+			],
+			[
+				"cst_ptm_",
+				"ptm_31_data/cst_ptm_merge_updn.json"
+			],
+			[
+				"kea_x2k",
+				"combined_kinase_results/kea_x2k_sig.json"
+			],
+			[
+				"un",
+				"unused_scripts.py"
+			],
+			[
+				"top_kin_mult",
+				"combined_kinase_results/top_kin_mult_evi.txt"
+			],
+			[
+				"cst_ptm_enr",
+				"ptm_31_data/cst_ptm_updn_enr_premerge.json"
+			],
+			[
+				"compare",
+				"compare_kin_ptm_x2k_sig.py"
+			],
+			[
+				"ccle_updn",
+				"ptm_31_data/ccle_updn.json"
+			],
+			[
+				"cst",
+				"cst_common.py"
+			],
+			[
+				"cst_ptm",
+				"ptm_31_data/cst_ptm_merge_updn.json"
+			],
+			[
+				"x2k.py",
+				"run_x2k_cst.py"
+			],
+			[
+				"x2k",
+				"x2k_cst/x2k_cst.json"
+			],
+			[
+				"tmp",
+				"tmp.py"
+			],
+			[
+				"d3_clus",
+				"d3_clustergram.py"
+			],
+			[
+				"gather_t",
+				"gather_top_ptms.py"
+			],
+			[
+				"cst_ptm_up",
+				"ptm_31_data/cst_ptm_updn.json"
+			],
+			[
+				"notes_presentation",
+				"notes_presentation_5-18-2015.txt"
+			],
+			[
+				"kinase_substra",
+				"enz_and_tf_lists_gmts/KIN/kinase_substrate.gmt"
+			],
+			[
+				"_psite.gmt",
+				"enz_and_tf_lists_gmts/KIN/Kinase_psite.gmt"
+			],
+			[
+				"cst_prot_",
+				"ptm_31_data/cst_prot_updn_enr_merge_anti.json"
+			],
+			[
+				"cst_updn",
+				"ptm_31_data/cst_ptm_updn.json"
+			],
+			[
+				"cst_comm",
+				"cst_common.py"
+			],
+			[
+				"cst_ptm_updn_enr_merge",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				"tmp.",
+				"tmp.py"
+			],
+			[
+				"gather_top",
+				"gather_top_ptms.py"
+			],
+			[
+				"wpsite",
+				"enz_and_tf_lists_gmts/KIN/kin_psite_wpsiteplus.json"
+			],
+			[
+				"top_kin",
+				"combined_kinase_results/top_kin_mult_evi.txt"
+			],
+			[
+				"kin_ev",
+				"combined_kinase_results/kin_evi.json"
+			],
+			[
+				"find_dic",
+				"find_dict_in_list.py"
+			],
+			[
+				"kin_sig",
+				"CCLE/kin_sig.json"
+			],
+			[
+				"kin_",
+				"CCLE/kin_sig.json"
+			],
+			[
+				"kea_",
+				"combined_kinase_results/kea_x2k_sig.json"
+			],
+			[
+				"cst_ptm_updn",
+				"ptm_31_data/cst_ptm_updn.json"
+			],
+			[
+				"cell_lines",
+				"cell_lines.txt"
+			],
+			[
+				"gather_",
+				"gather_top_ptms.py"
+			],
+			[
+				"x2j",
+				"x2k_cst/x2k_cst.json"
+			],
+			[
+				"nsclc_cel_",
+				"CCLE/NSCLC_CCLE_cell_lines.txt"
+			],
+			[
+				"proc_ccle_exp_",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"x2k_cst.json",
+				"x2k_cst/x2k_cst.json"
+			],
+			[
+				"merge_anti",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				"a549",
+				"x2k_cst/A549_tf.csv"
+			],
+			[
+				"cell_",
+				"cell_lines.txt"
+			],
+			[
+				"test_",
+				"test_x2k.py"
+			],
+			[
+				"test",
+				"x2k_cst/test_x2k.py"
+			],
+			[
+				"calc_enr",
+				"calc_enrichment_gl_gmt.py"
+			],
+			[
+				"ccle_",
+				"ptm_31_data/ccle_updn.json"
+			],
+			[
+				"run_x2k",
+				"run_x2k.py"
+			],
+			[
+				"run_k",
+				"run_x2k_kit.py"
+			],
+			[
+				"ccle",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"cst_ptm_updn_",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				".java",
+				"example_fuzzy.java"
+			],
+			[
+				"prot_cor",
+				"ptm_31_data/prot_corr.json"
+			],
+			[
+				"export",
+				"export_d3_corr_viz.py"
+			],
+			[
+				"interesting",
+				"interesting_proteins.txt"
+			],
+			[
+				"note",
+				"notes_CST_python.txt"
+			],
+			[
+				"cst_merge",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				"calc_",
+				"calc_enrichment_gl_gmt.py"
+			],
+			[
+				"cst_com",
+				"cst_common.py"
+			],
+			[
+				"enr_comb_anti",
+				"ptm_31_data/cst_ptm_updn_enr_comb_anti.json"
+			],
+			[
+				"find_dict_in",
+				"find_dict_in_list.py"
+			],
+			[
+				"gather",
+				"gather_top_ptms.py"
+			],
+			[
+				"d3_cluste",
+				"d3_clustergram.py"
+			],
+			[
+				"make_enr",
+				"make_enr_clust.py"
+			],
+			[
+				"combine",
+				"combine_tf_gmts.py"
+			],
+			[
+				"process",
+				"process_and_load_ptm_31.py"
+			],
+			[
+				"py_te",
+				"ptm_31_data/py_test.txt"
+			],
+			[
+				"driver",
+				"known_drivers/drivers.json"
+			],
+			[
+				"top",
+				"ptm_31_data/top_10.json"
+			],
+			[
+				"d",
+				"d3_clustergram.py"
+			],
+			[
+				"kin_psite_wpsite",
+				"enz_and_tf_lists_gmts/KIN/kin_psite_wpsiteplus.json"
+			],
+			[
+				"proc",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"findptm",
+				"find_PTM_near_eachother.py"
+			],
+			[
+				"cell",
+				"cell_lines.txt"
+			],
+			[
+				"calc_n",
+				"calc_enrichment_gl_gmt.py"
+			],
+			[
+				"tf_enr",
+				"ptm_31_data/tf_enr.json"
+			],
+			[
+				"proc_",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"cel_lines",
+				"cell_lines.txt"
+			],
+			[
+				"card_m",
+				"gene_and_AA_lists/card_mut.json"
+			],
+			[
+				"json",
+				"json_scripts.py"
+			],
+			[
+				"process_gene",
+				"process_gene_AA_list.py"
+			],
+			[
+				"clustergram_card",
+				"clustergram_card_mut_uniprot.py"
+			],
+			[
+				"process_card_prob",
+				"process_card_prob_results_into_table.py"
+			],
+			[
+				"load_cardiac",
+				"load_cardiac_data.py"
+			],
+			[
+				"proc_card_mu",
+				"gene_and_AA_lists/proc_card_mut_uniprot.json"
+			],
+			[
+				"classify",
+				"classify_card_mut_uniprot.py"
+			],
+			[
+				"wave",
+				"gene_and_AA_lists/Wave2_complex_mutations_protein_features.txt"
+			],
+			[
+				"check_wa",
+				"check_wave2_complex.py"
+			],
+			[
+				"card_mut_json",
+				"gene_and_AA_lists/card_mut_json.txt"
+			],
+			[
+				"check",
+				"check_mutations_uniprot.py"
+			],
+			[
+				"checkmutations",
+				"check_mutations_uniprot.py"
+			],
+			[
+				"prob_card",
+				"gene_and_AA_lists/prob_card_gene_classifications.txt"
+			],
+			[
+				"clusterram_card_",
+				"gene_and_AA_lists/clustergram_card_mut_uniprot.py"
+			],
+			[
+				"mut_gene_cla",
+				"gene_and_AA_lists/mut_gene_classification.txt"
+			],
+			[
+				"process_card",
+				"gene_and_AA_lists/process_card_prob_results_into_table.py"
+			],
+			[
+				"load_card",
+				"gene_and_AA_lists/load_cardiac_data.py"
+			],
+			[
+				"classif",
+				"gene_and_AA_lists/classify_card_mut_uniprot.py"
+			],
+			[
+				"card_mut_",
+				"gene_and_AA_lists/card_mut_json.txt"
+			],
+			[
+				"check_",
+				"check_mutations_uniprot.py"
+			],
+			[
+				"calc",
+				"gene_and_AA_lists/calc_enrichment_gl_gmt.py"
+			],
+			[
+				"load",
+				"gene_and_AA_lists/load_cardiac_data.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "/Applications/Sublime Text.app/Contents/MacOS"
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
