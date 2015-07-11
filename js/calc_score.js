@@ -59,61 +59,107 @@ function calc_score(value) {
 
 
 var line_data;
+var unq_line_data;
 // gets list of cell coordinates, find out outer boarder, draws lines around it.
 function draw_path_around() {
 	line_data = [];
 
+	get_edges_of_all();
+	order_edges();
+
+	var lineFunction = d3.svg.line()
+			.x(function(d) { return d.x; })
+			.y(function(d) { return d.y; })
+			.interpolate("basis-closed");
+
+	//The SVG Container
+	var svgContainer = d3.select("body")
+			.append("svg")
+	        .attr("width", width)
+	        .attr("height", height);
+
+	// Draws the line
+	var lineGraph = svg.append("path").transition().duration(1000)
+			.attr("d", lineFunction(line_data))
+			.attr("stroke", "white")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
+}
+
+function unq_line_data_contains(value) {
+	if (unq_line_data.length == 0) return -1;
+	for (var i = 0; i < unq_line_data.length; i++) {
+		if (unq_line_data[i].x == value.x && unq_line_data[i].y == value.y) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+// recursive funtion to add all 
+function get_edges_of_all() {
 	for(var i = 0; i < 2; i++) {
 		var temp = get_four_corners(dup_temp[i]).slice();
 		for (j = 0; j < 4; j++)
 			line_data.push(temp[j]);
 	}
-	console.log(line_data);
 	
-	var temp = line_data.length; 
-	// for (var i = 0; i < temp; i++) {
-		// for (var j = i + 1; j < temp; j++) 
-	// }
-
-		
-		// draw_around_one(first);
-
-		var lineFunction = d3.svg.line()
-				.x(function(d) { return d.x; })
-				.y(function(d) { return d.y; })
-				.interpolate("basis-closed");
-
-		//The SVG Container
-		var svgContainer = d3.select("body")
-				.append("svg")
-		        .attr("width", width)
-		        .attr("height", height);
-
-		// Draws the line
-		var lineGraph = svg.append("path").transition().duration(1000)
-				.attr("d", lineFunction(line_data))
-				.attr("stroke", "white")
-				.attr("stroke-width", 2)
-				.attr("fill", "none");
-}
-
-
-
-// recursive funtion to add all 
-function draw_around_one(value) {
-	if (is_point_equal(first, value)) {
-		console.log(value);
-	} else if (has_down(value) != undefined) {
-		// delete down cell from the list
-		// merge with the bottom.
-	} else if (has_right(value) != undefined) {
-
-	} else if (has_up(value) != undefined) {
-
-	} else if (has_left(value) != undefined) {
-
+	// get unique ones in "unq_line_data"
+	unq_line_data = [];
+	for (var i = 0; i < line_data.length; i++) {
+		if (unq_line_data_contains(line_data[i]) == -1) {
+			unq_line_data.push(line_data[i]);
+		}
 	}
 
+	// get unique point counts
+	var count_unq_line_data = Array.apply(null, Array(unq_line_data.length))
+		.map(Number.prototype.valueOf,0);
+	for (var i = 0; i < line_data.length; i++) {
+		for (var j = 0; j < unq_line_data.length; j++) {
+			if (is_point_equal(line_data[i], unq_line_data[j])) {
+				count_unq_line_data[j]++;
+			}
+		}
+	}
+	console.log(count_unq_line_data);
+	var remove = [];
+	for (var i = 0; i < unq_line_data.length; i++) {
+		if (count_unq_line_data[i] == 2) {
+			remove.push(unq_line_data[i]);
+		} else if (count_unq_line_data[i] == 3) {
+			remove.push(unq_line_data[i]);
+			remove.push(unq_line_data[i]);
+		} else if (count_unq_line_data[i] == 4) {
+			remove.push(unq_line_data[i]);
+			remove.push(unq_line_data[i]);
+			remove.push(unq_line_data[i]);
+			remove.push(unq_line_data[i]);
+		}
+	}
+
+	for (var i = 0; i < remove.length; i++) {
+		line_data.splice(line_data.indexOf(remove[i]),1);
+	}
+}
+
+function order_edges() {
+	var new_line_data = [];
+	var next = line_data.shift();
+	new_line_data.push(next);
+	console.log(next);
+	console.log(whats_next(next));
+	// var new_line_data = [];
+	// new_line_data.push(next);
+	// while (line_data.length > 0) {
+		// next = whats_next(next);
+		// line_data.splice(line_data.indexOf(next), 1);
+		// new_line_data.push(next);
+	// }
+	// line_data = new_line_data.slice();
+	// console.log(new_line_data);
+	console.log(line_data);
+	console.log(new_line_data);
 }
 
 function remove_inner_cell() {
@@ -127,6 +173,28 @@ function remove_inner_cell() {
 	var temp = delete_index.length
 	for(var i = 0; i < temp; i++) {
 		dup_temp.splice(delete_index[i], 1);
+	}
+}
+
+function whats_next(value) {
+	console.log(value);
+	var north = { "x": value.x, "y": value.y - scale_xy.x(1)};
+	var south = { "x": value.x, "y": value.y + scale_xy.x(1)};
+	var east  = { "x": value.x + scale_xy.y(1), "y": value.y};
+	var west  = { "x": value.x - scale_xy.y(1), "y": scale_xy.x(value.y)};
+	console.log(line_data.indexOf(north));
+	console.log(line_data.indexOf(south));
+	console.log(line_data.indexOf(east));
+	console.log(line_data.indexOf(west));
+	// console.log(line_data);
+	if (line_data.indexOf(north) != undefined) {
+		return north;
+	} else if (line_data.indexOf(south) != undefined) {
+		return south;
+	} else if (line_data.indexOf(east) != undefined) {
+		return east;
+	} else if (line_data.indexOf(west) != undefined) {
+		return west;
 	}
 }
 
