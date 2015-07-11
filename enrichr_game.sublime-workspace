@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"dup",
+				"dup_temp"
+			],
+			[
+				"four",
+				"get_four_corners"
+			],
+			[
+				"del",
+				"delete_index"
+			],
+			[
+				"has",
+				"has_up"
+			],
+			[
+				"if",
+				"if	if"
+			],
+			[
+				"remo",
+				"remove_inner_cell"
+			],
+			[
+				"index",
+				"index"
+			],
+			[
 				"tems",
 				"temps_y"
 			],
@@ -162,10 +190,6 @@
 			[
 				"group",
 				"groupIdx"
-			],
-			[
-				"index",
-				"indexOf"
 			],
 			[
 				"na",
@@ -423,8 +447,16 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1405,
+				"buffer_size": 2003,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/calc_score.js",
+			"settings":
+			{
+				"buffer_size": 5032,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -436,9 +468,13 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "inst",
+		"last_filter": "open",
 		"selected_items":
 		[
+			[
+				"open",
+				"Git: Open..."
+			],
 			[
 				"inst",
 				"Package Control: Install Package"
@@ -772,7 +808,7 @@
 				"Set Syntax: SQL"
 			]
 		],
-		"width": 467.0
+		"width": 593.0
 	},
 	"console":
 	{
@@ -793,7 +829,8 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game"
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js"
 	],
 	"file_history":
 	[
@@ -1125,7 +1162,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1405,
+						"buffer_size": 2003,
 						"regions":
 						{
 						},
@@ -1159,6 +1196,58 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "js/calc_score.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2208,
+								2208
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_non_interactive": false,
+								"_vintageous_processing_notation": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 5
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
 					"type": "text"
 				}
@@ -1182,11 +1271,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1726,19 +1822,21 @@
 		],
 		"width": 392.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
+		"_vintageous_last_buffer_search": "console",
+		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "/Applications/Sublime Text.app/Contents/MacOS"
+			"_cmdline_cd": "/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js"
 		}
 	},
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 193.0,
 	"status_bar_visible": false,
 	"template_settings":

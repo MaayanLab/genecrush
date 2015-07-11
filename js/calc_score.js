@@ -33,10 +33,10 @@ function calc_score(value) {
 		}
 	}
 
-	// delete all enclosed cell so that you only have outer surrounding cell
-	delete_enclosed_cell();
+	// remove inner surrounded cells.
+	remove_inner_cell();
 
-	// draw_path_around(dup_temp);
+	draw_path_around();
 
 	prev_score = curr_score;
 	curr_score = score_count;
@@ -55,41 +55,28 @@ function calc_score(value) {
 		d3.select('.score_board_text').transition().duration(800)
 			.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8);
 	}
-
-	// get the correct object cell
-	// for (i = 0; i < dup_temp.length; i++) {
-	// 	var temp_x = value.x[dup_temp[i].x];
-	// 	var temp_y = value.y[temp_x][dup_temp[i].y];
-	// 	duplicate_xy_list.push({ x:temp_x, y:temp_y });
-	// }
-
-	// erase, then highlights the connected cells
-	// d3.selectAll('.cell').selectAll(".rect").style('stroke', null);
-	// for(i = 0; i < duplicate_xy_list.length; i++) {
-	// 	d3.selectAll(".cell_x" + duplicate_xy_list[i].x 
-	// 		+ ".cell_y" + duplicate_xy_list[i].y).selectAll(".rect")
-	// 		.style("stroke", "red").style("stroke-width", 5);
-	// };
 }
 
 
 var line_data;
 // gets list of cell coordinates, find out outer boarder, draws lines around it.
-function draw_path_around(value) {
+function draw_path_around() {
+	line_data = [];
 
-	for(i=0; i < 6; i++) {
-		dup_temp.shift();
+	for(var i = 0; i < 2; i++) {
+		var temp = get_four_corners(dup_temp[i]).slice();
+		for (j = 0; j < 4; j++)
+			line_data.push(temp[j]);
 	}
+	console.log(line_data);
+	
+	var temp = line_data.length; 
+	// for (var i = 0; i < temp; i++) {
+		// for (var j = i + 1; j < temp; j++) 
+	// }
 
-	// while(dup_temp.length > 0) {
-		line_data = []
-		var first = dup_temp.shift();
-
-		line_data = [{ "x": scale_xy.y(first.x), "y": scale_xy.x(first.y)},
-					{ "x": scale_xy.y(first.x), "y": scale_xy.x(first.y + 1)},
-					{ "x": scale_xy.y(first.x + 1), "y": scale_xy.x(first.y + 1)},
-					{ "x": scale_xy.y(first.x + 1), "y": scale_xy.x(first.y)}];
-		draw_around_one(first);
+		
+		// draw_around_one(first);
 
 		var lineFunction = d3.svg.line()
 				.x(function(d) { return d.x; })
@@ -102,147 +89,98 @@ function draw_path_around(value) {
 		        .attr("width", width)
 		        .attr("height", height);
 
+		// Draws the line
 		var lineGraph = svg.append("path").transition().duration(1000)
 				.attr("d", lineFunction(line_data))
 				.attr("stroke", "white")
 				.attr("stroke-width", 2)
 				.attr("fill", "none");
-	// }
 }
 
 
 
 // recursive funtion to add all 
 function draw_around_one(value) {
-	console.log(value);
-	var ind_s = $.map(dup_temp, function(obj, index) {
-	if(obj.x  == value.x && obj.y == value.y + 1) { return index; }})
-	var ind_e = $.map(dup_temp, function(obj, index) {
-	if(obj.x  == value.x + 1 && obj.y == value.y) { return index; }})
-	var ind_n = $.map(dup_temp, function(obj, index) {
-	if(obj.x  == value.x && obj.y == value.y - 1) { return index; }})
-	var ind_w = $.map(dup_temp, function(obj, index) {
-	if(obj.x  == value.x - 1 && obj.y == value.y) { return index; }})
+	if (is_point_equal(first, value)) {
+		console.log(value);
+	} else if (has_down(value) != undefined) {
+		// delete down cell from the list
+		// merge with the bottom.
+	} else if (has_right(value) != undefined) {
 
+	} else if (has_up(value) != undefined) {
 
-	if (ind_s[0] != undefined) {						// go down
-		var temp  = dup_temp[ind_s[0]];
-		var one   = { "x": scale_xy.y(temp.x), "y": scale_xy.x(temp.y)};
-		var two   = { "x": scale_xy.y(temp.x), "y": scale_xy.x(temp.y + 1)};
-		var three = { "x": scale_xy.y(temp.x + 1), "y": scale_xy.x(temp.y + 1)};
-		var four  = { "x": scale_xy.y(temp.x + 1), "y": scale_xy.x(temp.y)};
-		
-		for (i = 0; i < line_data.length; i++) {
-			if (line_data[i].x == one.x && line_data[i].y == one.y)
-				 div_index = i;
-		}
-		var first_half = line_data.slice(0,div_index);
-		var second_half = line_data.slice(div_index + 2, line_data.length);
-		var new_line_data = first_half.slice();
-		new_line_data.push(one, two, three, four);
-		for (var i = 0; i < second_half.length; i++) {
-			new_line_data.push(second_half[i]);
-		}
-		line_data = new_line_data.slice();
-		dup_temp.splice(ind_s[0], 1);
-		draw_around_one(temp);
-	} else if (ind_e[0] != undefined) {					// go right
-		var temp  = dup_temp[ind_e[0]];
-		var one   = { "x": scale_xy.y(temp.x), 		"y": scale_xy.x(temp.y)};        
-		var two   = { "x": scale_xy.y(temp.x), 		"y": scale_xy.x(temp.y + 1)};    
-		var three = { "x": scale_xy.y(temp.x + 1), 	"y": scale_xy.x(temp.y + 1)};
-		var four  = { "x": scale_xy.y(temp.x + 1), 	"y": scale_xy.x(temp.y)};    
-		
-		for (i = 0; i < line_data.length; i++) {
-			if (line_data[i].x == two.x && line_data[i].y == two.y)
-				 div_index = i;
-		}
-		var first_half = line_data.slice(0,div_index);
-		var second_half = line_data.slice(div_index + 2, line_data.length);
-		var new_line_data = first_half.slice();
-		new_line_data.push(two, three, four, one);
-		for (var i = 0; i < second_half.length; i++) {
-			new_line_data.push(second_half[i]);
-		}
-		line_data = new_line_data.slice();
-		dup_temp.splice(ind_e[0], 1);
-		draw_around_one(temp);
-	} else if (ind_n[0] != undefined) {					// go up 
-		var temp  = dup_temp[ind_n[0]];
-		var one   = { "x": scale_xy.y(temp.x), "y": scale_xy.x(temp.y)};
-		var two   = { "x": scale_xy.y(temp.x), "y": scale_xy.x(temp.y + 1)};
-		var three = { "x": scale_xy.y(temp.x + 1), "y": scale_xy.x(temp.y + 1)};
-		var four  = { "x": scale_xy.y(temp.x + 1), "y": scale_xy.x(temp.y)};
-		
-		for (i = 0; i < line_data.length; i++) {
-			if (line_data[i].x == three.x && line_data[i].y == three.y)
-				 div_index = i;
-		}
-		var first_half = line_data.slice(0,div_index);
-		var second_half = line_data.slice(div_index + 1, line_data.length);
-		var new_line_data = first_half.slice();
-		new_line_data.push(three, four, one);
-		for (var i = 0; i < second_half.length; i++) {
-			new_line_data.push(second_half[i]);
-		}
-		line_data = new_line_data.slice();
-		dup_temp.splice(ind_n[0], 1);
-		draw_around_one(temp);	
-	} else if (ind_w[0] != undefined) {					// go left
-		var temp  = dup_temp[ind_w[0]];
-		var one   = { "x": scale_xy.y(temp.x), "y": scale_xy.x(temp.y)};
-		var two   = { "x": scale_xy.y(temp.x), "y": scale_xy.x(temp.y + 1)};
-		var three = { "x": scale_xy.y(temp.x + 1), "y": scale_xy.x(temp.y + 1)};
-		var four  = { "x": scale_xy.y(temp.x + 1), "y": scale_xy.x(temp.y)};
-		
-		for (i = 0; i < line_data.length; i++) {
-			if (line_data[i].x == four.x && line_data[i].y == four.y)
-				 div_index = i;
-		}
-		console.log(line_data);
-		console.log(div_index);
-		var first_half = line_data.slice(0,div_index);
-		var second_half = line_data.slice(div_index + 2, line_data.length);
-		var new_line_data = first_half.slice();
-		new_line_data.push(four, one, two);
-		for (var i = 0; i < second_half.length; i++) {
-			new_line_data.push(second_half[i]);
-		}
-		line_data = new_line_data.slice();
-		dup_temp.splice(ind_w[0], 1);
-		draw_around_one(temp);	
+	} else if (has_left(value) != undefined) {
+
+	}
+
+}
+
+function remove_inner_cell() {
+	var delete_index = [];
+	for (var i = 0; i < dup_temp.length; i++) {
+		var curr = dup_temp[i];
+		if (has_up(curr) != undefined && has_down(curr) != undefined
+			&& has_left(curr) != undefined && has_right(curr) != undefined)
+			delete_index.push(i);
+	}
+	var temp = delete_index.length
+	for(var i = 0; i < temp; i++) {
+		dup_temp.splice(delete_index[i], 1);
+	}
+}
+
+function is_point_equal(value1, value2) {
+	if (value1.x == value2.x && value1.y == value2.y) {
+		return true;
 	} else {
-		console.log('you got no place to go');
+		return false;
 	}
-
-	/// just add on everything, and at each round, when you see a duplicate coordinates, just slice them off
-	
-
 }
 
-
-
-function delete_enclosed_cell() {
-	length = dup_temp.length;
-	for (i = 0; i < length; i++) {
-		
-	}
-	console.log(dup_temp.length);
-
+function get_four_corners(value) {
+	var one   = { "x": scale_xy.y(value.x), "y": scale_xy.x(value.y)};
+	var two   = { "x": scale_xy.y(value.x), "y": scale_xy.x(value.y + 1)};
+	var three = { "x": scale_xy.y(value.x + 1), "y": scale_xy.x(value.y + 1)};
+	var four  = { "x": scale_xy.y(value.x + 1), "y": scale_xy.x(value.y)};
+	var returner = [one, two, three, four];
+	return returner;
 }
 
+function has_down(value) {
+	var ind = $.map(dup_temp, function(obj, index) {
+	if(obj.x  == value.x && obj.y == value.y + 1) { return index; }})
+	return ind[0];
+}
 
+function has_up(value) {
+	var ind = $.map(dup_temp, function(obj, index) {
+	if(obj.x  == value.x && obj.y == value.y - 1) { return index; }})
+	return ind[0];
+}
 
+function has_right(value) {
+	var ind = $.map(dup_temp, function(obj, index) {
+	if(obj.x  == value.x + 1 && obj.y == value.y) { return index; }})
+	return ind[0];
+}
 
+function has_left(value) {
+	var ind = $.map(dup_temp, function(obj, index) {
+	if(obj.x  == value.x - 1 && obj.y == value.y) { return index; }})
+	return ind[0];
+}
 
-
-
-
-
-
-
-
-
+function merge(value) {
+	get_four_corners(value);
+	for (i = 0; i < line_data.length; i++) {
+		if (line_data[i].x == one.x && line_data[i].y == one.y)
+		div_index = i;
+	}
+	var first_half = line_data.slice(0,div_index);
+	var second_half = line_data.slice(div_index + 2, line_data.length);
+	var new_line_data = first_half.slice();
+}
 
 
 
