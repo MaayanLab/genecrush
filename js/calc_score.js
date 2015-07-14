@@ -45,7 +45,6 @@ function calc_score(value) {
 		dup_real = get_unq(dup_real);
 		remove_inner_cell();
 		draw_path_around();
-		console.log(dup_temp.length);
 		prev_score = curr_score;
 		curr_score = score_count;
 
@@ -185,7 +184,6 @@ function order_edges() {
 	var new_line_data = [];
 
 	for (var i = 0; i < line_data.length; i++) {
-		console.log(line_data[i]);
 	}
 
 	var next = line_data.shift();

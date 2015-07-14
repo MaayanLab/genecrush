@@ -31,14 +31,14 @@
 
 
 <!-- Libraries -->
-<script src="js/library/d3.min.js"></script>
-<script src="js/library/jquery-2.1.4.min.js"></script>
-<script src="js/library/underscore-min.js"></script>
-<script src="js/library/backbone-min.js"></script>
-<script src="js/library/randomColor.min.js"></script>
-<script src="js/library/timer.js"></script>
-<script src="js/library/tourist.min.js"></script>
-<script src="js/library/seen.min.js"></script>
+<script src="lib/js/d3.min.js"></script>
+<script src="lib/js/jquery-2.1.4.min.js"></script>
+<script src="lib/js/underscore-min.js"></script>
+<script src="lib/js/backbone-min.js"></script>
+<script src="lib/js/randomColor.min.js"></script>
+<script src="lib/js/timer.js"></script>
+<script src="lib/js/tourist.min.js"></script>
+<script src="lib/js/seen.min.js"></script>
 
 <!-- my codes -->
 <script src="js/tutorial.js"></script>
@@ -52,4 +52,15 @@
 <script src="js/timer_bd.js"></script>
 <script src="js/debug.js"></script>
 
+<script type="text/javascript">
 
+var data;
+$.ajax({
+   url: "python/enrichr_request.py",
+   success: function(response){
+     data=response;
+   }
+});
+console.log(data);
+
+</script>

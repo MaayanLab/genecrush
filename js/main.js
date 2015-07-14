@@ -41,6 +41,12 @@ var curr_duration = default_duration,
     click_state = 0;
 
 
+// Get random sample from json folder.
+console.log(Math.floor(Math.random() * 60));
+var path = "json/from_enrichr/"
+
+
+
 
 
 d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
