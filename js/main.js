@@ -40,10 +40,9 @@ var curr_duration = default_duration,
     toggle_hl = 0,
     click_state = 0;
 
-// Reads in json (edgelist) file, and runs it. 
-//  Phosphatase_Substrates_from_DEPOD
-// perfect_example
-// 
+
+
+
 d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
 
   // Processes the visualizing of the "sample"

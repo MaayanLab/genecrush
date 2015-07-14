@@ -35,35 +35,35 @@ function calc_score(value) {
 		}
 	}
 
-	// // reset
-	// d3.selectAll(".common_path").attr('stroke', null);
+	// reset
+	d3.selectAll(".common_path").attr('stroke', null);
 
-	// // draw edges around
-	// while (dup_temp.length > 0) {
-	// 	dup_real = [];
-	// 	dup_real = get_a_set(dup_temp.shift()).slice();
-	// 	dup_real = get_unq(dup_real);
-	// 	remove_inner_cell();
-	// 	draw_path_around();
-	// 	console.log(dup_temp.length);
-	// 	prev_score = curr_score;
-	// 	curr_score = score_count;
+	// draw edges around
+	while (dup_temp.length > 0) {
+		dup_real = [];
+		dup_real = get_a_set(dup_temp.shift()).slice();
+		dup_real = get_unq(dup_real);
+		remove_inner_cell();
+		draw_path_around();
+		console.log(dup_temp.length);
+		prev_score = curr_score;
+		curr_score = score_count;
 
-	// 	// Changes the score on the scoreboard.
-	// 	if (curr_score > prev_score) {
-	// 		d3.select('.score_board_text').text(curr_score)
-	// 			.attr("font-size", 100).attr("y", (height_sc - 20) / 2)
-	// 			.attr("fill", "green").attr("y", height_sc / 2 + 13);
-	// 		d3.select('.score_board_text').transition().duration(800)
-	// 			.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8);
-	// 	} else if (curr_score < prev_score) {
-	// 		d3.select('.score_board_text').text(curr_score)
-	// 			.attr("font-size", 120).attr("y", (height_sc - 20) / 2)
-	// 			.attr("fill", "red").attr("y", height_sc / 2 + 13);
-	// 		d3.select('.score_board_text').transition().duration(800)
-	// 			.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8);
-	// 	}
-	// }
+		// Changes the score on the scoreboard.
+		if (curr_score > prev_score) {
+			d3.select('.score_board_text').text(curr_score)
+				.attr("font-size", 100).attr("y", (height_sc - 20) / 2)
+				.attr("fill", "green").attr("y", height_sc / 2 + 13);
+			d3.select('.score_board_text').transition().duration(800)
+				.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8);
+		} else if (curr_score < prev_score) {
+			d3.select('.score_board_text').text(curr_score)
+				.attr("font-size", 120).attr("y", (height_sc - 20) / 2)
+				.attr("fill", "red").attr("y", height_sc / 2 + 13);
+			d3.select('.score_board_text').transition().duration(800)
+				.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8);
+		}
+	}
 }
 
 
@@ -183,6 +183,11 @@ function get_edges_of_all() {
 
 function order_edges() {
 	var new_line_data = [];
+
+	for (var i = 0; i < line_data.length; i++) {
+		console.log(line_data[i]);
+	}
+
 	var next = line_data.shift();
 	new_line_data.push(next);
 
@@ -218,12 +223,12 @@ function whats_next(value) {
 	var index = -1;
 
 	for (var i = 0; i < line_data.length; i++) {
-		if (is_point_equal(line_data[i], north) ) {
+		if (is_point_equal(line_data[i], east) ) {
 				index = i;
 			}
 	}
 	for (var i = 0; i < line_data.length; i++) {
-		if (is_point_equal(line_data[i], east) ) {
+		if (is_point_equal(line_data[i], west) ) {
 				index = i;
 			}
 	}
@@ -233,7 +238,7 @@ function whats_next(value) {
 			}
 	}
 	for (var i = 0; i < line_data.length; i++) {
-		if (is_point_equal(line_data[i], west) ) {
+		if (is_point_equal(line_data[i], north) ) {
 				index = i;
 			}
 	}

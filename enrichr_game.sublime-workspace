@@ -4,8 +4,72 @@
 		"selected_items":
 		[
 			[
+				"post",
+				"post_url"
+			],
+			[
+				"down",
+				"down"
+			],
+			[
+				"te",
+				"dup_temp"
+			],
+			[
 				"dup",
 				"dup_temp"
+			],
+			[
+				"path",
+				"common_path"
+			],
+			[
+				"remove",
+				"remove2"
+			],
+			[
+				"rem",
+				"remove4"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"has",
+				"has_up"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"to",
+				"toFixed"
+			],
+			[
+				"next",
+				"next"
+			],
+			[
+				"undei",
+				"undefined"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"count",
+				"count_unq_line_data"
+			],
+			[
+				"value",
+				"value"
+			],
+			[
+				"line",
+				"line_data"
 			],
 			[
 				"four",
@@ -16,20 +80,12 @@
 				"delete_index"
 			],
 			[
-				"has",
-				"has_up"
-			],
-			[
 				"if",
 				"if	if"
 			],
 			[
 				"remo",
 				"remove_inner_cell"
-			],
-			[
-				"index",
-				"index"
 			],
 			[
 				"tems",
@@ -260,10 +316,6 @@
 				"calc_rank_of_list〔function〕"
 			],
 			[
-				"to",
-				"top_tfs〔variable〕"
-			],
-			[
 				"kea",
 				"kea_x2k_sig"
 			],
@@ -444,19 +496,27 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "js/score_bd.js",
 			"settings":
 			{
-				"buffer_size": 2003,
-				"line_ending": "Windows"
+				"buffer_size": 1294,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "js/calc_score.js",
 			"settings":
 			{
-				"buffer_size": 5032,
+				"buffer_size": 9500,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2003,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -468,9 +528,29 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "open",
+		"last_filter": "pack",
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"q",
+				"Git: Quick Commit"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
 			[
 				"open",
 				"Git: Open..."
@@ -492,10 +572,6 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"push",
-				"Git: Push"
-			],
-			[
 				"g",
 				"Git: Quick Commit"
 			],
@@ -505,18 +581,6 @@
 			],
 			[
 				"pac",
-				"Package Control: List Packages"
-			],
-			[
-				"q",
-				"Git: Quick Commit"
-			],
-			[
-				"add",
-				"Git: Add..."
-			],
-			[
-				"pack",
 				"Package Control: List Packages"
 			],
 			[
@@ -538,10 +602,6 @@
 			[
 				"extrac",
 				"Extract Sublime Package: Extract all packages"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
 			],
 			[
 				"install",
@@ -834,6 +894,10 @@
 	],
 	"file_history":
 	[
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/main.js",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/perfect_example.json",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/index(original).html",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/Phosphatase_Substrates_SAMPLE.json",
@@ -841,8 +905,6 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/index2.html",
 		"/Users/AtoTheZ/Desktop/04-basic-3d-geometries-cube.html",
 		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/style.css",
-		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
 		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/index.html",
 		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/perfect_example.json",
@@ -959,13 +1021,11 @@
 		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/A549 PY top up ptms.txt",
 		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_comb_anti.json",
 		"/Users/nickfernandez/Documents/cst_python/known_drivers/drivers.json",
-		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/top_10.json",
-		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/python_H1650_PY.txt",
-		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/A549 manual top 50 PY"
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/top_10.json"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -993,6 +1053,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
+			"dup_temp",
+			"conso",
 			"foreach",
 			"\");\n",
 			");\n",
@@ -1117,10 +1180,7 @@
 			"alk",
 			"fw",
 			"itemgetter",
-			"cos_sim",
-			"30",
-			"cst_ptm_updn",
-			"cst_ptm_updn_enr"
+			"cos_sim"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1153,29 +1213,29 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
-					"semi_transient": false,
+					"file": "js/score_bd.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2003,
+						"buffer_size": 1294,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								495,
+								495
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"vintage":
@@ -1198,28 +1258,22 @@
 					},
 					"stack_index": 1,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
 					"file": "js/calc_score.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5032,
+						"buffer_size": 9500,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2208,
-								2208
+								4945,
+								4945
 							]
 						],
 						"settings":
@@ -1228,9 +1282,60 @@
 							"translate_tabs_to_spaces": false,
 							"vintage":
 							{
-								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_glue_until_normal_mode": true,
 								"_vintageous_non_interactive": false,
 								"_vintageous_processing_notation": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 23
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 3313.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2003,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1114,
+								1114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
 								"action": null,
 								"action_count": "",
 								"mode": "mode_normal",
@@ -1241,14 +1346,14 @@
 								"partial_sequence": "",
 								"register": "\"",
 								"sequence": "",
-								"xpos": 5
+								"xpos": 0
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 660.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1282,7 +1387,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.552353805285,
 			1.0
 		],
 		"rows":
@@ -1298,7 +1403,7 @@
 	},
 	"output.git":
 	{
-		"height": 25.0
+		"height": 428.0
 	},
 	"pinned_build_system": "Packages/Python/Python.sublime-build",
 	"project": "enrichr_game.sublime-project",
@@ -1822,11 +1927,13 @@
 		],
 		"width": 392.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "console",
+		"_vintageous_last_buffer_search": "whats_ne",
 		"_vintageous_last_buffer_search_command": "vi_slash",
+		"_vintageous_last_char_search_command": "vi_big_t",
+		"_vintageous_last_character_search": "O",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
@@ -1836,8 +1943,8 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 193.0,
+	"side_bar_visible": true,
+	"side_bar_width": 229.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{
