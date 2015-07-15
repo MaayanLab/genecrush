@@ -1,7 +1,7 @@
 
 // CONSTANTS.
-var margin = { top: 20, right: 0, bottom: 10, left: 250 },
-    width = 750,
+var margin = { top: 50, right: 10, bottom: 10, left: 250 },
+    width = 700,
     height = 800,
     trans_duration = 2000,    // ms
     default_duration = 300,   // ms
@@ -42,14 +42,33 @@ var curr_duration = default_duration,
 
 
 // Get random sample from json folder.
-console.log(Math.floor(Math.random() * 60));
-var path = "json/from_enrichr/"
+random = Math.floor(Math.random() * 59);
+var path = "json/from_enrichr/";
+path += file_list[random];
+path += '.json'
 
+svg.append("text")
+  .attr("class", "library")
+  .attr("x", 0)
+  .attr("y", -20)
+  .attr("dy", ".32em").attr("text-anchor", "end")
+  .attr("font-size", 15)
+  .attr("fill", "white")
+  .text('LIBRARY:  ');
 
+svg.append("text")
+  .attr("class", "library")
+  .attr("x", 0)
+  .attr("y", -20)
+  .attr("dy", ".32em").attr("text-anchor", "front")
+  .attr("font-size", 25)
+  .attr("fill", "skyblue")
+  .text(file_list[random]);
+  // .attr("xlink:href", "http://en.wikipedia.org/wiki/");
 
-
-
+// d3.json("json/perfect_example.json", function(sample) {
 d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+// d3.json(path, function(sample) {
 
   // Processes the visualizing of the "sample"
   make_viz(sample);

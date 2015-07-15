@@ -1,12 +1,12 @@
-// score_board
+// toggle_board
 
 // Constants
 var margin_sc = { top: 0, right: 0, bottom: 0, left: 0 },
     width_sc = 200,
-    height_sc = 100;
+    height_sc = 500;
 
 // score SVG.
-var score_board = d3.select("#score").append("svg")
+var score_board = d3.select("#toggle").append("svg")
     .attr("width", width_sc + margin_sc.left + margin_sc.right)
     .attr("height", height_sc + margin_sc.top + margin_sc.bottom)
     .style("margin-left", -margin_sc.left + "px").append("g")
@@ -33,17 +33,11 @@ score_board.append("rect")
 	.style("fill-opacity", 1);
 
 score_board.append("text")
-    .text("SCORE")
+    .text("TOGGLE")
     .attr("x", width_sc / 2)
     .attr("y", 13)
     .attr("dy", ".32em").attr("text-anchor", "middle")
     .attr("font-size", 20);  
 
-score_board.append("text")
-	.attr("class", "score_board_text")
-    .text(0)
-    .attr("x", width_sc / 2)
-    .attr("y", (height_sc + 15)/ 2)
-    .attr("dy", ".32em").attr("text-anchor", "middle")
-    .attr("font-size", 50);   
+// score_board.append("button").text("undo").on('click', undo());
 

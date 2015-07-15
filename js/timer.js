@@ -23,7 +23,7 @@ var myTimer = new Timer({
 			.attr("font-size", 100).attr("y", height_sc / 2 + 13);
 		d3.select('.timer_board_text').transition().duration(500)
 			.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8); 
-		// reset_sound.playclip();
+		reset_sound.playclip();
     }
 });
-// myTimer.start(9);
+// myTimer.start(11);

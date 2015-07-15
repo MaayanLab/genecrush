@@ -24,6 +24,8 @@ function make_viz(sample) {
     curr_nrow = sample[terms[i]].length;
     if (curr_nrow > ncol) ncol = curr_nrow;
   }
+  
+  if (ncol < 5) ncol = 5
 
   // "genes_unq" - array of unique genes, "genes" - array of all genes
   for (i = 0; i < nrow; i++) {
@@ -59,7 +61,7 @@ function make_viz(sample) {
   // Assign range of random colors, setting undefined to white.
   var rand_color = randomColor({count: nrow * ncol - undefined_count, format: 'rgb'})
   for (i = 0; i < genes_unq.length; i++) {
-      if (i == undefined_ind) {                                      // Sets undefined cells to white.
+      if (i == undefined_ind) {                                      // Sets undefined cells to blue.
         color_unq.push("rgb(65,105,225)");
       } else {                                                  // if not in the mapping, randomly assigns color.
         color_unq.push(rand_color.pop());
@@ -126,7 +128,7 @@ function make_viz(sample) {
       .attr("y", scale_xy.x.rangeBand() / 2)
       .attr("dy", ".32em").attr("text-anchor", "end")
       .attr("font-size", scale_xy.x.rangeBand() / 4)
-      .attr("fill", "black")
+      .attr("fill", "white")
       .text(function(d, i) { return terms[i]; });
 
   // Within each row.
@@ -235,7 +237,7 @@ function make_viz(sample) {
   // deselects all the cell when mouse hovers out.
   function mouseout() {
             // hover_cell.style('stroke', null);
-    if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.style('stroke', null);
+    if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.style('stroke', "blue").style('stroke-width', 1);
     d3.selectAll("text").classed("active", false);
   }
 
@@ -243,21 +245,19 @@ function make_viz(sample) {
   function mouseDown(p) {
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
     selected_index_1 = { 'x': p.y, 'y': p.x };
-    clicked_cell_1 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect"); //
-    clicked_cell_1.style('stroke', 'red').style('stroke-width', 5);
-    // clicked_cell_1.transition().style("fill-opacity", 0);
 
-    if (click_state == 1 && !(selected_index_1.x == selected_index_2.x && selected_index_1.y == selected_index_2.y)) {
+    
+    if (click_state == 0) {
+      clicked_cell_1 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
+      clicked_cell_1.style('stroke', 'red').style('stroke-width', 5);
+    }
+    if (click_state == 1) {
+      clicked_cell_2 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
+      if (selected_index_1.x != selected_index_2.x) swap_rows();
+      if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y) swap_cols();
+      clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
+      clicked_cell_2.style('stroke', "blue").style('stroke-width', 1)
       click_state = 2;
-      // Swap rows
-      if (selected_index_1.x != selected_index_2.x)
-        swap_rows();
-
-      // swap cols
-      if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y)
-        swap_cols();
-
-      d3.selectAll(".rect").style('stroke',null).style('stroke', "blue").style('stroke-width', 1);
     }
   }
 
@@ -267,21 +267,21 @@ function make_viz(sample) {
     selected_index_2 = { 'x': p.y, 'y': p.x };
 
 
-    if (click_state == 0 && (selected_index_1.x == selected_index_2.x && selected_index_1.y == selected_index_2.y)) {
-      click_state = 1;
-    } else if (click_state == 2) {
-      click_state = 0;
-    } else {
-      clicked_cell_1.style('stroke', null).style('stroke',"blue").style('stroke-width',1);
-      // Swaps the rows.
-      if (selected_index_1.x != selected_index_2.x)
-        swap_rows();
-
-      // Swaps the cols.
-      if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y)
-        swap_cols();
+    if (click_state == 0) {
+      if (selected_index_1.x == selected_index_2.x 
+        && selected_index_1.y == selected_index_2.y) {
+        click_state = 1;
+      } else {
+        if (selected_index_1.x != selected_index_2.x) swap_rows();
+        if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y) swap_cols();
+        clicked_cell_1.style('stroke', null);
+        clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
+        click_state = 0;
+      }
     }
-    // print_order(current_index_order);
+    if (click_state == 2) {
+      click_state = 0;
+    }
   }
 
   // Swaps the two selected rows.

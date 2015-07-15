@@ -19,7 +19,7 @@ timer_board.append("rect")
 	.attr("height", height_sc)
 	.attr("rx", 20)
     .attr("ry", 20)
-	.style("fill", "orange")
+	.style("fill", theme_color)
 	.style("fill-opacity", 1);
 
 timer_board.append("rect")
