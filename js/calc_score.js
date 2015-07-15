@@ -25,13 +25,13 @@ function calc_vertical() {
 			var current = curr_mat[j][i];
 			if (current != undefined_ind) {												// first, check it's not undefined cell
 				if (previous == current && !skip) {									// first duplicate located
-					dup_temp.push({ x:i, y:j-1 })
-					dup_temp.push({ x:i, y:j });
+					dup_temp.push({ x:i, y:j-1, z:1})
+					dup_temp.push({ x:i, y:j, z:2});
 					skip = true;
 					temp_score = 2;
 					if (j == nrow-1) score_count += 4;
 				} else if (previous == current && skip) {						// continuing down
-					dup_temp.push({ x:i, y:j });
+					dup_temp.push({ x:i, y:j, z:2});
 					temp_score++;
 					if (j == nrow-1) score_count += Math.pow(temp_score, 2);
 				} else if (skip && previous != current) {						// end of continuation.
@@ -50,10 +50,23 @@ function calc_vertical() {
 // Calculates anything that makes rectangle with 4 or more, 
 // returns array of array of coordinates of rectangle
 function get_rect() {
-	var temp = dup_temp.slice();
-	for (var i = 0; i < temp.length; i++) {
-		console.log(temp[i]);
+
+	var returner = [];
+	while (dup_temp.length > 0) {
+		var temp = dup_temp.shift();
+		// if (temp.z == 1) console.log(1);
+		var set = [];
+		set.push(temp);
+		while (has_right(temp) != -1) {
+			var index = has_right(temp);
+			temp = dup_temp[has_right(temp)];
+			set.push(temp);
+			dup_temp.splice(index, 1);
+		}
+		console.log(set);
+		console.log(set[0].z);
 	}
+
 }
 
 // Updates the score board with animation.
@@ -74,8 +87,14 @@ function update_score_bd() {
 }
 
 // Functions to help other functions.
-function has_right() {
-	
+
+// returns the index of the value if it has it right of the value.
+function has_right(value) {
+	var returner = -1;
+	for (var i = 0; i < dup_temp.length; i++) {
+		if (dup_temp[i].x == value.x + 1 && dup_temp[i].y == value.y) returner = i;
+	}
+	return returner;
 }
 
 
