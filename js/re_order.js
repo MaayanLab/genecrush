@@ -17,7 +17,7 @@ function order(value) {
       return "translate(" + scale_xy.y(i) + ",0)"; })
   }
   calc_score(value);
-  print_order(current_index_order);
+  // print_order(current_index_order);
 }
 
 // Undo's last move.

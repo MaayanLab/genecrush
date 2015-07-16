@@ -9,12 +9,19 @@ function calc_score(value) {
 
 	calc_vertical();
 	
-	// d3.selectAll('.common_path').attr('stroke', null)
-	// var rectangles = get_rect();
-	// for (var i = 0; i < rectangles.length; i++) {
-	// 	draw_rect(rectangles[i]);
+	// // temporary red mark for common genes
+	// for (var i = 0; i < dup_temp.length; i++) {
+	// 	d3.selectAll(".cell_x" + dup_temp[i].y + ".cell_y" + dup_temp[i].x).selectAll(".rect").style('stroke', 'red').style('stroke-width', 5);
+	// 	// console.log(dup_temp[i].z)
 	// }
-	// console.log(rectangles);
+	// ////////////////////////////////////
+
+
+	d3.selectAll('.common_path').attr('stroke', null)
+	var rectangles = get_rect();
+	for (var i = 0; i < rectangles.length; i++) {
+		draw_rect(rectangles[i]);
+	}
 	update_score_bd();
 
 }
@@ -81,42 +88,76 @@ function get_rect() {
 		two_by_two.push(temp);
 	}
 
-	for (var i = 0; i < 4; i++) {
-		// console.log('i:'+i);
-		if (has_right(two_by_two_head[i], two_by_two_head) != -1) {						// check if they have right
-			if (has_bot(two_by_two_head[i], two_by_two_head) != -1 
-				&& has_right_bot(two_by_two_head[i], two_by_two_head) != -1) {		// then check both bot and botright.
-				var temp = [];
+	// // temporary red mark for common genes
+	// for (var i = 0; i < two_by_two.length; i++) {
+	// 	for (var j = 0; j < 4; j++) {
+	// 	d3.selectAll(".cell_x" + two_by_two[i][j].y + ".cell_y" + two_by_two[i][j].x).selectAll(".rect").style('stroke', 'red').style('stroke-width', 5);
+	// 	// console.log(dup_temp[i].z)
+	// 	}
+	// }
+	// ////////////////////////////////////
+	console.log(two_by_two_head.length);
+	for (var i = 0; i < 5; i++) { //two_by_two_head.length
+		console.log(i);
+		if (has_right(two_by_two_head[0], two_by_two_head) != -1) {						// has right
+			if (has_bot(two_by_two_head[0], two_by_two_head) != -1 
+				&& has_right_bot(two_by_two_head[0], two_by_two_head) != -1) {		// also has bot and bot-right
 
-			} else {																														// explore right
-				var temp = [];
-				temp.push.apply(temp, two_by_two[i]);
-				if (has_right(two_by_two_head[i], two_by_two_head) != -1) {
-					console.log('you are in middle if i:' + i);
-					temp.push(two_by_two[has_right(two_by_two_head[i], two_by_two_head)][1]);
-					temp.push(two_by_two[has_right(two_by_two_head[i], two_by_two_head)][3]);
-				}
-				returner.push(temp);
+			} else {																														// only has right
+				var lr = look_right(two_by_two_head[0], two_by_two, two_by_two_head);
+				returner.push(lr);
+				// for (var i = 0; i < lr.length/2 ; i++) i--;
 			}
-		} else {																															// explore down
-			var temp = [];
-			temp.push.apply(temp, two_by_two[i]);
-			// get_its_own(two_by_two_head[i], two_by_two_head);
-			while (has_bot(two_by_two_head[i], two_by_two) != -1) {
-				console.log('here');
+		} else {																															// doesn't have right
+			if (has_bot(two_by_two_head[i], two_by_two_head) != -1) {						// but has bot
+
+			} else {																														// don't have right nor bot
+				two_by_two_head.splice(0, 1);
+				returner.push(two_by_two.splice(0, 1)[0]);
 			}
-			returner.push(temp);
 		}
 	}
-	// console.log('========dup_temp==========');
-	// console.log(dup_temp);
-	// console.log('');
-	// console.log('========two_by_two========');
-	// console.log(two_by_two);
-	// console.log('');
-	// console.log('========two_by_two_head========');
-	// console.log(two_by_two_head);	
-	// console.log('');
+
+	console.log('========dup_temp==========' + dup_temp.length);
+	console.log(dup_temp);
+	console.log('');
+	console.log('========two_by_two========' + two_by_two.length);
+	console.log(two_by_two);
+	console.log('');
+	console.log('========two_by_two_head========' + two_by_two_head.length);
+	console.log(two_by_two_head);	
+	console.log('');	
+	console.log('========returner========' + returner.length);
+	console.log(returner);	
+	console.log('');
+	return returner;
+}
+
+
+function look_right(value, two_by_two, two_by_two_head) {
+	var returner = [];
+	var temp = value;
+	var ind = indexOf(temp, two_by_two_head);
+	returner.push.apply(returner, two_by_two[ind]);
+	two_by_two_head.splice(ind, 1);
+	two_by_two.splice(ind, 1);
+
+	while (has_right(temp, two_by_two_head) != -1) {
+		ind = has_right(temp, two_by_two_head);
+		temp = two_by_two_head[ind];
+		returner.push(two_by_two[ind][1]);
+		returner.push(two_by_two[ind][3]);
+		two_by_two_head.splice(ind, 1);
+		two_by_two.splice(ind, 1);
+	}
+	return returner;
+}
+
+function indexOf(value, array) {
+	returner = -1;
+	for (var i = array.length - 1; i >= 0; i--) {
+		if (array[i].x == value.x && array[i].y == value.y) returner = i;
+	}
 	return returner;
 }
 
@@ -126,6 +167,11 @@ function draw_rect(value) {
 	line_data = add_corners(value).slice();
 	// order_edges();
 	// console.log(line_data);
+
+	// console.log('========line_data========' + line_data.length);
+	// console.log(line_data);	
+	// console.log('');
+
 	var lineFunction = d3.svg.line()
 			.x(function(d) { return d.x; })
 			.y(function(d) { return d.y; })
@@ -163,6 +209,7 @@ function update_score_bd() {
 
 // returns the index of the value if it has it right of the value.
 function has_right(value, array) {
+	if (array.length == 1) return -1;
 	var returner = -1;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y) returner = i;
@@ -172,6 +219,7 @@ function has_right(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function has_bot(value, array) {
+	if (array.length == 1) return -1;
 	var returner = -1;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x && array[i].y == value.y + 1) returner = i;
@@ -181,6 +229,7 @@ function has_bot(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function has_right_bot(value, array) {
+	if (array.length == 1) return -1;
 	var returner = -1;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y + 1) returner = i;
@@ -190,6 +239,7 @@ function has_right_bot(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function get_right(value, array) {
+	if (array.length == 1) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y) ind = i;
@@ -201,6 +251,7 @@ function get_right(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function get_bot(value, array) {
+	if (array.length == 1) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x && array[i].y == value.y + 1) ind = i;
@@ -212,6 +263,7 @@ function get_bot(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function get_right_bot(value, array) {
+	if (array.length == 1) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y + 1) ind = i;
@@ -222,6 +274,7 @@ function get_right_bot(value, array) {
 }
 
 function get_its_own(value, array) {
+	if (array.length == 1) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x && array[i].y == value.y) ind = i;
@@ -251,6 +304,8 @@ function add_corners(value) {
 	left = scale_xy.y(left);
 	bottom = scale_xy.x(bottom);
 	right = scale_xy.y(right);
+	if (bottom == undefined) bottom = height;
+	if (right == undefined) right = width;
 	returner.push({x:left, y:top});
 	returner.push({x:left, y:bottom});
 	returner.push({x:right, y:bottom});

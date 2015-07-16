@@ -244,7 +244,7 @@ function make_viz(sample) {
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
     d3.selectAll(".row_label_text").classed("active", function(d, i) { return i == p.y; });
     hover_cell = d3.selectAll('.cell_x' + p.y + ".cell_y" + p.x).selectAll(".rect");
-    hover_cell.style('fill', theme_color).style('stroke', 'red').style('stroke-width', 2);
+    hover_cell.style('fill', theme_color).style('fill-opacity', 0.9).style('stroke', 'red').style('stroke-width', 2);
     if (genes_unq[p.z] != undefined && toggle_hl == 1) {
        hover_cell_name = d3.selectAll('.cell_n_' + genes_unq[p.z]).selectAll(".rect");
        hover_cell_name.style('stroke', 'red').style('stroke-width', 5);
@@ -257,7 +257,10 @@ function make_viz(sample) {
       if (d.z == undefined_ind) return 0.5
       else return 0.9})
       .style('stroke', "blue").style('stroke-width', 1).transition().duration(350)
-      .style("fill", function(d) { return scale_color(d.z); });
+      .style("fill", function(d) { return scale_color(d.z); })
+      .style("fill-opacity", function(d) { 
+          if (d.z == undefined_ind) return 0.5
+            else return 0.9});
     if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.style('stroke', "blue").style('stroke-width', 1);
     d3.selectAll("text").classed("active", false);
   }
