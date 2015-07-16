@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Enrichr Game</title>
+<title>TBD</title>
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,21 +14,24 @@
 <aside style="margin-top:20px;"id="score"></aside>
 <aside style="margin-top:150px;"id="timer"></aside>
 <aside style="margin-top:300px;"id="toggle">
-    <p>Undo : </p>
+    <p></p>
     <button type="button" , onclick="undo()">Undo</button>
-    <p>Sort to original:</p>
+    <p></p>
     <button type="button" , onclick="reset()">Reset</button>
-    <p>Sort Descending Order : </p>
+    <p></p>
     <button type="button" , onclick="sort_descending()">Sort Descending</button>
-    <p>Sort Ascending Order : </p>
+    <p></p>
     <button type="button" , onclick="sort_ascending()">Sort Ascending</button>
     <p></p>
-    <input id="same_gene" type="checkbox" value="on">Show Same Gene<br>
-    <p>To use random colors instead of predefined colors, comment out line 57,58 of make_viz.js</p>
-
+    <input id="same_gene" type="checkbox" value="on"> check this to show same gene<br>
+ 
     <p>Built with <a href="http://d3js.org/">d3.js</a>.
 </aside>
 
+<div id="tooltip" class="hidden">
+        <p><strong id="tt_term">Terms</strong></p>
+        <p><span id="tt_genes"><i>Genes</i></span></p>
+</div>
 
 <!-- Libraries -->
 <script src="lib/js/d3.min.js"></script>
@@ -38,7 +41,6 @@
 <script src="lib/js/randomColor.min.js"></script>
 <script src="lib/js/timer.js"></script>
 <script src="lib/js/tourist.min.js"></script>
-<script src="lib/js/seen.min.js"></script>
 
 
 <!-- my codes -->

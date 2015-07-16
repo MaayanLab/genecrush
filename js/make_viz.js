@@ -25,7 +25,9 @@ function make_viz(sample) {
     if (curr_nrow > ncol) ncol = curr_nrow;
   }
   
-  if (ncol < 5) ncol = 5
+  if (ncol < 10) ncol = 10;
+  else ncol = 13
+  if (nrow > 20) nrow = 20;
 
   // "genes_unq" - array of unique genes, "genes" - array of all genes
   for (i = 0; i < nrow; i++) {
@@ -104,8 +106,8 @@ function make_viz(sample) {
   var row_label = row.append("g")
       .attr("class", function(d, i) { return "row_label noselect row_label_" + i })
       .style("cursor", "pointer")
-      // .on("mouseover", mouseover_label)
-      // .on("mouseout", mouseout_label)
+      .on("mouseover", mouseover_label)
+      .on("mouseout", mouseout_label)
       .on("mousedown", mouseDown_label)
       .on("mouseup", mouseUp_label);
 
@@ -187,23 +189,38 @@ function make_viz(sample) {
 
   //// LABEL functions ////
   // selects a row when mouse hovers over the label.
-  // function mouseover_label(p) {
-  //   d3.selectAll(".row_label text").classed("active", function(d, i) { return i == p[0].y; });
-  //   hover_label = d3.selectAll('.row_' + p[0].y);
-  //   hover_label.selectAll('.row_label_text').attr("font-size", scale_xy.x.rangeBand() / 3)
-  //       .attr("font-weight", "bold")
-  //       .attr("fill", "red");
-  //   hover_label.selectAll(".cell_x" + p[0].y).selectAll(".rect").style("stroke", "red");
-  // }
+  function mouseover_label(p) {
+    var xPosition = 0;
+    var yPosition = current_index_order.x.indexOf(p[0].y) * (height / nrow) + margin['top'] + 80;
+
+    //Update the tooltip position and value
+    d3.select("#tooltip")
+      .style("left", xPosition + "px")
+      .style("top", yPosition + "px");
+
+    d3.select('#tooltip').select('#tt_term').text("\"" + terms[p[0].y] + "\"");
+    d3.select('#tooltip').select("#tt_genes").text('(' + sample[terms[p[0].y]].join(', ') + ')');
+    //Show the tooltip
+    d3.select("#tooltip").classed("hidden", false);
+
+
+    // d3.selectAll(".row_label text").classed("active", function(d, i) { return i == p[0].y; });
+    hover_label = d3.selectAll('.row_' + p[0].y);
+    // hover_label.selectAll('.row_label_text').attr("font-size", scale_xy.x.rangeBand() / 3)
+    //     .attr("font-weight", "bold")
+    //     .attr("fill", "red");
+    // hover_label.selectAll(".cell_x" + p[0].y).selectAll(".rect").style("stroke", "red");
+  }
 
   // // deselects all the rows when mouse hovers out of the label.
-  // function mouseout_label(p) {
-  //   hover_label.selectAll('.row_label_text').attr("font-size", scale_xy.x.rangeBand() / 4)
-  //       .attr("font-weight", null)
-  //       .attr("fill", null);
-  //   hover_label.selectAll(".cell_x" + p[0].y).selectAll(".rect").style('stroke', null);
-  //   d3.selectAll("row_label_text").classed("active", false);
-  // }
+  function mouseout_label(p) {
+    d3.select("#tooltip").classed("hidden", true);
+    // hover_label.selectAll('.row_label_text').attr("font-size", scale_xy.x.rangeBand() / 4)
+    //     .attr("font-weight", null)
+    //     .attr("fill", null);
+    // hover_label.selectAll(".cell_x" + p[0].y).selectAll(".rect").style('stroke', null);
+    // d3.selectAll("row_label_text").classed("active", false);
+  }
 
   // when mouse clicks down
   function mouseDown_label(p) {
@@ -224,10 +241,10 @@ function make_viz(sample) {
   // selects a cell when mouse hovers over.
   function mouseover(p) {
             // HIGHLIGHTS THE HOVERING CELLS
-            // d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
-            // d3.selectAll(".row_label_text").classed("active", function(d, i) { return i == p.y; });
-            // hover_cell = d3.selectAll('.cell_x' + p.y + ".cell_y" + p.x).selectAll(".rect");
-            // hover_cell.style('stroke', 'red').style('stroke-width', 1);
+    d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
+    d3.selectAll(".row_label_text").classed("active", function(d, i) { return i == p.y; });
+    hover_cell = d3.selectAll('.cell_x' + p.y + ".cell_y" + p.x).selectAll(".rect");
+    hover_cell.style('fill', theme_color).style('stroke', 'red').style('stroke-width', 2);
     if (genes_unq[p.z] != undefined && toggle_hl == 1) {
        hover_cell_name = d3.selectAll('.cell_n_' + genes_unq[p.z]).selectAll(".rect");
        hover_cell_name.style('stroke', 'red').style('stroke-width', 5);
@@ -236,7 +253,11 @@ function make_viz(sample) {
 
   // deselects all the cell when mouse hovers out.
   function mouseout() {
-            // hover_cell.style('stroke', null);
+    hover_cell.attr("fill-opacity", function(d) { 
+      if (d.z == undefined_ind) return 0.5
+      else return 0.9})
+      .style('stroke', "blue").style('stroke-width', 1).transition().duration(350)
+      .style("fill", function(d) { return scale_color(d.z); });
     if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.style('stroke', "blue").style('stroke-width', 1);
     d3.selectAll("text").classed("active", false);
   }

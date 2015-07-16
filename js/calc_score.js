@@ -8,7 +8,13 @@
 function calc_score(value) {
 
 	calc_vertical();
-	get_rect();
+	
+	// d3.selectAll('.common_path').attr('stroke', null)
+	// var rectangles = get_rect();
+	// for (var i = 0; i < rectangles.length; i++) {
+	// 	draw_rect(rectangles[i]);
+	// }
+	// console.log(rectangles);
 	update_score_bd();
 
 }
@@ -50,23 +56,88 @@ function calc_vertical() {
 // Calculates anything that makes rectangle with 4 or more, 
 // returns array of array of coordinates of rectangle
 function get_rect() {
-
+	var two_by_two_head = [];
+	var two_by_two = [];
 	var returner = [];
-	while (dup_temp.length > 0) {
-		var temp = dup_temp.shift();
-		// if (temp.z == 1) console.log(1);
-		var set = [];
-		set.push(temp);
-		while (has_right(temp) != -1) {
-			var index = has_right(temp);
-			temp = dup_temp[has_right(temp)];
-			set.push(temp);
-			dup_temp.splice(index, 1);
+	var set = [];
+	var counter =0;
+	for (var i = 0; i < dup_temp.length; i++) {
+		var curr = dup_temp[i];
+		if (has_right(curr, dup_temp) != -1 && has_bot(curr, dup_temp) != -1 && has_right_bot(curr, dup_temp) != -1) {
+			if (dup_temp[has_bot(curr, dup_temp)].z != 1 && dup_temp[has_right_bot(curr, dup_temp)].z != 1) {
+				counter++;
+				two_by_two_head.push(curr);		// curr cell
+			}
 		}
-		console.log(set);
-		console.log(set[0].z);
+	}
+	
+	// two by two gets all the cell coordinates
+	for (var i = 0; i < two_by_two_head.length; i++) {
+		var temp = [];
+		temp.push(two_by_two_head[i]);
+		temp.push(dup_temp[has_right(two_by_two_head[i], dup_temp)]);
+		temp.push(dup_temp[has_bot(two_by_two_head[i], dup_temp)]);
+		temp.push(dup_temp[has_right_bot(two_by_two_head[i], dup_temp)]);
+		two_by_two.push(temp);
 	}
 
+	for (var i = 0; i < 4; i++) {
+		// console.log('i:'+i);
+		if (has_right(two_by_two_head[i], two_by_two_head) != -1) {						// check if they have right
+			if (has_bot(two_by_two_head[i], two_by_two_head) != -1 
+				&& has_right_bot(two_by_two_head[i], two_by_two_head) != -1) {		// then check both bot and botright.
+				var temp = [];
+
+			} else {																														// explore right
+				var temp = [];
+				temp.push.apply(temp, two_by_two[i]);
+				if (has_right(two_by_two_head[i], two_by_two_head) != -1) {
+					console.log('you are in middle if i:' + i);
+					temp.push(two_by_two[has_right(two_by_two_head[i], two_by_two_head)][1]);
+					temp.push(two_by_two[has_right(two_by_two_head[i], two_by_two_head)][3]);
+				}
+				returner.push(temp);
+			}
+		} else {																															// explore down
+			var temp = [];
+			temp.push.apply(temp, two_by_two[i]);
+			// get_its_own(two_by_two_head[i], two_by_two_head);
+			while (has_bot(two_by_two_head[i], two_by_two) != -1) {
+				console.log('here');
+			}
+			returner.push(temp);
+		}
+	}
+	// console.log('========dup_temp==========');
+	// console.log(dup_temp);
+	// console.log('');
+	// console.log('========two_by_two========');
+	// console.log(two_by_two);
+	// console.log('');
+	// console.log('========two_by_two_head========');
+	// console.log(two_by_two_head);	
+	// console.log('');
+	return returner;
+}
+
+// Draws path of outer set of rectangles.
+function draw_rect(value) {
+
+	line_data = add_corners(value).slice();
+	// order_edges();
+	// console.log(line_data);
+	var lineFunction = d3.svg.line()
+			.x(function(d) { return d.x; })
+			.y(function(d) { return d.y; })
+			.interpolate("cardinal-closed");
+
+	// Draws the line
+	var lineGraph = svg.append("path").attr("stroke", "white").transition().duration(1000)
+			.attr('class', 'common_path')
+			.attr("d", lineFunction(line_data))
+			.attr("stroke", "red")
+			.attr("stroke-width", 2)
+			.attr("fill", "none");
 }
 
 // Updates the score board with animation.
@@ -86,19 +157,106 @@ function update_score_bd() {
 	}
 }
 
+
+
 // Functions to help other functions.
 
 // returns the index of the value if it has it right of the value.
-function has_right(value) {
+function has_right(value, array) {
 	var returner = -1;
-	for (var i = 0; i < dup_temp.length; i++) {
-		if (dup_temp[i].x == value.x + 1 && dup_temp[i].y == value.y) returner = i;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x + 1 && array[i].y == value.y) returner = i;
 	}
 	return returner;
 }
 
+// returns the index of the value if it has it right of the value.
+function has_bot(value, array) {
+	var returner = -1;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x && array[i].y == value.y + 1) returner = i;
+	}
+	return returner;
+}
+
+// returns the index of the value if it has it right of the value.
+function has_right_bot(value, array) {
+	var returner = -1;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x + 1 && array[i].y == value.y + 1) returner = i;
+	}
+	return returner;
+}
+
+// returns the index of the value if it has it right of the value.
+function get_right(value, array) {
+	var ind;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x + 1 && array[i].y == value.y) ind = i;
+	}
+	var returner = array[ind];
+	array.splice(ind, 1);
+	return returner;
+}
+
+// returns the index of the value if it has it right of the value.
+function get_bot(value, array) {
+	var ind;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x && array[i].y == value.y + 1) ind = i;
+	}
+	var returner = array[ind];
+	array.splice(ind, 1);
+	return returner;
+}
+
+// returns the index of the value if it has it right of the value.
+function get_right_bot(value, array) {
+	var ind;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x + 1 && array[i].y == value.y + 1) ind = i;
+	}
+	var returner = array[ind];
+	array.splice(ind, 1);
+	return returner;
+}
+
+function get_its_own(value, array) {
+	var ind;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].x == value.x && array[i].y == value.y) ind = i;
+	}
+	var returner = array[ind];
+	array.splice(ind, 1);
+	return returner;	
+}
 
 
+// gets array of coordinates as parameter, sets boundary as rectangle.
+function add_corners(value) {
+	var top = nrow; 
+	var left = ncol; 
+	var bottom = 0;
+	var right = 0;
+	for (var i = 0; i < value.length; i++) {
+		if (value[i].y < top) top = value[i].y;
+		if (value[i].y > bottom) bottom = value[i].y;
+		if (value[i].x < left) left = value[i].x;
+		if (value[i].x > right) right = value[i].x;
+	}
+	bottom++;
+	right++;
+	var returner = [];
+	top = scale_xy.x(top);
+	left = scale_xy.y(left);
+	bottom = scale_xy.x(bottom);
+	right = scale_xy.y(right);
+	returner.push({x:left, y:top});
+	returner.push({x:left, y:bottom});
+	returner.push({x:right, y:bottom});
+	returner.push({x:right, y:top});
+	return returner;
+}
 
 
 // commented out all the recursive outer edge lines
@@ -157,31 +315,7 @@ function has_right(value) {
 	// }
 
 	// // recursive funtion to add all 
-	// function get_edges_of_all() {
-	// 	for(var i = 0; i < dup_real.length; i++) {
-	// 		var temp = get_four_corners(dup_real[i]).slice();
-	// 		for (j = 0; j < 4; j++)
-	// 			line_data.push(temp[j]);
-	// 	}
-		
-	// 	// get unique ones in "unq_line_data"
-	// 	unq_line_data = [];
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 		if (unq_line_data_contains(line_data[i]) == -1) {
-	// 			unq_line_data.push(line_data[i]);
-	// 		}
-	// 	}
 
-	// 	// get unique point counts
-	// 	var count_unq_line_data = Array.apply(null, Array(unq_line_data.length))
-	// 		.map(Number.prototype.valueOf,0);
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 		for (var j = 0; j < unq_line_data.length; j++) {
-	// 			if (is_point_equal(line_data[i], unq_line_data[j])) {
-	// 				count_unq_line_data[j]++;
-	// 			}
-	// 		}
-	// 	}
 
 
 	// 	var remove2 = [];

@@ -17,6 +17,7 @@ function order(value) {
       return "translate(" + scale_xy.y(i) + ",0)"; })
   }
   calc_score(value);
+  print_order(current_index_order);
 }
 
 // Undo's last move.
@@ -99,7 +100,7 @@ function reset() {
   current_index_order = { x: orders["initial"].x.slice(), y: orders["initial"].y.slice() };
   counter = 0;
   curr_duration = default_duration;
-  d3.selectAll('.rect').style('stroke', "blue").style('stroke-width', 1);
+  d3.selectAll(svg).selectAll('.rect').style('stroke', "blue").style('stroke-width', 1);
   d3.selectAll('.score_board_text').text(0);      // reset score to 0
   reset_sound.playclip();
 }

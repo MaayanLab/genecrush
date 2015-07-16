@@ -40,15 +40,15 @@ var curr_duration = default_duration,
     toggle_hl = 0,
     click_state = 0;
 
-
+transc_names = ['ChEA', 'TRANSFAC_and_JASPAR_PWMs', 'Epigenomics_Roadmap_HM_ChIP-seq', 'ENCODE_TF_ChIP-seq_2015']
 // Get random sample from json folder.
-random = Math.floor(Math.random() * 59);
-var path = "json/from_enrichr/";
-path += file_list[random];
+random = Math.floor(Math.random() * transc_names.length);
+var path = "json/from_enrichr_transcription/";
+path += transc_names[random];
 path += '.json'
 
 svg.append("text")
-  .attr("class", "library")
+  .attr("class", "library1")
   .attr("x", 0)
   .attr("y", -20)
   .attr("dy", ".32em").attr("text-anchor", "end")
@@ -57,18 +57,28 @@ svg.append("text")
   .text('LIBRARY:  ');
 
 svg.append("text")
-  .attr("class", "library")
+  .attr("class", "library2")
   .attr("x", 0)
   .attr("y", -20)
   .attr("dy", ".32em").attr("text-anchor", "front")
   .attr("font-size", 25)
   .attr("fill", "skyblue")
-  .text(file_list[random]);
+  .text(transc_names[random])
+  .style("cursor", "pointer")
+  .on('mouseover', function () { d3.select('.library2').style('fill', 'blue'); })
+  .on('mouseout', function() { d3.select('.library2').style('fill', 'skyblue'); })
+  .on("click", function() { window.open("http://amp.pharm.mssm.edu/Enrichr/#stats"); });
   // .attr("xlink:href", "http://en.wikipedia.org/wiki/");
 
 // d3.json("json/perfect_example.json", function(sample) {
 d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
 // d3.json(path, function(sample) {
+
+  // Alphabetically order the genes.
+  var term = Object.keys(sample);
+  for (var i = 0; i < term.length; i++) {
+    sample[term[i]].sort();
+  }
 
   // Processes the visualizing of the "sample"
   make_viz(sample);
