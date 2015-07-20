@@ -17,11 +17,11 @@ function calc_score(value) {
 	// ////////////////////////////////////
 
 
-	d3.selectAll('.common_path').attr('stroke', null)
-	var rectangles = get_rect();
-	for (var i = 0; i < rectangles.length; i++) {
-		draw_rect(rectangles[i]);
-	}
+	// d3.selectAll('.common_path').attr('stroke', null)
+	// var rectangles = get_rect();
+	// for (var i = 0; i < rectangles.length; i++) {
+	// 	draw_rect(rectangles[i]);
+	// }
 	update_score_bd();
 
 }

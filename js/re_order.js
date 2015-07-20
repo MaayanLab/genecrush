@@ -14,7 +14,7 @@ function order(value) {
     curr_row_order = value.y[row];
     t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
       scale_xy.y.domain(curr_row_order);
-      return "translate(" + scale_xy.y(i) + ",0)"; })
+      return "translate(" + curr_row_order.indexOf(i)*rect_size  + ",0)"; })
   }
   calc_score(value);
   // print_order(current_index_order);

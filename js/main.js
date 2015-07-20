@@ -1,7 +1,7 @@
 
 // CONSTANTS.
 var margin = { top: 50, right: 10, bottom: 10, left: 250 },
-    width = 800,
+    width = 50*rect_size,
     height = 800,
     trans_duration = 2000,    // ms
     default_duration = 300,   // ms
@@ -20,6 +20,12 @@ var svg = d3.select("#GAME").append("svg")
     .attr("height", height + margin.top + margin.bottom)
     .style("margin-left", -margin.left + "px").append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+// Main SVG.
+var label_svg = d3.select("#left_panel").append("svg")
+    .attr('y',100)
+    .attr("width", 100)
+    .attr("height", 900)
     // .call(d3.behavior.zoom().scaleExtent([1, 2]).on("zoom", zoom));
 
 // function zoom() {
@@ -82,8 +88,8 @@ svg.append("text")
 
 
 // d3.json("json/perfect_example.json", function(sample) {
-d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
-// d3.json(path, function(sample) {
+// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+d3.json(path, function(sample) {
 
   // Alphabetically order the genes.
   var term = Object.keys(sample);

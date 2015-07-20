@@ -91,19 +91,8 @@ function make_viz(sample) {
       .each(row_function);
 
 
-  // row rect
-  // row.append("rect").attr("class", "rect").attr("x",0)
-  //.attr("y",0).attr("width", width).attr("height", scale_xy.x.rangeBand()).style("fill", "blue").style("fill-opacity", 0);
-
-  // outer lines to the row.
-  // row.append("line")
-  //     .attr("x1", 0).attr("x2", width).attr("stroke", "white").attr("stroke-width", 1);
-
-  // row.append("rect").attr("x", 0).attr("y", 0).attr("width", width).attr("height", scale_xy.x.rangeBand()).attr("fill", "blue")
-  //   .attr("class", "line noselect").attr("fill-opacity", 0.1);
-
   // creates group "row_label" and appends to the row.
-  var row_label = row.append("g")
+  var row_label = label_svg.selectAll(".row_label").data(matrix).enter().append("g")
       .attr("class", function(d, i) { return "row_label noselect row_label_" + i })
       .style("cursor", "pointer")
       .on("mouseover", mouseover_label)
@@ -114,11 +103,11 @@ function make_viz(sample) {
   // Rectangle attached to "row_label"
   row_label.append("rect")
       .attr("class", "rect")
-      .attr("x", -scale_xy.y.rangeBand())
-      .attr("y", 2)
+      .attr("x", 0)
+      .attr("y", function(d, i) { return scale_xy.x(d[0].y) + 52 })
       .attr("rx", width / ncol / 8)
       .attr("ry", height / nrow / 8)
-      .attr("width", scale_xy.y.rangeBand())
+      .attr("width", 100)
       .attr("height", scale_xy.x.rangeBand() -4)
       .style("fill", "white")
       .style("fill-opacity", 0.2);
@@ -126,10 +115,10 @@ function make_viz(sample) {
   // Text attached to "row_label".
   row_label.append("text")
       .attr("class", "row_label_text")
-      .attr("x", -5)
-      .attr("y", scale_xy.x.rangeBand() / 2)
+      .attr("x", 95)
+      .attr("y", function(d, i) { return scale_xy.x(d[0].y) + 70 })
       .attr("dy", ".32em").attr("text-anchor", "end")
-      .attr("font-size", scale_xy.x.rangeBand() / 4)
+      .attr("font-size", 20)
       .attr("fill", "white")
       .text(function(d, i) { return terms[i]; });
 
@@ -144,7 +133,7 @@ function make_viz(sample) {
         .attr("class", function(d, i) { 
           return "cell_x" + d.y + " cell_y" + d.x + " noselect " + "cell_n_" + genes_unq[d.z]; })
         .attr("transform", function(d, i) { 
-          return "translate(" + scale_xy.y(i) + ",0)"; })
+          return "translate(" + rect_size*i + ",0)"; })
         .style("cursor", "pointer")
         .on("mouseover", mouseover)
         .on("mouseout", mouseout)
@@ -158,7 +147,7 @@ function make_viz(sample) {
         .attr("y", 2)
         .attr("rx", width / ncol / 8)
         .attr("ry", height / nrow / 8)
-        .attr("width", scale_xy.y.rangeBand())
+        .attr("width", rect_size)//scale_xy.y.rangeBand())
         .attr("height", scale_xy.x.rangeBand() - 4)
         .attr("fill-opacity", function(d) { 
           if (d.z == undefined_ind) return 0.5
@@ -170,7 +159,7 @@ function make_viz(sample) {
     cell.append("text")
         .attr("class", "cell_text")
         .text(function(d) { return genes_unq[d.z]; })
-        .attr("x", scale_xy.y.rangeBand() / 2)
+        .attr("x", rect_size / 2)
         .attr("y", scale_xy.x.rangeBand() / 2)
         .attr("dy", ".32em").attr("text-anchor", "middle")
         .attr("font-size", scale_xy.x.rangeBand() / 4)
@@ -190,7 +179,7 @@ function make_viz(sample) {
   //// LABEL functions ////
   // selects a row when mouse hovers over the label.
   function mouseover_label(p) {
-    var xPosition = 0;
+    var xPosition = 120;
     var yPosition = current_index_order.x.indexOf(p[0].y) * (height / nrow) + margin['top'] + 80;
 
     //Update the tooltip position and value
@@ -249,6 +238,7 @@ function make_viz(sample) {
        hover_cell_name = d3.selectAll('.cell_n_' + genes_unq[p.z]).selectAll(".rect");
        hover_cell_name.style('stroke', 'red').style('stroke-width', 5);
     }
+    console.log(width);
   }
 
   // deselects all the cell when mouse hovers out.
