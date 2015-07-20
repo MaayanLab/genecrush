@@ -96,43 +96,132 @@ function get_rect() {
 	// 	}
 	// }
 	// ////////////////////////////////////
-	console.log(two_by_two_head.length);
-	for (var i = 0; i < 5; i++) { //two_by_two_head.length
-		console.log(i);
+	// for (var i = 0; i < 5; i++) { //two_by_two_head.length
+	var safety = 20;
+	var exit = false;
+	while (two_by_two_head.length > 0 && !exit)	{
+		safety--;
+		console.log('safety: ' + safety);
+		// console.log('two_by_two_head below: ' + two_by_two_head.length);
+		// for (var i = 0; i < two_by_two_head.length; i++) {
+		// 	console.log(two_by_two_head[i]);
+		// }
 		if (has_right(two_by_two_head[0], two_by_two_head) != -1) {						// has right
 			if (has_bot(two_by_two_head[0], two_by_two_head) != -1 
 				&& has_right_bot(two_by_two_head[0], two_by_two_head) != -1) {		// also has bot and bot-right
-
+				returner.push(look_bot_right(two_by_two_head[0], two_by_two, two_by_two_head));
 			} else {																														// only has right
-				var lr = look_right(two_by_two_head[0], two_by_two, two_by_two_head);
-				returner.push(lr);
-				// for (var i = 0; i < lr.length/2 ; i++) i--;
+				returner.push(look_right(two_by_two_head[0], two_by_two, two_by_two_head));
 			}
 		} else {																															// doesn't have right
-			if (has_bot(two_by_two_head[i], two_by_two_head) != -1) {						// but has bot
-
+			if (has_bot(two_by_two_head[0], two_by_two_head) != -1) {						// but has bot
+				returner.push(look_bot(two_by_two_head[0], two_by_two, two_by_two_head));
 			} else {																														// don't have right nor bot
 				two_by_two_head.splice(0, 1);
 				returner.push(two_by_two.splice(0, 1)[0]);
 			}
 		}
+		// console.log(returner);
+		if (safety == 0) exit = true;
 	}
 
-	console.log('========dup_temp==========' + dup_temp.length);
-	console.log(dup_temp);
-	console.log('');
-	console.log('========two_by_two========' + two_by_two.length);
-	console.log(two_by_two);
-	console.log('');
-	console.log('========two_by_two_head========' + two_by_two_head.length);
-	console.log(two_by_two_head);	
-	console.log('');	
-	console.log('========returner========' + returner.length);
-	console.log(returner);	
-	console.log('');
+	// console.log('========dup_temp==========' + dup_temp.length);
+	// console.log(dup_temp);
+	// console.log('');
+	// console.log('========two_by_two========' + two_by_two.length);
+	// console.log(two_by_two);
+	// console.log('');
+	// console.log('========two_by_two_head========' + two_by_two_head.length);
+	// console.log(two_by_two_head);	
+	// console.log('');	
+	// console.log('========returner========' + returner.length);
+	// console.log(returner);	
+	// console.log('');
 	return returner;
 }
 
+function look_bot_right(value, two_by_two, two_by_two_head) {
+	var sq_size = 1;
+	var exit = false;
+	var returner = [];
+	var area_of_sq = 1;
+	
+	while (!exit) {						// looks for the combination that makes the max square
+		sq_size++;
+		for (var x = 0; x < sq_size; x++) {
+			for (var y = 0; y < sq_size; y++) {
+				temp = {x:value.x+x, y:value.y+y};
+				if (indexOf(temp, two_by_two_head) == -1) exit = true;
+			}
+		}
+	}
+	area_of_sq = sq_size * sq_size;
+	sq_size--;
+
+
+
+
+
+	exit = false;							// checks if area of horizontally longer rect is greater than the sq.
+	var max_col_length = 0;;
+	var that_row = 0;
+	var that_row_length = 0;
+	for (var row = 0; row < sq_size; row++) {
+		temp = {x:value.x, y:value.y+row}
+		var col_length = 1;
+		while (has_right(temp, two_by_two_head) != -1) {
+			temp = {x:temp.x + 1, y:temp.y}
+			col_length++;
+		}
+		if (max_col_length < col_length) {
+			max_col_length = col_length;
+			that_row = row;
+			that_row_length++;
+		}
+	}
+	console.log(max_col_length);
+	console.log(that_row);
+	console.log(that_row_length);
+	console.log(value);
+	// if ((max_col_length+1) * (that_row_length+1) > area_of_sq) {
+	// 	for (var x = 0; x < max_col_length + 1; x++) {				// get that horiz rect out.
+	// 		for (var y = that_row; y < that_row_length + 1; y++) {
+	// 			temp = {x:value.x+x, y:value.y+y};
+	// 			var ind = indexOf(temp, two_by_two_head);
+	// 			if (x >= 0 && y >= that_row && x < max_col_length && y < that_row_length ) {
+	// 				returner.push.apply(returner, two_by_two[ind]);
+	// 			}
+	// 			if (ind != -1) {
+	// 				two_by_two_head.splice(ind, 1);
+	// 				two_by_two.splice(ind, 1);
+	// 			}
+	// 		}
+	// 	}	
+	// } else {
+		for (var x = 0; x < sq_size + 1; x++) {				// get that square out.
+			for (var y = 0; y < sq_size + 1; y++) {
+				temp = {x:value.x+x, y:value.y+y};
+				var ind = indexOf(temp, two_by_two_head);
+				if (x < sq_size && y < sq_size ) {
+					returner.push.apply(returner, two_by_two[ind]);
+				}
+				if (ind != -1) {
+					two_by_two_head.splice(ind, 1);
+					two_by_two.splice(ind, 1);
+				}
+			}
+		}	
+	// }
+
+
+
+
+
+
+	// console.log(sq_size);
+	// console.log(area_of_sq);
+	return returner;
+}
 
 function look_right(value, two_by_two, two_by_two_head) {
 	var returner = [];
@@ -146,6 +235,25 @@ function look_right(value, two_by_two, two_by_two_head) {
 		ind = has_right(temp, two_by_two_head);
 		temp = two_by_two_head[ind];
 		returner.push(two_by_two[ind][1]);
+		returner.push(two_by_two[ind][3]);
+		two_by_two_head.splice(ind, 1);
+		two_by_two.splice(ind, 1);
+	}
+	return returner;
+}
+
+function look_bot(value, two_by_two, two_by_two_head) {
+	var returner = [];
+	var temp = value;
+	var ind = indexOf(temp, two_by_two_head);
+	returner.push.apply(returner, two_by_two[ind]);
+	two_by_two_head.splice(ind, 1);
+	two_by_two.splice(ind, 1);
+
+	while (has_bot(temp, two_by_two_head) != -1) {
+		ind = has_bot(temp, two_by_two_head);
+		temp = two_by_two_head[ind];
+		returner.push(two_by_two[ind][2]);
 		returner.push(two_by_two[ind][3]);
 		two_by_two_head.splice(ind, 1);
 		two_by_two.splice(ind, 1);
@@ -209,7 +317,7 @@ function update_score_bd() {
 
 // returns the index of the value if it has it right of the value.
 function has_right(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var returner = -1;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y) returner = i;
@@ -219,7 +327,7 @@ function has_right(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function has_bot(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var returner = -1;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x && array[i].y == value.y + 1) returner = i;
@@ -229,7 +337,7 @@ function has_bot(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function has_right_bot(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var returner = -1;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y + 1) returner = i;
@@ -239,7 +347,7 @@ function has_right_bot(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function get_right(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y) ind = i;
@@ -251,7 +359,7 @@ function get_right(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function get_bot(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x && array[i].y == value.y + 1) ind = i;
@@ -263,7 +371,7 @@ function get_bot(value, array) {
 
 // returns the index of the value if it has it right of the value.
 function get_right_bot(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x + 1 && array[i].y == value.y + 1) ind = i;
@@ -274,7 +382,7 @@ function get_right_bot(value, array) {
 }
 
 function get_its_own(value, array) {
-	if (array.length == 1) return -1;
+	if (array.length == 0) return -1;
 	var ind;
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].x == value.x && array[i].y == value.y) ind = i;
@@ -311,285 +419,4 @@ function add_corners(value) {
 	returner.push({x:right, y:bottom});
 	returner.push({x:right, y:top});
 	return returner;
-}
-
-
-// commented out all the recursive outer edge lines
-{
-	///////// this was in the calc_score function//////////////
-	// // reset
-	// d3.selectAll(".common_path").attr('stroke', null);
-
-	// // draw edges around
-	// while (dup_temp.length > 0) {
-	// 	dup_real = [];
-	// 	dup_real = get_a_set(dup_temp.shift()).slice();
-	// 	dup_real = get_unq(dup_real);
-
-	// 	remove_inner_cell();
-	// 	draw_path_around();
-	///////////////////////////////////////////////////////////
-
-
-
-
-	// // gets list of cell coordinates, find out outer boarder, draws lines around it.
-	// function draw_path_around() {
-
-	// 	line_data = [];
-
-	// 	get_edges_of_all();
-	// 	// console.log(line_data);
-	// 	order_edges();
-
-	// 	var lineFunction = d3.svg.line()
-	// 			.x(function(d) { return d.x; })
-	// 			.y(function(d) { return d.y; })
-	// 			.interpolate("basis-closed");
-
-	// 	//The SVG Container
-
-
-	// 	// Draws the line
-	// 	var lineGraph = svg.append("path").transition().duration(1000)
-	// 			.attr('class', 'common_path')
-	// 			.attr("d", lineFunction(line_data))
-	// 			.attr("stroke", "white")
-	// 			.attr("stroke-width", 2)
-	// 			.attr("fill", "none");
-	// }
-
-	// function unq_line_data_contains(value) {
-	// 	if (unq_line_data.length == 0) return -1;
-	// 	for (var i = 0; i < unq_line_data.length; i++) {
-	// 		if (unq_line_data[i].x == value.x && unq_line_data[i].y == value.y) {
-	// 			return i;
-	// 		}
-	// 	}
-	// 	return -1;
-	// }
-
-	// // recursive funtion to add all 
-
-
-
-	// 	var remove2 = [];
-	// 	var remove3 = [];
-	// 	var remove4 = [];
-	// 	for (var i = 0; i < count_unq_line_data.length; i++) {
-	// 		if (count_unq_line_data[i] == 2) {
-	// 			remove2.push(unq_line_data[i]);
-	// 		} else if (count_unq_line_data[i] == 3) {
-	// 			remove3.push(unq_line_data[i]);
-	// 		} else if (count_unq_line_data[i] == 4) {
-	// 			remove4.push(unq_line_data[i]);
-	// 		}
-	// 	}
-
-
-	// 	// removes duplicates
-	// 	for (var i = 0; i < remove2.length; i++) {
-	// 		var once = 0;
-	// 		for (var j = line_data.length - 1; j >= 0; j--) {
-	// 			if (is_point_equal(remove2[i], line_data[j]) && once < 1 ) {
-	// 				line_data.splice(j, 1);
-	// 				once++;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	// removes 3 !!!!
-	// 	for (var i = 0; i < remove3.length; i++) {
-	// 		var twice = 0;
-	// 		for (var j = line_data.length - 1; j >= 0; j--) {
-	// 			if (is_point_equal(remove3[i], line_data[j]) && twice < 2 ) {
-	// 				line_data.splice(j, 1);
-	// 				twice++;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	// removes 4
-	// 	for (var i = 0; i < remove4.length; i++) {
-	// 		for (var j = line_data.length - 1; j >= 0; j--) {
-	// 			if (is_point_equal(remove4[i], line_data[j])) {
-	// 				line_data.splice(j, 1);
-	// 			}
-	// 		}
-	// 	}
-	// }
-
-	// function order_edges() {
-	// 	var new_line_data = [];
-
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 	}
-
-	// 	var next = line_data.shift();
-	// 	new_line_data.push(next);
-
-	// 	while (line_data.length > 0) {
-	// 		var temp_ind = whats_next(next);
-	// 		next = line_data[temp_ind];
-	// 		new_line_data.push(next);
-	// 		line_data.splice(temp_ind,1);
-	// 	}
-	// 	line_data = new_line_data.slice();
-	// }
-
-	// function remove_inner_cell() {
-	// 	var delete_index = [];
-	// 	for (var i = 0; i < dup_real.length; i++) {
-	// 		var curr = dup_real[i];
-	// 		if (has_up(curr) != undefined && has_down(curr) != undefined
-	// 			&& has_left(curr) != undefined && has_right(curr) != undefined)
-	// 			delete_index.push(i);
-	// 	}
-	// 	var temp = delete_index.length
-	// 	for(var i = 0; i < temp; i++) {
-	// 		dup_real.splice(delete_index[i], 1);
-	// 	}
-	// }
-
-	// function whats_next(value) {
-	// 	var north = { "x": value.x, "y": value.y - scale_xy.x(1)};
-	// 	var south = { "x": value.x, "y": value.y + scale_xy.x(1)};
-	// 	var east  = { "x": value.x + scale_xy.y(1), "y": value.y};
-	// 	var west  = { "x": value.x - scale_xy.y(1), "y": value.y};
-		
-	// 	var index = -1;
-
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 		if (is_point_equal(line_data[i], east) ) {
-	// 				index = i;
-	// 			}
-	// 	}
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 		if (is_point_equal(line_data[i], west) ) {
-	// 				index = i;
-	// 			}
-	// 	}
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 		if (is_point_equal(line_data[i], south) ) {
-	// 				index = i;
-	// 			}
-	// 	}
-	// 	for (var i = 0; i < line_data.length; i++) {
-	// 		if (is_point_equal(line_data[i], north) ) {
-	// 				index = i;
-	// 			}
-	// 	}
-	// 	return index;
-	// }
-
-	// function is_point_equal(value1, value2) {
-	// 	if (value1.x == undefined || value1.y == undefined 
-	// 		|| value2.x == undefined || value2.y == undefined) {
-	// 		return false;
-	// 	} else if (value1.x.toFixed(2) == value2.x.toFixed(2) && value1.y.toFixed(2) == value2.y.toFixed(2)) {
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }
-
-	// function get_four_corners(value) {
-	// 	var one   = { "x": scale_xy.y(value.x), "y": scale_xy.x(value.y)};
-	// 	var two   = { "x": scale_xy.y(value.x), "y": scale_xy.x(value.y + 1)};
-	// 	var three = { "x": scale_xy.y(value.x + 1), "y": scale_xy.x(value.y + 1)};
-	// 	var four  = { "x": scale_xy.y(value.x + 1), "y": scale_xy.x(value.y)};
-	// 	var returner = [one, two, three, four];
-	// 	return returner;
-	// }
-
-	// function has_down(value) {
-	// 	var ind = $.map(dup_temp, function(obj, index) {
-	// 	if(obj.x  == value.x && obj.y == value.y + 1) { return index; }})
-	// 	return ind[0];
-	// }
-
-	// function has_up(value) {
-	// 	var ind = $.map(dup_temp, function(obj, index) {
-	// 	if(obj.x  == value.x && obj.y == value.y - 1) { return index; }})
-	// 	return ind[0];
-	// }
-
-	// function has_right(value) {
-	// 	var ind = $.map(dup_temp, function(obj, index) {
-	// 	if(obj.x  == value.x + 1 && obj.y == value.y) { return index; }})
-	// 	return ind[0];
-	// }
-
-	// function has_left(value) {
-	// 	var ind = $.map(dup_temp, function(obj, index) {
-	// 	if(obj.x  == value.x - 1 && obj.y == value.y) { return index; }})
-	// 	return ind[0];
-	// }
-
-	// function has_neighbor(value) {
-	// 	if (has_left(value) != undefined) return has_left(value);
-	// 	else if (has_right(value) != undefined) return has_right(value);
-	// 	else if (has_up(value) != undefined) return has_up(value);
-	// 	else if (has_down(value) != undefined) return has_down(value);
-	// 	else return -1;
-	// }
-
-
-	// function get_a_set(value) {
-	// 	var returner = [];
-	// 	returner.push(value);
-
-	// 	if (has_up(value) != undefined) {
-	// 		returner.push(dup_temp[has_up(value)]);
-	// 		dup_temp.splice(has_up(value), 1);
-	// 		var temp = get_a_set({x:value.x, y:value.y - 1});
-	// 		for (var i = 0; i < temp.length; i++) {
-	// 			returner.push(temp[i]);
-	// 		}
-	// 	}
-	// 	if (has_left(value) != undefined) {
-	// 		returner.push(dup_temp[has_left(value)]);
-	// 		dup_temp.splice(has_left(value), 1);
-	// 		var temp = get_a_set({x:value.x - 1, y:value.y});
-	// 		for (var i = 0; i < temp.length; i++) {
-	// 			returner.push(temp[i]);
-	// 		}
-	// 	}
-	// 	if (has_down(value) != undefined) {
-	// 		returner.push(dup_temp[has_down(value)]);
-	// 		dup_temp.splice(has_down(value), 1);
-	// 		var temp = get_a_set({x:value.x, y:value.y + 1});
-	// 		for (var i = 0; i < temp.length; i++) {
-	// 			returner.push(temp[i]);
-	// 		}
-	// 	} 
-	// 	if (has_right(value) != undefined) {
-	// 		returner.push(dup_temp[has_right(value)]);
-	// 		dup_temp.splice(has_right(value), 1);
-	// 		var temp = get_a_set({x:value.x + 1, y:value.y});	
-	// 		for (var i = 0; i < temp.length; i++) {
-	// 			returner.push(temp[i]);
-	// 		}
-	// 	}
-
-	// 	return returner;
-	// }
-
-	// function get_unq(value) {
-	// 	var temp = value.slice();
-	// 	var returner =[];
-	// 	for (var i = 0; i < temp.length; i++) {
-	// 		var found = false;
-	// 		for (var j = 0; j < returner.length; j++) {
-	// 			if (temp[i].x == returner[j].x && temp[i].y == returner[j].y) {
-
-	// 				found = true;
-	// 			}
-	// 		}
-	// 		if (!found) {
-	// 			returner.push(temp[i]);			
-	// 		}
-	// 	}
-	// 	return returner.slice();
-	// }
 }

@@ -4,6 +4,134 @@
 		"selected_items":
 		[
 			[
+				"that",
+				"that_row"
+			],
+			[
+				"area",
+				"area_of_sq"
+			],
+			[
+				"sq",
+				"sq_size"
+			],
+			[
+				"max",
+				"max_col_length"
+			],
+			[
+				"col",
+				"col_length"
+			],
+			[
+				"ind",
+				"ind"
+			],
+			[
+				"has",
+				"has_right"
+			],
+			[
+				"two",
+				"two_by_two_head"
+			],
+			[
+				"hasbo",
+				"has_bot"
+			],
+			[
+				"twoby",
+				"two_by_two_head"
+			],
+			[
+				"stok",
+				"stroke-width"
+			],
+			[
+				"sele",
+				"selectAll"
+			],
+			[
+				"stroke",
+				"stroke-width"
+			],
+			[
+				"str",
+				"stroke"
+			],
+			[
+				"encodec",
+				"ENCODE_TF_ChIP-seq_2015"
+			],
+			[
+				"transf",
+				"TRANSFAC_and_JASPAR_PWMs"
+			],
+			[
+				"get",
+				"get_right"
+			],
+			[
+				"get_bot",
+				"get_right_bot"
+			],
+			[
+				"getbo",
+				"get_right_bot"
+			],
+			[
+				"has_ri",
+				"has_right_bot"
+			],
+			[
+				"four",
+				"four_block"
+			],
+			[
+				"new",
+				"newsample"
+			],
+			[
+				"selec",
+				"selectAll"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"cla",
+				"calc_vertical"
+			],
+			[
+				"cli",
+				"clicked_cell_1"
+			],
+			[
+				"click",
+				"click_state"
+			],
+			[
+				"file",
+				"file_list"
+			],
+			[
+				"fro",
+				"from_enrichr"
+			],
+			[
+				"twen",
+				"twenty_genes"
+			],
+			[
+				"twenty",
+				"twenty_terms"
+			],
+			[
+				"twe",
+				"twenty_terms"
+			],
+			[
 				"post",
 				"post_url"
 			],
@@ -30,14 +158,6 @@
 			[
 				"rem",
 				"remove4"
-			],
-			[
-				"i",
-				"i"
-			],
-			[
-				"has",
-				"has_up"
 			],
 			[
 				"un",
@@ -70,10 +190,6 @@
 			[
 				"line",
 				"line_data"
-			],
-			[
-				"four",
-				"get_four_corners"
 			],
 			[
 				"del",
@@ -136,10 +252,6 @@
 				"temp_1_value"
 			],
 			[
-				"ind",
-				"indexOf"
-			],
-			[
 				"h",
 				"header	Tag"
 			],
@@ -156,16 +268,8 @@
 				"current_index_order"
 			],
 			[
-				"selec",
-				"selected_index_1"
-			],
-			[
 				"select",
 				"selected_index_1"
-			],
-			[
-				"sele",
-				"select"
 			],
 			[
 				"row_label",
@@ -410,104 +514,56 @@
 			[
 				"fou",
 				"fount_feat"
-			],
-			[
-				"ch",
-				"child_of_root"
-			],
-			[
-				"my_ca",
-				"my_cases_all"
-			],
-			[
-				"my_",
-				"my_cases_all"
-			],
-			[
-				"incas",
-				"incaseHHE"
-			],
-			[
-				"in_ca",
-				"in_case_HHE"
-			],
-			[
-				"not_in_",
-				"not_in_case_HHE"
-			],
-			[
-				"HH",
-				"HHE_genes"
-			],
-			[
-				"c",
-				"calc_overlap_groups"
-			],
-			[
-				"qu",
-				"qoutes"
-			],
-			[
-				"correcteD",
-				"Corrected"
-			],
-			[
-				"corrected_",
-				"corrected_pvalues_str"
-			],
-			[
-				"corrected",
-				"corrected_pvalues_str"
-			],
-			[
-				"calculate",
-				"calculateGeneFill"
-			],
-			[
-				"buildNe",
-				"buildNetworkModal"
-			],
-			[
-				"term",
-				"terms"
-			],
-			[
-				"quant",
-				"quantilenorm"
-			],
-			[
-				"data",
-				"data"
-			],
-			[
-				"dex",
-				"dex"
-			],
-			[
-				"Dex",
-				"Dex"
-			],
-			[
-				"PPI_AG",
-				"PPI_AG"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "js/score_bd.js",
+			"file": "js/main.js",
 			"settings":
 			{
-				"buffer_size": 1294,
+				"buffer_size": 2619,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/make_viz.js",
+			"settings":
+			{
+				"buffer_size": 15296,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 3032,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "js/calc_score.js",
 			"settings":
 			{
-				"buffer_size": 9500,
+				"buffer_size": 12727,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "python/enrichr_request.py",
+			"settings":
+			{
+				"buffer_size": 8970,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/re_order.js",
+			"settings":
+			{
+				"buffer_size": 3847,
 				"line_ending": "Unix"
 			}
 		},
@@ -515,30 +571,54 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2003,
+				"buffer_size": 2038,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "json/Phosphatase_Substrates_SAMPLE.json",
+			"settings":
+			{
+				"buffer_size": 1165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/theme.js",
+			"settings":
+			{
+				"buffer_size": 26,
+				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/Python/Python.sublime-build",
 	"build_system_choices":
 	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
 	],
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "pack",
+		"height": 109.0,
+		"last_filter": "push",
 		"selected_items":
 		[
-			[
-				"pack",
-				"Package Control: Install Package"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
-			],
 			[
 				"push",
 				"Git: Push"
@@ -550,6 +630,30 @@
 			[
 				"add",
 				"Git: Add..."
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"gitad",
+				"Git: Add..."
+			],
+			[
+				"gitop",
+				"Git: Open..."
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
 			],
 			[
 				"open",
@@ -630,10 +734,6 @@
 			[
 				"git status",
 				"Git: Status"
-			],
-			[
-				"git add",
-				"Git: Add..."
 			],
 			[
 				"git q",
@@ -890,14 +990,41 @@
 	"expanded_folders":
 	[
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js"
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/css",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/lib",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/lib/js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python"
 	],
 	"file_history":
 	[
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/enrichr_request.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/Phosphatase_Substrates_from_DEPOD.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/re_order.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/score_bd.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/toggle_bd.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/css/style.css",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/calc_score.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/remove(<3)col_json.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/debug.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer_bd.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/perfect_example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/file_list.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/list_of_files.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/main.js",
-		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/_input_gene_list",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/GeneSigDB.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/GO_Biological_Process.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/KEA.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/KEGG_2015.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/ChEA.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/input_gene_list",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/manual_enrichr_request.py",
 		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/perfect_example.json",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/index(original).html",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/Phosphatase_Substrates_SAMPLE.json",
@@ -999,29 +1126,7 @@
 		"/Users/nickfernandez/Documents/cst_python/x2k_cst/A549_tf.csv",
 		"/Users/nickfernandez/Documents/cst_python/x2k_cst/A549_kinase.csv",
 		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/H1781_dn_genes.txt_kinase.csv",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/A549_dn_genes.txt_kinase.csv",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/H1781_dn_genes.txt_tf.csv",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/something.xml",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/test_x2k.py",
-		"/Users/nickfernandez/Documents/cst_python/test_x2k.py",
-		"/Users/nickfernandez/Documents/X2K_jar/output_tf.csv",
-		"/Users/nickfernandez/Documents/cst_python/kinase_kd_geo/kinase_gene_geo_up.gmt",
-		"/Users/nickfernandez/Documents/cst_python/kinase_kd_l1000/kinase_gene_l1000_dn.gmt",
-		"/Users/nickfernandez/Documents/cst_python/kinase_kd_l1000/kinase_gene_l1000_up.gmt",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/gene_list_files/A549_dn_genes.txt",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/gene_list_files/H1650_up_genes.txt",
-		"/Users/nickfernandez/Documents/cst_python/export_d3_corr_viz.py",
-		"/Users/nickfernandez/Documents/cst_python/interesting_proteins.txt",
-		"/Users/nickfernandez/Documents/cst_python/example_fuzzy.java",
-		"/Users/nickfernandez/Documents/cst_python/old_kin_enr_cst.py",
-		"/Users/nickfernandez/Documents/cst_python/combine_tf_gmts.py",
-		"/Users/nickfernandez/Documents/cst_python/process_and_load_ptm_31.py",
-		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/prot_corr.json",
-		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/matlab H1650 PY top up ptms",
-		"/Users/nickfernandez/Documents/cst_python/compare_top_ptms/A549 PY top up ptms.txt",
-		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_comb_anti.json",
-		"/Users/nickfernandez/Documents/cst_python/known_drivers/drivers.json",
-		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/top_10.json"
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/A549_dn_genes.txt_kinase.csv"
 	],
 	"find":
 	{
@@ -1032,6 +1137,9 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"-*min.js, -*.css",
+			"-*min.js",
+			"js",
 			"",
 			"*.js",
 			"",
@@ -1053,6 +1161,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"apply",
+			"google",
+			"skyblue",
+			"selectAll('.rect",
+			"current_ind",
+			"curr_mat",
+			"you are",
+			"favicon",
+			"fav.icon",
+			"top",
+			"counter",
+			"toggle",
+			"blue",
+			"console.log",
+			"clicked_cell",
+			"svg",
+			"height",
+			"height * ",
+			"console.",
 			"console",
 			"dup_temp",
 			"conso",
@@ -1161,26 +1288,7 @@
 			"egfrn",
 			"egfr",
 			"argsort",
-			"norm",
-			"cst_ptm_updn.json",
-			"x2k_cst.json",
-			" \n",
-			"merge_anti_kin_enr",
-			"calc_kin_enrichment",
-			"'val'",
-			"tmp_updn",
-			"cst_ptm_updn",
-			"enr",
-			".json",
-			"kin_evi",
-			"wpsite",
-			"ptpn11	",
-			"top_kin",
-			"top_kin_mult",
-			"alk",
-			"fw",
-			"itemgetter",
-			"cos_sim"
+			"norm"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1218,68 +1326,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "js/score_bd.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1294,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								495
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/calc_score.js",
+					"file": "js/main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9500,
+						"buffer_size": 2619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4945,
-								4945
+								2388,
+								2388
 							]
 						],
 						"settings":
 						{
+							"highlight_line": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
 							"vintage":
 							{
 								"_vintageous_glue_until_normal_mode": true,
@@ -1295,42 +1362,85 @@
 								"partial_sequence": "",
 								"register": "\"",
 								"sequence": "",
-								"xpos": 23
+								"xpos": 201
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 3313.0,
+						"translation.y": 936.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 2,
-					"file": "index.html",
+					"buffer": 1,
+					"file": "js/make_viz.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2003,
+						"buffer_size": 15296,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1114,
-								1114
+								6625,
+								6625
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"highlight_line": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_non_interactive": false,
+								"_vintageous_processing_notation": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 43
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3032,
+								3032
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"vintage":
@@ -1350,10 +1460,284 @@
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/calc_score.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6971,
+								6971
+							]
+						],
+						"settings":
+						{
+							"highlight_line": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_non_interactive": false,
+								"_vintageous_processing_notation": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 7
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "python/enrichr_request.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5885,
+								6070
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 861.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/re_order.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								717,
+								717
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": true,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 19
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1423,
+								1423
+							]
+						],
+						"settings":
+						{
+							"highlight_line": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 45
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 394.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "json/Phosphatase_Substrates_SAMPLE.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								123
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 24
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "js/theme.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25,
+								25
+							]
+						],
+						"settings":
+						{
+							"highlight_line": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 25
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1361,7 +1745,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1387,7 +1771,7 @@
 		"cols":
 		[
 			0.0,
-			0.552353805285,
+			0.735589586762,
 			1.0
 		],
 		"rows":
@@ -1397,19 +1781,23 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 135.0
+	},
 	"output.find_results":
 	{
-		"height": 165.0
+		"height": 342.0
 	},
 	"output.git":
 	{
-		"height": 428.0
+		"height": 27.0
 	},
 	"pinned_build_system": "Packages/Python/Python.sublime-build",
 	"project": "enrichr_game.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1418,6 +1806,30 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"py",
+				"python/enrichr_request.py"
+			],
+			[
+				"samp",
+				"json/Phosphatase_Substrates_SAMPLE.json"
+			],
+			[
+				"depod",
+				"json/Phosphatase_Substrates_from_DEPOD.json"
+			],
+			[
+				"reor",
+				"js/re_order.js"
+			],
+			[
+				"calc",
+				"js/calc_score.js"
+			],
+			[
+				"css",
+				"css/style.css"
+			],
 			[
 				".json",
 				"networks_nsclczc/dmet_exp_all.json"
@@ -1899,10 +2311,6 @@
 				"check_mutations_uniprot.py"
 			],
 			[
-				"calc",
-				"gene_and_AA_lists/calc_enrichment_gl_gmt.py"
-			],
-			[
 				"load",
 				"gene_and_AA_lists/load_cardiac_data.py"
 			]
@@ -1930,10 +2338,10 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "whats_ne",
+		"_vintageous_last_buffer_search": "its",
 		"_vintageous_last_buffer_search_command": "vi_slash",
-		"_vintageous_last_char_search_command": "vi_big_t",
-		"_vintageous_last_character_search": "O",
+		"_vintageous_last_char_search_command": "vi_f",
+		"_vintageous_last_character_search": "j",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
@@ -1943,7 +2351,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 229.0,
 	"status_bar_visible": false,
 	"template_settings":

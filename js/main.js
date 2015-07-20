@@ -1,7 +1,25 @@
 
+transc_names = ['Disease_Signatures_from_GEO_down', 'ENCODE_Histone_Modifications_2015', 'ESCAPE', 'Mouse_Gene_Atlas', 'Virus_Perturbations_from_GEO_down']
+// Get random sample from json folder.
+random = Math.floor(Math.random() * transc_names.length);
+var path = "json/from_enrichr/";
+path += transc_names[random];
+path += '.json'
+var width = 500;
+
+d3.json(path, function(sample) {
+  var max = 0;
+  // Alphabetically order the genes.
+  var term = Object.keys(sample);
+  for (var i = 0; i < term.length; i++) {
+    if (max < sample[term[i]].length) max = sample[term[i]].length;
+  }
+  width = max * 50
+});
+
 // CONSTANTS.
 var margin = { top: 50, right: 10, bottom: 10, left: 250 },
-    width = 700,
+    // width = 800,
     height = 800,
     trans_duration = 2000,    // ms
     default_duration = 300,   // ms
@@ -14,12 +32,25 @@ var margin = { top: 50, right: 10, bottom: 10, left: 250 },
     curr_score = 0,
     prev_score = 0;
 
+// function zoomed() {
+//   svg.select(".x.axis").call(xAxis);
+//   svg.select(".y.axis").call(yAxis);
+// }
+
 // Main SVG.
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#GAME").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .style("margin-left", -margin.left + "px").append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    // .call(d3.behavior.zoom().scaleExtent([1, 2]).on("zoom", zoom));
+
+// function zoom() {
+//   console.log(d3.event.translate);
+//   svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+// }
+
+var temp_path = {}
 
 // global variables declared.
 var orders,
@@ -40,12 +71,7 @@ var curr_duration = default_duration,
     toggle_hl = 0,
     click_state = 0;
 
-transc_names = ['ChEA', 'TRANSFAC_and_JASPAR_PWMs', 'Epigenomics_Roadmap_HM_ChIP-seq', 'ENCODE_TF_ChIP-seq_2015']
-// Get random sample from json folder.
-random = Math.floor(Math.random() * transc_names.length);
-var path = "json/from_enrichr_transcription/";
-path += transc_names[random];
-path += '.json'
+
 
 svg.append("text")
   .attr("class", "library1")
@@ -70,9 +96,12 @@ svg.append("text")
   .on("click", function() { window.open("http://amp.pharm.mssm.edu/Enrichr/#stats"); });
   // .attr("xlink:href", "http://en.wikipedia.org/wiki/");
 
+
+
+
 // d3.json("json/perfect_example.json", function(sample) {
-d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
-// d3.json(path, function(sample) {
+// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+d3.json(path, function(sample) {
 
   // Alphabetically order the genes.
   var term = Object.keys(sample);

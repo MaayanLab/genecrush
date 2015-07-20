@@ -1,4 +1,27 @@
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 
+.outer {
+    width: 800px;
+    height: 890px;
+    overflow: auto;
+}
+.inner {
+    width: 1500px;
+    height:700px;
+}
+#GAME {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 
 body {   
     background-image: url("/images/DNA.jpg");
