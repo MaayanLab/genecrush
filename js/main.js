@@ -15,25 +15,25 @@ var margin = { top: 50, right: 10, bottom: 10, left: 250 },
     prev_score = 0;
 
 // Main SVG.
-var svg = d3.select("#GAME").append("svg")
+var svg = d3.select("#GAME").append("svg").attr('class', 'svg')
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .style("margin-left", -margin.left + "px").append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
+    
 // Main SVG.
-var label_svg = d3.select("#left_panel").append("svg")
+var label_svg = d3.select("#left_panel").append("svg").attr('class', 'label_svg')
     .attr('y',100)
     .attr("width", 100)
     .attr("height", 900)
+
     // .call(d3.behavior.zoom().scaleExtent([1, 2]).on("zoom", zoom));
 
 // function zoom() {
 //   console.log(d3.event.translate);
 //   svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 // }
-
-var temp_path = {}
+//var temp_path = {}
 
 // global variables declared.
 var orders,
@@ -86,16 +86,9 @@ svg.append("text")
 
 
 
-
 // d3.json("json/perfect_example.json", function(sample) {
-// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
-d3.json(path, function(sample) {
-
-  // Alphabetically order the genes.
-  var term = Object.keys(sample);
-  for (var i = 0; i < term.length; i++) {
-    sample[term[i]].sort();
-  }
+d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+// d3.json(path, function(sample) {
 
   // Processes the visualizing of the "sample"
   make_viz(sample);

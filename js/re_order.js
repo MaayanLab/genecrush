@@ -10,6 +10,12 @@ function order(value) {
     .attr("transform", function(d, i) {    // Orders the rows.
       return "translate(0," + scale_xy.x(i) + ")"; });
 
+  // TODO get the relative positions right.
+  // label_svg.transition().duration(curr_duration).selectAll('.row_label')
+  //   .attr("transform", function(d, i) {    // Orders the rows.
+  //     console.log(value.x.indexOf(i))
+  //     return "translate(0," +  + ",0)"; });
+
   for (var row in value.y) {                                // Orders each columns.
     curr_row_order = value.y[row];
     t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
@@ -36,6 +42,7 @@ function undo() {
     console.log("there is nothing to undo");
   }
   undo_sound.playclip();
+  curr_duration = default_duration;
 }
 
 // Orders the rows in descending manner.
@@ -84,9 +91,56 @@ function sort_ascending(value) {
   current_index_order = new_order;    // new order is now current order, adds to "orders"
   orders[counter] = new_order;
   order(orders[counter]);
+  console.log(orders[counter]);
   counter++;
   curr_duration = default_duration;
   ascending_sound.playclip();
+}
+
+function sort_freq(value) {
+  curr_duration = trans_duration;
+
+  // Creates a "new_order".
+  var temp_y = [];
+  temp_y = orders.freq.y;
+  var temp_x = [];
+  for (i = 0; i < nrow; i++) {
+    temp_x = current_index_order.x.slice();
+  }
+  var new_order = {
+    "x": temp_x.slice(),
+    "y": temp_y
+  };
+
+  current_index_order = new_order;    // new order is now current order, adds to "orders"
+  orders[counter] = new_order;
+  console.log(orders[counter]);
+  order(orders[counter]);
+  counter++;
+  curr_duration = default_duration;
+}
+
+function sort_alphabet(value) {
+  curr_duration = trans_duration;
+
+  // Creates a "new_order".
+  var temp_y = [];
+  temp_y = orders.alphabet.y;
+  var temp_x = [];
+  for (i = 0; i < nrow; i++) {
+    temp_x = current_index_order.x.slice();
+  }
+  var new_order = {
+    "x": temp_x.slice(),
+    "y": temp_y
+  };
+
+  current_index_order = new_order;    // new order is now current order, adds to "orders"
+  orders[counter] = new_order;
+  console.log(orders[counter]);
+  order(orders[counter]);
+  counter++;
+  curr_duration = default_duration;
 }
 
 // Resets everything to original
@@ -115,6 +169,7 @@ function reset_curr_mat(value) {
   // var temp = "";
   var temp_vec = [];
     for (j = 0; j < value.y[i].length; j++) {
+      // console.log(matrix[value.x[i]][value.y[value.x[i]][j]]);
       temp_vec.push(matrix[value.x[i]][value.y[value.x[i]][j]].z);
       // if (matrix[value.x[i]][value.y[value.x[i]][j]].z != 19)
         // temp += matrix[value.x[i]][value.y[value.x[i]][j]].z + " ";

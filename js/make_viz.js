@@ -25,7 +25,7 @@ function make_viz(sample) {
     if (curr_nrow > ncol) ncol = curr_nrow;
   }
   
-  if (ncol < 10) ncol = 10;
+  // if (ncol < 10) ncol = 10;
   // else ncol = 13
   // if (nrow > 20) nrow = 20;
 
@@ -42,12 +42,13 @@ function make_viz(sample) {
   for (i = 0; i < genes_unq.length; i++) genes_unq_count[genes_unq[i]] = 0;
   for (i = 0; i < genes.length; i++) genes_unq_count[genes[i]]++;
 
+
+
   // Find index of undefined
   undefined_ind = 0;
   for (i = 0; i < genes_unq.length; i++) {
     if (genes_unq[i] == undefined) {
       undefined_ind = i;
-
     }
   }
 
@@ -118,7 +119,7 @@ function make_viz(sample) {
       .attr("x", 95)
       .attr("y", function(d, i) { return scale_xy.x(d[0].y) + 70 })
       .attr("dy", ".32em").attr("text-anchor", "end")
-      .attr("font-size", 20)
+      .attr("font-size", 15)
       .attr("fill", "white")
       .text(function(d, i) { return terms[i]; });
 
@@ -229,25 +230,24 @@ function make_viz(sample) {
   //// CELL functions ////
   // selects a cell when mouse hovers over.
   function mouseover(p) {
-            // HIGHLIGHTS THE HOVERING CELLS
+    // HIGHLIGHTS THE HOVERING CELLS
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
     d3.selectAll(".row_label_text").classed("active", function(d, i) { return i == p.y; });
-    hover_cell = d3.selectAll('.cell_x' + p.y + ".cell_y" + p.x).selectAll(".rect");
-    hover_cell.style('fill', theme_color).style('stroke', 'red').style('stroke-width', 2);
+    // hover_cell = d3.selectAll('.cell_x' + p.y + ".cell_y" + p.x).selectAll(".rect");
+    // hover_cell.style('stroke', 'red').style('stroke-width', 2);
     if (genes_unq[p.z] != undefined && toggle_hl == 1) {
        hover_cell_name = d3.selectAll('.cell_n_' + genes_unq[p.z]).selectAll(".rect");
        hover_cell_name.style('stroke', 'red').style('stroke-width', 5);
     }
-    console.log(width);
   }
 
   // deselects all the cell when mouse hovers out.
   function mouseout() {
-    hover_cell.attr("fill-opacity", function(d) { 
-      if (d.z == undefined_ind) return 0.5
-      else return 0.9})
-      .style('stroke', "blue").style('stroke-width', 1).transition().duration(350)
-      .style("fill", function(d) { return scale_color(d.z); }); 
+    // hover_cell.attr("fill-opacity", function(d) { 
+    //   if (d.z == undefined_ind) return 0.5
+    //   else return 0.9})
+    //   .transition().duration(250).style('stroke', "blue").style('stroke-width', 1)
+    //   .style("fill", function(d) { return scale_color(d.z); }); 
     if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.style('stroke', "blue").style('stroke-width', 1);
     d3.selectAll("text").classed("active", false);
   }
@@ -376,10 +376,65 @@ function make_viz(sample) {
     temp_xx = [];
     for (i = nrow - 1; i >= 0; i--) { temp_xx.push(temp_x[i])};
     orders["sorted_as"] = {"x": temp_xx, "y":temp_y};
+
+
+    //TODO: create a button to sort them accordingly, possibly make an option to remove and put back in.
+    // Rearranging the sample so that it will be sorted based on frequency
+    var temp1 = [],
+        temp2 = [],
+        temp3 = [];
+    for (var genes in genes_unq_count) {
+      if (genes != 'undefined')
+      temp1.push([genes, genes_unq_count[genes]])
+    }
+    temp1.sort(function(a,b){return b[1] - a[1]})
+    for (var i = 0; i < temp1.length; i++) {
+      temp2.push(temp1[i][0])
+    }
+    for (var i = 0; i < nrow; i++) {  // for each row
+      var temp_row = []; 
+      for (var j = 0; j < temp2.length; j++) {
+        for (var k = 0; k < sample[terms[i]].length; k++) {
+          if (temp2[j] == sample[terms[i]][k]) temp_row.push(k);
+        }
+      }
+      if (temp_row.length < ncol) {
+        for (var l = temp_row.length; l < ncol; l++) {
+          temp_row.push(l)
+        }
+      }
+      temp3.push(temp_row);
+    }
+    orders["freq"] = {x:current_index_order.x.slice(), y:temp3}
+
+
+    // TODO make this available in a button to sort them. 
+    // Alphabetically order the genes.
+    var term = Object.keys(sample);
+    var sample2 = $.extend(true, {}, sample);
+    // var sample2 = sample;
+    var temp_alph =[];
+    for (var i = 0; i < nrow; i++) {
+      sample2[term[i]].sort();
+    }
+    for (var i = 0; i < nrow; i++) {
+      var temp_row = [];
+      for (var j = 0; j < ncol; j++) {
+        var temp = sample[terms[i]].indexOf(sample2[terms[i]][j]);
+        if (temp != -1) temp_row.push(temp)
+        else temp_row.push(j);
+      }
+      temp_alph.push(temp_row);
+    }
+    console.log(temp_alph);
+
+    orders["alphabet"] = {x:current_index_order.x.slice(), y:temp_alph}
   }
 
   // calculate score and order in initial state
   reset_curr_mat(current_index_order);
   calc_score(current_index_order);
   // tutorial();
-}
+  console.log(width)
+  d3.select('.svg').attr('width', rect_size*ncol+300);
+} 
