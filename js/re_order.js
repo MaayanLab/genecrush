@@ -11,15 +11,17 @@ function order(value) {
       return "translate(0," + scale_xy.x(i) + ")"; });
 
   // TODO get the relative positions right.
-  // label_svg.transition().duration(curr_duration).selectAll('.row_label')
-  //   .attr("transform", function(d, i) {    // Orders the rows.
-  //     console.log(value.x.indexOf(i))
-  //     return "translate(0," +  + ",0)"; });
+  label_svg.transition().duration(curr_duration).selectAll('.row_label')
+    .attr("transform", function(d, i) {    // Orders the rows.
+      console.log(current_index_order.x[i])
+      // console.log(scale_xy.x(i))
+      return "translate(0," + 50 + ")"; });
 
   for (var row in value.y) {                                // Orders each columns.
     curr_row_order = value.y[row];
     t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
       scale_xy.y.domain(curr_row_order);
+      console.log(curr_row_order.indexOf(i)*rect_size)
       return "translate(" + curr_row_order.indexOf(i)*rect_size  + ",0)"; })
   }
   calc_score(value);

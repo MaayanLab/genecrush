@@ -378,7 +378,6 @@ function make_viz(sample) {
     orders["sorted_as"] = {"x": temp_xx, "y":temp_y};
 
 
-    //TODO: create a button to sort them accordingly, possibly make an option to remove and put back in.
     // Rearranging the sample so that it will be sorted based on frequency
     var temp1 = [],
         temp2 = [],
@@ -408,7 +407,6 @@ function make_viz(sample) {
     orders["freq"] = {x:current_index_order.x.slice(), y:temp3}
 
 
-    // TODO make this available in a button to sort them. 
     // Alphabetically order the genes.
     var term = Object.keys(sample);
     var sample2 = $.extend(true, {}, sample);
@@ -426,7 +424,6 @@ function make_viz(sample) {
       }
       temp_alph.push(temp_row);
     }
-    console.log(temp_alph);
 
     orders["alphabet"] = {x:current_index_order.x.slice(), y:temp_alph}
   }
@@ -435,6 +432,5 @@ function make_viz(sample) {
   reset_curr_mat(current_index_order);
   calc_score(current_index_order);
   // tutorial();
-  console.log(width)
   d3.select('.svg').attr('width', rect_size*ncol+300);
 } 
