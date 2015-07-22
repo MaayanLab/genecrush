@@ -3,27 +3,28 @@
 // Transition to new order.
 function order(value) {
   reset_curr_mat(value);
-  scale_xy.x.domain(value.x);                               // Scales x to the width
+  scale_Y.domain(value.x);                               // Scales x to the width
   var t = svg.transition().duration(curr_duration);         // Transition variable
 
   t.selectAll(".row")
     .attr("transform", function(d, i) {    // Orders the rows.
-      return "translate(0," + scale_xy.x(i) + ")"; });
+      return "translate(0," + scale_Y(i) + ")"; });
 
   // TODO get the relative positions right.
-  label_svg.transition().duration(curr_duration).selectAll('.row_label')
-    .attr("transform", function(d, i) {    // Orders the rows.
-      console.log(current_index_order.x[i])
-      // console.log(scale_xy.x(i))
-      return "translate(0," + 50 + ")"; });
+  // label_svg.transition().duration(curr_duration).selectAll('.row_label')
+  //   .attr("transform", function(d, i) {    // Orders the rows.
+  //     console.log(current_index_order.x[i])
+  //     // console.log(scale_Y(i))
+  //     return "translate(0," + 50 + ")"; });
 
   for (var row in value.y) {                                // Orders each columns.
     curr_row_order = value.y[row];
     t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
-      scale_xy.y.domain(curr_row_order);
-      console.log(curr_row_order.indexOf(i)*rect_size)
-      return "translate(" + curr_row_order.indexOf(i)*rect_size  + ",0)"; })
+      scale_X.domain(curr_row_order);
+      // console.log(curr_row_order.indexOf(i)*rect_size)
+      return "translate(" + scale_X(i) + ",0)"; })
   }
+  reset_nav_data(value);
   calc_score(value);
   // print_order(current_index_order);
 }
@@ -53,11 +54,11 @@ function sort_descending(value) {
 
   // Creates a "new_order".
   var temp_y = [];
-  for (i = 0; i < current_index_order.x.length; i++) {
+  for (var i = 0; i < current_index_order.x.length; i++) {
     temp_y.push(current_index_order.y[i].slice());
   }
   var temp_x = [];
-  for (i = 0; i < nrow; i++) {
+  for (var i = 0; i < nrow; i++) {
     temp_x.push(orders.sorted_ds.x[i]);
   }
   var new_order = {
@@ -78,11 +79,11 @@ function sort_ascending(value) {
 
   // Creates a "new_order".
   var temp_y = [];
-  for (i = 0; i < current_index_order.x.length; i++) {
+  for (var i = 0; i < current_index_order.x.length; i++) {
     temp_y.push(current_index_order.y[i].slice());
   }
   var temp_x = [];
-  for (i = 0; i < nrow; i++) {
+  for (var i = 0; i < nrow; i++) {
     temp_x.push(orders.sorted_as.x[i]);
   }
   var new_order = {
@@ -106,7 +107,7 @@ function sort_freq(value) {
   var temp_y = [];
   temp_y = orders.freq.y;
   var temp_x = [];
-  for (i = 0; i < nrow; i++) {
+  for (var i = 0; i < nrow; i++) {
     temp_x = current_index_order.x.slice();
   }
   var new_order = {
@@ -129,7 +130,7 @@ function sort_alphabet(value) {
   var temp_y = [];
   temp_y = orders.alphabet.y;
   var temp_x = [];
-  for (i = 0; i < nrow; i++) {
+  for (var i = 0; i < nrow; i++) {
     temp_x = current_index_order.x.slice();
   }
   var new_order = {
@@ -165,12 +166,36 @@ d3.select("#same_gene").on("change", function() {
   toggle_hl ^= true;
 });
 
+d3.select("#unq_gene").on("change", function() { 
+  toggle_unq ^= true;
+  if (toggle_unq) {
+    for (var names in unq_gene_names) {
+      d3.select('.cell_n_'+unq_gene_names[names]).select('.rect')
+        .attr('fill-opacity',0.5)
+        .style('stroke', "blue").style('stroke-width', 1)
+        .style("fill", "rgb(65,105,225)");
+      d3.select('.cell_n_'+unq_gene_names[names]).select('.cell_text')
+        .text(null)
+    }
+    order(orders['freq'])
+  } else {
+    for (var names in unq_gene_names) {
+      d3.select('.cell_n_'+unq_gene_names[names]).select('.rect')
+        .attr("fill-opacity", 0.9)
+        .style('stroke', "blue").style('stroke-width', 1)
+        .style("fill", function(d) { return scale_color(d.z); });
+      d3.select('.cell_n_'+unq_gene_names[names]).select('.cell_text')
+        .text(function(d) { return genes_unq[d.z]; })
+    }
+  }
+});
+
 function reset_curr_mat(value) {
   curr_mat = [];
-  for (i = 0; i < value.x.length; i++) {
+  for (var i = 0; i < value.x.length; i++) {
   // var temp = "";
   var temp_vec = [];
-    for (j = 0; j < value.y[i].length; j++) {
+    for (var j = 0; j < value.y[i].length; j++) {
       // console.log(matrix[value.x[i]][value.y[value.x[i]][j]]);
       temp_vec.push(matrix[value.x[i]][value.y[value.x[i]][j]].z);
       // if (matrix[value.x[i]][value.y[value.x[i]][j]].z != 19)
@@ -181,4 +206,41 @@ function reset_curr_mat(value) {
   }
 
   // console.log(curr_mat);
+}
+
+function redraw_svg() {
+  // console.log(x_axis)
+  svg.select('.x.axis').call(x_axis);
+}
+
+function updateViewportFromChart() {
+    if ((scale_X.domain()[0] <= minDate) && (scale_X.domain()[1] >= maxDate)) {
+        viewport.clear();
+    } else {
+        viewport.extent(scale_X.domain());
+    }
+    nav_svg.select('.viewport').call(viewport);
+}
+
+
+function reset_nav_data(value) {
+  var temp_nav_data = []
+  temp_nav_data.push(0)
+  for (var i = 0; i < value.x.length; i++) {
+    // console.log(value.x[i])
+    temp_nav_data.push(orig_nav_data[value.x[i] + 1])
+  }
+  temp_nav_data.push(0)
+  curr_nav_data = temp_nav_data;
+  // console.log(curr_nav_data);
+  d3.select('.nav_line').attr('d', nav_line(curr_nav_data));
+
+}
+
+function new_data() {
+  random = Math.floor(Math.random() * 71);
+  var path = "json/from_random_crowd_sourcing/";
+  path += random;
+  path += '.json'
+  $('#main_game').load('js/make_viz.js' +  ' #main_game');
 }

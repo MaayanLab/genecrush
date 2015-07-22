@@ -6,42 +6,40 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <header>
-    <aside>June, 19, 2015- </aside>
+    <!-- <aside>June, 19, 2015- </aside> -->
     <a href="http://images.huffingtonpost.com/2014-10-13-What_the_hell.png" rel="author">Azu Lee</a>
 </header>
-<h1>GAME NAME TBD</h1>
-
-<div class="container">
-    <div class="left" id="left_panel"></div>
-    <div class="right">
-        <aside style="margin-top:50px;"id="score"></aside>
-        <aside style="margin-top:180px;"id="timer"></aside>
-        <aside style="margin-top:300px;"id="toggle">
-            <p></p>
-            <button type="button" , onclick="undo()">Undo</button>
-            <p></p>
-            <button type="button" , onclick="reset()">Reset</button>
-            <p></p>
-            <button type="button" , onclick="sort_descending()">Sort Descending</button>
-            <p></p>
-            <button type="button" , onclick="sort_ascending()">Sort Ascending</button>
-            <p></p>
-            <button type="button" , onclick="sort_freq()">Sort Freq</button>
-            <p></p>
-            <button type="button" , onclick="sort_alphabet()">Sort Alphabetically</button>
-            <p></p>
-            <input id="same_gene" type="checkbox" value="on"> check this to show same gene<br> 
-            <p>Built with <a href="http://d3js.org/">d3.js</a>.
-        </aside>
+<h1><center>GAME NAME TBD</center></h1>
+<div class='container'>
+    <div class='right'>
+        <p style="margin-top:50px;"id="score"></p>
+        <p style="margin-top:50px"; id="timer"></p>
+        <p style="margin-top:50px"; id="toggle"></p>
+        <p></p>
+        <button type="button" , onclick="new_data()">New Game</button>
+        <p></p>
+        <button type="button" , onclick="undo()">Undo</button>
+        <p></p>
+        <button type="button" , onclick="reset()">Reset</button>
+        <p></p>
+        <button type="button" , onclick="sort_descending()">Sort Descending</button>
+        <p></p>
+        <button type="button" , onclick="sort_ascending()">Sort Ascending</button>
+        <p></p>
+        <button type="button" , onclick="sort_freq()">Sort Freq</button>
+        <p></p>
+        <button type="button" , onclick="sort_alphabet()">Sort Alphabetically</button>
+        <p></p>
+        <input id="same_gene" type="checkbox" value="on"> check this to highlight the same genes<br> 
+        <p></p>
+        <input id="unq_gene" type="checkbox" value="on"> check this to remove unique genes<br> 
+        <p>Built with <a href="http://d3js.org/">d3.js</a>.
     </div>
-    <div class="center">
-        <div class="inner"> 
-            <div class="game" id="GAME">
-            </div>
-        </div>
-    </div>
+    <div id="main_game" class='center'></div>
 </div>
-    <!-- <div class="board"></div> -->
+
+    <div class="board"></div>
+
 
 
 

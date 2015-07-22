@@ -30,11 +30,11 @@ function calc_score(value) {
 function calc_vertical() {
 	dup_temp = [];
 	var score_count = 0;
-	for (i = 0; i < ncol; i++) {															// for each column
+	for (var i = 0; i < ncol; i++) {															// for each column
 		var previous = curr_mat[0][i];
 		var skip = false;
 		var temp_score = 0;
-		for (j = 1; j < nrow; j++) {														// goes thorugh vertically to find vertical match
+		for (var j = 1; j < nrow; j++) {														// goes thorugh vertically to find vertical match
 			var current = curr_mat[j][i];
 			if (current != undefined_ind) {												// first, check it's not undefined cell
 				if (previous == current && !skip) {									// first duplicate located
@@ -408,10 +408,10 @@ function add_corners(value) {
 	bottom++;
 	right++;
 	var returner = [];
-	top = scale_xy.x(top);
-	left = scale_xy.y(left);
-	bottom = scale_xy.x(bottom);
-	right = scale_xy.y(right);
+	top = scale_Y(top);
+	left = scale_X(left);
+	bottom = scale_Y(bottom);
+	right = scale_X(right);
 	if (bottom == undefined) bottom = height;
 	if (right == undefined) right = width;
 	returner.push({x:left, y:top});

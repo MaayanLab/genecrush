@@ -11,8 +11,8 @@ def main():
 	low_threshold = 3
 	high_threshold = 50
 
-	for i in range(0, len(names)):
-		with open(names[i] + '.json') as data_file:    
+	for i in range(0, 491):
+		with open(str(i) + '.json') as data_file:    
 			data = json.load(data_file)
 
 		counter = 0;
@@ -23,8 +23,8 @@ def main():
 			elif (len(data[key]) > high_threshold):
 				counter = 3
 		if (counter > 2):
-			print 'removed a '+ names[i] 
+			print 'removed a '+ str(i) 
 			# print names[i] + '.json'
-			os.remove(names[i] + '.json')
+			os.remove(str(i) + '.json')
 # run main
 main()

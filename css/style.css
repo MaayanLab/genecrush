@@ -24,12 +24,12 @@
     margin: 0.5%;
     position: relative;
 }
-.left {
+/*.left {
     float:left;
     width: 100px;
     height:800px;
     left: 25%;
-}
+}*/
 .right {
     float:right;
     width: 200px;
@@ -37,8 +37,8 @@
     left: 25%;
 }
 .center {
-    width: 650px;
-    height: 890px;
+    width: 750px;
+    height: 1100px;
     overflow: auto;
 }
 .inner {
@@ -280,3 +280,8 @@ blockquote:after {
         line-height: 20px;
 }
 
+.navigator .viewport {
+    stroke: grey;
+    fill: black;
+    fill-opacity: 0.2;
+}
