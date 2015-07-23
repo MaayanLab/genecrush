@@ -12,6 +12,8 @@ var margin = { top: 50, right: 50, bottom: 50, left: 80 },
     unq_gene_names = [],
     orig_nav_data = [],
     curr_nav_data = [],
+    nrow = 0,
+    ncol = 0,
     curr_score = 0,
     prev_score = 0,
     ncol_shown = 10,
@@ -20,8 +22,6 @@ var margin = { top: 50, right: 50, bottom: 50, left: 80 },
     nav_scale_X = d3.scale.linear().range([0, nav_width]),
     nav_scale_Y = d3.scale.linear().range([0, nav_height]),
     curr_duration = default_duration,
-    nrow = 0,
-    ncol = 0,
     counter = 0,
     toggle_hl = 0,
     toggle_unq = 0,
@@ -52,8 +52,7 @@ var svg = d3.select("#main_game").append("svg").attr('class', 'svg')
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     // .call(zoom);
 
-var nav_svg = d3.select('#main_game').classed('chart', true).append('svg')
-    .classed('navigator', true)
+var nav_svg = d3.select('#main_game').append('svg').attr('class', 'navigator')
     .attr('width', nav_width + margin.left + margin.right)
     .attr('height', nav_height + margin.top + margin.bottom)
     .append('g')
@@ -95,9 +94,9 @@ svg.append("text")
 // Read in the proper json file.
 
 // d3.json("json/perfect_example.json", function(sample) {
-d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
 // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
-// d3.json(path, function(sample) {
+d3.json(path, function(sample) {
 
   // Processes the visualizing of the "json"
   make_viz(sample);

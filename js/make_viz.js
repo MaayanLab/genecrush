@@ -13,9 +13,10 @@ function make_viz(sample) {
       clicked_cell_2;
 
   // initialize the global variables
-  genes_unq = [],
+  genes_unq = [];
   orders = {};
   nrow = terms.length;
+  ncol = 0;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,7 +68,7 @@ function make_viz(sample) {
   nav_scale_X.domain([0,ncol]);
 
   // append grey rectangle background to SVG.
-  svg.append("rect").attr("class", "background").attr("width", width).attr("height", height).attr('fill-opacity',0.5);
+  // svg.append("rect").attr("class", "background").attr("width", width).attr("height", height).attr('fill-opacity',0.5);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,14 +144,14 @@ function make_viz(sample) {
   // Rectangle attached to "row_label"
   row_label.append("rect")
       .attr("class", "rect")
-      .attr("x", -scale_X.rangeBand())
+      .attr("x", -100)
       .attr("y", 2)
       .attr("rx", width / ncol / 8)
       .attr("ry", height / nrow / 8)
-      .attr("width", scale_X.rangeBand())
+      .attr("width", 100)
       .attr("height", scale_Y.rangeBand() -4)
       .style("fill", "white")
-      .style("fill-opacity", 0.2);
+      .style("fill-opacity", 0.05);
 
   // Text attached to "row_label".
   row_label.append("text")
@@ -158,9 +159,9 @@ function make_viz(sample) {
       .attr("x", -5)
       .attr("y", scale_Y.rangeBand() / 2)
       .attr("dy", ".32em").attr("text-anchor", "end")
-      .attr("font-size", scale_Y.rangeBand() / 4)
+      .attr("font-size", scale_Y.rangeBand() / 3)
       .attr("fill", "white")
-      .text(function(d, i) { return terms[i]; });
+      .text(function(d, i) { return terms[i].split('_')[0]; });
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -237,7 +238,7 @@ function make_viz(sample) {
 // mouse events function on labels
 
   function mouseover_label(p) {
-    var xPosition = margin['left'];
+    var xPosition = margin['left'] + 20;
     var yPosition = current_index_order.x.indexOf(p[0].y) * (height / nrow) + margin['top'] + 80;
 
     //Update the tooltip position and value

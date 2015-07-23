@@ -26,4 +26,4 @@ var myTimer = new Timer({
 		reset_sound.playclip();
     }
 });
-// myTimer.start(11);
+// myTimer.start(15);
