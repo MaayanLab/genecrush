@@ -20,7 +20,10 @@ var margin = { top: 50, right: 50, bottom: 50, left: 80 },
     nav_width = width,
     nav_height = 150 - margin.top - margin.bottom,
     nav_scale_X = d3.scale.linear().range([0, nav_width]),
+    svg_scale_X = d3.scale.linear().range([0, nav_width]),
     nav_scale_Y = d3.scale.linear().range([0, nav_height]),
+    nav_min = 0,
+    nav_max = 0,
     curr_duration = default_duration,
     counter = 0,
     toggle_hl = 0,
@@ -94,9 +97,9 @@ svg.append("text")
 // Read in the proper json file.
 
 // d3.json("json/perfect_example.json", function(sample) {
-// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
 // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
-d3.json(path, function(sample) {
+// d3.json(path, function(sample) {
 
   // Processes the visualizing of the "json"
   make_viz(sample);

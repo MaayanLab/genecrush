@@ -13,7 +13,6 @@ function order(value) {
   for (var row in value.y) {                                // Orders each columns.
     curr_row_order = value.y[row];
     t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
-      scale_X.domain(curr_row_order);
       return "translate(" + scale_X(i) + ",0)"; })
   }
 
@@ -166,7 +165,7 @@ d3.select("#unq_gene").on("change", function() {
   }
 });
 
-
+// TODO needs to fine detail revise it to make it bug-free
 function new_data() {
   random = Math.floor(Math.random() * 71);
   var path = "json/from_random_crowd_sourcing/";
@@ -214,7 +213,14 @@ function reset_curr_mat(value) {
 // Extra Stuff
 
 function redraw_svg() {
+  var curr_width = svg_scale_X(2) - svg_scale_X(1);
   svg.select('.x.axis').call(x_axis);
+  d3.selectAll('.rect').attr('width',curr_width)
+  for (var i = 0; i < ncol; i++) {
+    var x_corrdinates = (curr_width*i)-(nav_min*curr_width); //
+    d3.selectAll('.cell_y'+i).attr('transform','translate('+x_corrdinates+',0)');
+    d3.selectAll('.cell_y'+i).select('.cell_text').attr("x", curr_width / 2)
+  }
 }
 
 

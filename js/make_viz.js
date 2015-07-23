@@ -66,7 +66,7 @@ function make_viz(sample) {
   scale_Y.domain(current_index_order.x);
   nav_scale_Y.domain([0,nrow + 1]);
   nav_scale_X.domain([0,ncol]);
-
+  nav_max = ncol;
   // append grey rectangle background to SVG.
   // svg.append("rect").attr("class", "background").attr("width", width).attr("height", height).attr('fill-opacity',0.5);
 
@@ -86,6 +86,7 @@ function make_viz(sample) {
 
     // Scales the y domain of the current row.
     scale_X.domain(current_index_order.y[this.id]);
+    svg_scale_X.domain(current_index_order.y[this.id]);
 
     // creates group "cell" and appends to the row.
     var cell = d3.select(this).selectAll(".cell").data(value).enter().append("g")
@@ -168,7 +169,7 @@ function make_viz(sample) {
 // makes the elements in the nav svg && axis
 
   x_axis = d3.svg.axis()                                          // creates x_axis on main svg
-      .scale(scale_X)
+      .scale(svg_scale_X)
       .orient('bottom')
       .ticks(5);
   // y_axis = d3.svg.axis()                                          // creates y_axis on main svg
@@ -224,7 +225,12 @@ function make_viz(sample) {
   var viewport = d3.svg.brush()                                       // creates viewport
     .x(nav_scale_X)
     .on("brush", function () {
-        scale_X.domain(viewport.empty() ? nav_scale_X.domain() : viewport.extent());
+        scale_X.domain(viewport.empty() ? 
+          get_ordinal_from_quant(nav_scale_X.domain()): 
+          get_ordinal_from_quant(viewport.extent()));
+        svg_scale_X.domain(viewport.empty() ? 
+          nav_scale_X.domain(): 
+          viewport.extent());
         redraw_svg();
     });
 
@@ -450,7 +456,18 @@ function make_viz(sample) {
 
   }
 
-
+  function get_ordinal_from_quant(value) {
+    nav_min = value[0]
+    nav_max = value[1]
+    lower = Math.ceil(value[0]);
+    higher = Math.floor(value[1]);
+    higher--;
+    returner = [];
+    for (var i = lower; i <= higher; i++) {
+      returner.push(i);
+    }
+    return returner;
+  }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // calculate score and order in initial state
