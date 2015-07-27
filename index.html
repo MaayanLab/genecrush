@@ -7,7 +7,9 @@
 
 <header>
     <!-- <aside>June, 19, 2015- </aside> -->
-    <a href="http://images.huffingtonpost.com/2014-10-13-What_the_hell.png" rel="author">Azu Lee</a>
+    <a href="http://images.huffingtonpost.com/2014-10-13-What_the_hell.png" rel="author">Azu Lee</a>     
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
 </header>
 <h1><center>GAME NAME TBD</center></h1>
 <div class='container'>
@@ -35,6 +37,7 @@
         <input id="unq_gene" type="checkbox" value="on"> check this to remove unique genes<br> 
         <p>Built with <a href="http://d3js.org/">d3.js</a>.
     </div>
+    <div class='left'></div>
     <div id="main_game" class='center'></div>
 </div>
 
@@ -56,6 +59,16 @@
 <script src="lib/js/randomColor.min.js"></script>
 <script src="lib/js/timer.js"></script>
 <script src="lib/js/tourist.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="425402044071-jp4qinssdl7ftbi9235pjbinmui5gvva.apps.googleusercontent.com">
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 
 
 <!-- my codes -->

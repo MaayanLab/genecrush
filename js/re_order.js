@@ -9,11 +9,17 @@ function order(value) {
 
   t.selectAll(".row").attr("transform", function(d, i) {    // Orders the rows.
       return "translate(0," + scale_Y(i) + ")"; });
+  label_svg.transition().duration(curr_duration)
+    .selectAll(".row").attr("transform", function(d, i) {    // Orders the rows.
+      return "translate(0," + scale_Y(i) + ")"; });
 
   for (var row in value.y) {                                // Orders each columns.
     curr_row_order = value.y[row];
     t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
-      return "translate(" + scale_X(i) + ",0)"; })
+      var returner = (curr_cell_width*(curr_row_order.indexOf(i)-nav_min));
+      // console.log(returner);
+      if (returner == undefined) returner = 1000;
+      return "translate(" + returner + ",0)"; })
   }
 
   reset_nav_data(value);
@@ -92,7 +98,7 @@ function sort_freq(value) {
 
   current_index_order = new_order;    // new order is now current order, adds to "orders"
   orders[counter] = new_order;
-  console.log(orders[counter]);
+  console.log(orders);
   order(orders[counter]);
   counter++;
   curr_duration = default_duration;
@@ -150,9 +156,6 @@ d3.select("#unq_gene").on("change", function() {
       d3.select('.cell_n_'+unq_gene_names[names]).select('.cell_text')
         .text(null)
     }
-    var temp_x = current_index_order.x.slice();
-    var temp_y = orders['freq'].y.slice();
-    order({x:temp_x, y:temp_y})
   } else {
     for (var names in unq_gene_names) {
       d3.select('.cell_n_'+unq_gene_names[names]).select('.rect')
@@ -163,6 +166,14 @@ d3.select("#unq_gene").on("change", function() {
         .text(function(d) { return genes_unq[d.z]; })
     }
   }
+  var temp_x = current_index_order.x.slice();
+  var temp_y = orders['freq'].y.slice();
+  var new_order = { "x": temp_x.slice(), "y": temp_y.slice() };
+  current_index_order = new_order;    // new order is now current order, adds to "orders"
+  orders[counter] = new_order;
+  order(orders[counter]);
+  counter++;
+  curr_duration = default_duration;
 });
 
 // TODO needs to fine detail revise it to make it bug-free
@@ -189,11 +200,11 @@ function new_data() {
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
   // d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
-// d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
-d3.json(path, function(sample) {
-//   // Processes the visualizing of the "json"
-  make_viz(sample);
-});
+  // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
+  d3.json(path, function(sample) {
+  //   // Processes the visualizing of the "json"
+    make_viz(sample);
+  });
 }
 
 
@@ -213,16 +224,50 @@ function reset_curr_mat(value) {
 // Extra Stuff
 
 function redraw_svg() {
-  var curr_width = svg_scale_X(2) - svg_scale_X(1);
+  d3.selectAll(".edge_line").remove()
+  if(nav_min != 0) {
+    for (var i = 0; i < 10; i++) {
+      svg.append('line').attr('class','edge_line')
+        .attr('x1',-margin['left']).attr('y1',2)
+        .attr('x2',-margin['left']).attr('y2',height-4)
+        .style('stroke','white').style('stroke-width',i*5) 
+        .style('stroke-opacity',0.1)
+    }
+  }
+  if(nav_max != ncol) {
+    for (var i = 0; i < 10; i++) {
+      svg.append('line').attr('class','edge_line')
+        .attr('x1',width + i).attr('y1',2)
+        .attr('x2',width + i).attr('y2',height-4)
+        .style('stroke','white').style('stroke-width',20 - (i*2)) 
+        .style('stroke-opacity',0.1)
+    }
+  }
+  print_order(current_index_order);
+  curr_cell_width = svg_scale_X(2) - svg_scale_X(1);
   svg.select('.x.axis').call(x_axis);
-  d3.selectAll('.rect').attr('width',curr_width)
-  for (var i = 0; i < ncol; i++) {
-    var x_corrdinates = (curr_width*i)-(nav_min*curr_width); //
-    d3.selectAll('.cell_y'+i).attr('transform','translate('+x_corrdinates+',0)');
-    d3.selectAll('.cell_y'+i).select('.cell_text').attr("x", curr_width / 2)
+  d3.selectAll('.rect').attr('width',curr_cell_width)
+  for (var i = 0; i < nrow; i++) {
+    var curr_row_order = current_index_order.y[i].slice();
+    for (var j = 0; j < ncol; j++) {
+      var x_corrdinates = (curr_cell_width*(curr_row_order.indexOf(j)-nav_min));
+      d3.selectAll('.row_'+i).selectAll('.cell_y'+j).attr('transform','translate('+x_corrdinates+',0)');
+      d3.selectAll('.cell_y'+j).select('.cell_text').attr("x", curr_cell_width / 2)
+    }
   }
 }
 
+
+  // for (var row in value.y) {                                // Orders each columns.
+  //   curr_row_order = value.y[row];
+  //   t.selectAll(".cell_x" + row).attr("transform", function(d, i) {
+  //     var returner = scale_X(curr_row_order.indexOf(i));
+  //     if (returner == undefined) returner = 1000;
+  //     return "translate(" + returner + ",0)"; })
+  // }
+
+
+/////////
 
 function updateViewportFromChart() {
     if ((scale_X.domain()[0] <= minDate) && (scale_X.domain()[1] >= maxDate)) {
@@ -238,12 +283,22 @@ function reset_nav_data(value) {
   var temp_nav_data = []
   temp_nav_data.push(0)
   for (var i = 0; i < value.x.length; i++) {
-    // console.log(value.x[i])
-    temp_nav_data.push(orig_nav_data[value.x[i] + 1])
+    if (toggle_unq) {
+      temp_nav_data.push(orig_nav_data_rep[value.x[i] + 1])
+    } else {
+      temp_nav_data.push(orig_nav_data[value.x[i] + 1])
+    }
   }
   temp_nav_data.push(0)
   curr_nav_data = temp_nav_data;
   // console.log(curr_nav_data);
   d3.select('.nav_line').attr('d', nav_line(curr_nav_data));
+}
 
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
 }

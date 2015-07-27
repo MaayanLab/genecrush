@@ -49,6 +49,18 @@ function make_viz(sample) {
     return { x: j, y: i, z: genes_unq.indexOf(sample[terms[i]][j]) } });
   } 
 
+  // nav data for repeated genes only
+  orig_nav_data_rep.push(0);
+  for (var i = 0; i < nrow; i++) {
+    var temp = 0;
+    for (var j = 0; j < ncol; j++) {
+      if (matrix[i][j].z != undefined_ind && genes_unq_count[genes_unq[matrix[i][j].z]] > 1) temp++
+    }
+    orig_nav_data_rep.push(temp)
+  }
+  orig_nav_data_rep.push(0);
+  console.log(orig_nav_data_rep);
+
   // Assign range of random colors, setting undefined to blue.
   var rand_color = randomColor({count: nrow * ncol - undefined_count, format: 'rgb'})
   for (var i = 0; i < genes_unq.length; i++) {
@@ -115,6 +127,8 @@ function make_viz(sample) {
         .style('stroke', "blue").style('stroke-width', 1)
         .style("fill", function(d) { return scale_color(d.z); });
 
+    curr_cell_width = scale_X.rangeBand();
+
     // Text attached to "cell"
     cell.append("text")
         .attr("class", "cell_text")
@@ -133,8 +147,13 @@ function make_viz(sample) {
             return "white"; }});
   }
 
+var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
+      .attr("class", function(d, i) { return "row row_" + i; })
+      .attr("id", function(d, i) { return i; })
+      .attr("transform", function(d, i) { return "translate(0," + scale_Y(i) + ")"; })
+
   // creates group "row_label" and appends to the row.
-  var row_label = row.append("g")
+  var row_label = label_row.append("g")
       .attr("class", function(d, i) { return "row_label noselect row_label_" + i })
       .style("cursor", "pointer")
       .on("mouseover", mouseover_label)
@@ -144,8 +163,8 @@ function make_viz(sample) {
 
   // Rectangle attached to "row_label"
   row_label.append("rect")
-      .attr("class", "rect")
-      .attr("x", -100)
+      .attr("class", "label_rect")
+      .attr("x", 0)
       .attr("y", 2)
       .attr("rx", width / ncol / 8)
       .attr("ry", height / nrow / 8)
@@ -157,10 +176,10 @@ function make_viz(sample) {
   // Text attached to "row_label".
   row_label.append("text")
       .attr("class", "row_label_text")
-      .attr("x", -5)
+      .attr("x", 90)
       .attr("y", scale_Y.rangeBand() / 2)
       .attr("dy", ".32em").attr("text-anchor", "end")
-      .attr("font-size", scale_Y.rangeBand() / 3)
+      .attr("font-size", 15)
       .attr("fill", "white")
       .text(function(d, i) { return terms[i].split('_')[0]; });
 
@@ -168,6 +187,7 @@ function make_viz(sample) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // makes the elements in the nav svg && axis
 
+  svg_scale_X.domain( nav_scale_X.domain());
   x_axis = d3.svg.axis()                                          // creates x_axis on main svg
       .scale(svg_scale_X)
       .orient('bottom')
@@ -244,7 +264,7 @@ function make_viz(sample) {
 // mouse events function on labels
 
   function mouseover_label(p) {
-    var xPosition = margin['left'] + 20;
+    var xPosition = 100 + 25;
     var yPosition = current_index_order.x.indexOf(p[0].y) * (height / nrow) + margin['top'] + 80;
 
     //Update the tooltip position and value
@@ -371,7 +391,6 @@ function make_viz(sample) {
     }
     new_order["y"] = temp_y;
     current_index_order = new_order;                  // new order is now current order
-
     // Hard copies current order
     orders[counter] = {};
     for (var i in current_index_order) { orders[counter][i] = current_index_order[i].slice(); };

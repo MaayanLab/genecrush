@@ -8,7 +8,7 @@
 function calc_score(value) {
 
 	calc_vertical();
-	
+
 	// // temporary red mark for common genes
 	// for (var i = 0; i < dup_temp.length; i++) {
 	// 	d3.selectAll(".cell_x" + dup_temp[i].y + ".cell_y" + dup_temp[i].x).selectAll(".rect").style('stroke', 'red').style('stroke-width', 5);
@@ -26,6 +26,8 @@ function calc_score(value) {
 
 }
 
+//TODO cleanup the code here
+// TODO calculate the horizontal
 // Calculates repeated occurrences and calcs score for just that.
 function calc_vertical() {
 	dup_temp = [];
@@ -60,7 +62,7 @@ function calc_vertical() {
 	curr_score = score_count;
 }
 
-// Calculates anything that makes rectangle with 4 or more, 
+// Calculates anything that makes rectangle with 4 or more,
 // returns array of array of coordinates of rectangle
 function get_rect() {
 	var two_by_two_head = [];
@@ -77,7 +79,7 @@ function get_rect() {
 			}
 		}
 	}
-	
+
 	// two by two gets all the cell coordinates
 	for (var i = 0; i < two_by_two_head.length; i++) {
 		var temp = [];
@@ -107,7 +109,7 @@ function get_rect() {
 		// 	console.log(two_by_two_head[i]);
 		// }
 		if (has_right(two_by_two_head[0], two_by_two_head) != -1) {						// has right
-			if (has_bot(two_by_two_head[0], two_by_two_head) != -1 
+			if (has_bot(two_by_two_head[0], two_by_two_head) != -1
 				&& has_right_bot(two_by_two_head[0], two_by_two_head) != -1) {		// also has bot and bot-right
 				returner.push(look_bot_right(two_by_two_head[0], two_by_two, two_by_two_head));
 			} else {																														// only has right
@@ -132,10 +134,10 @@ function get_rect() {
 	// console.log(two_by_two);
 	// console.log('');
 	// console.log('========two_by_two_head========' + two_by_two_head.length);
-	// console.log(two_by_two_head);	
-	// console.log('');	
+	// console.log(two_by_two_head);
+	// console.log('');
 	// console.log('========returner========' + returner.length);
-	// console.log(returner);	
+	// console.log(returner);
 	// console.log('');
 	return returner;
 }
@@ -145,7 +147,7 @@ function look_bot_right(value, two_by_two, two_by_two_head) {
 	var exit = false;
 	var returner = [];
 	var area_of_sq = 1;
-	
+
 	while (!exit) {						// looks for the combination that makes the max square
 		sq_size++;
 		for (var x = 0; x < sq_size; x++) {
@@ -196,7 +198,7 @@ function look_bot_right(value, two_by_two, two_by_two_head) {
 	// 				two_by_two.splice(ind, 1);
 	// 			}
 	// 		}
-	// 	}	
+	// 	}
 	// } else {
 		for (var x = 0; x < sq_size + 1; x++) {				// get that square out.
 			for (var y = 0; y < sq_size + 1; y++) {
@@ -210,7 +212,7 @@ function look_bot_right(value, two_by_two, two_by_two_head) {
 					two_by_two.splice(ind, 1);
 				}
 			}
-		}	
+		}
 	// }
 
 
@@ -277,7 +279,7 @@ function draw_rect(value) {
 	// console.log(line_data);
 
 	// console.log('========line_data========' + line_data.length);
-	// console.log(line_data);	
+	// console.log(line_data);
 	// console.log('');
 
 	var lineFunction = d3.svg.line()
@@ -389,14 +391,14 @@ function get_its_own(value, array) {
 	}
 	var returner = array[ind];
 	array.splice(ind, 1);
-	return returner;	
+	return returner;
 }
 
 
 // gets array of coordinates as parameter, sets boundary as rectangle.
 function add_corners(value) {
-	var top = nrow; 
-	var left = ncol; 
+	var top = nrow;
+	var left = ncol;
 	var bottom = 0;
 	var right = 0;
 	for (var i = 0; i < value.length; i++) {

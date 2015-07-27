@@ -16,6 +16,12 @@
     border-left: 1px solid #ccc;
 }
 
+.g-signin2 {
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+
 .container {
     width:1000px;
     height:900px;
@@ -24,20 +30,20 @@
     margin: 0.5%;
     position: relative;
 }
-/*.left {
+.left {
     float:left;
     width: 100px;
-    height:800px;
+    height:900px;
     left: 25%;
-}*/
+}
 .right {
     float:right;
-    width: 200px;
-    height:800px;
+    width: 150px;
+    height:900px;
     left: 25%;
 }
 .center {
-    width: 750px;
+    width: 700px;
     height: 1100px;
     overflow: auto;
 }

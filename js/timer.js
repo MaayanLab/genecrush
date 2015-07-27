@@ -19,7 +19,7 @@ var myTimer = new Timer({
     onstop  : function() { console.log('timer stop') },
     onpause : function() { console.log('timer set on pause') },
     onend   : function() { 
-    	d3.select('.timer_board_text').text("OVER").attr("fill","red")
+    d3.select('.timer_board_text').text("OVER").attr("fill","red")
 			.attr("font-size", 100).attr("y", height_sc / 2 + 13);
 		d3.select('.timer_board_text').transition().duration(500)
 			.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8); 

@@ -18,6 +18,6 @@
 	"PDP1":["PDHA2","PDHA1","SMAD1"],
 	"PDP2":["PDHA2","PDHA1","SMAD1"],
 	"PHLPP1":["AKT3","AKT1","AKT2","PRKCB","PRKCA","STK4"],
-	"PHLPP2":["AKT3","AKT1","AKT2","PRKCB","PRKCA","STK4"],
-	"PHPT1":["ACLY","HIST1H4A","GNB1","KCNN4"]
+	"PHLPP2":["A","B","C","D","PRKCA","STK4"],
+	"PHPT1":["A","B","C","D"]
 }
