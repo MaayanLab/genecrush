@@ -243,7 +243,6 @@ function redraw_svg() {
         .style('stroke-opacity',0.1)
     }
   }
-  print_order(current_index_order);
   curr_cell_width = svg_scale_X(2) - svg_scale_X(1);
   svg.select('.x.axis').call(x_axis);
   d3.selectAll('.rect').attr('width',curr_cell_width)
@@ -301,4 +300,23 @@ function onSignIn(googleUser) {
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail());
+  g_logged_in_status = true;
+  d3.select('.g-signout2').text('Sign Out')
+}
+
+// d3.select('#topbar').attr('height',35px)
+
+function start_viz() {
+  d3.select('#start_viz').classed('hidden',true)
+  d3.select('#start_game').classed('hidden',true)
+  d3.select('#startpage').classed('hidden',true)
+  d3.select('#topbar').classed('blocked',false)
+  d3.select('.timer_board_text').text('N/A')
+}
+
+function start_game() {
+  d3.select('#start_viz').classed('hidden',true)
+  d3.select('#start_game').classed('hidden',true)
+  d3.select('#startpage').classed('hidden',true)
+  d3.select('#topbar').classed('blocked',false)
 }

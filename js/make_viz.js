@@ -59,7 +59,6 @@ function make_viz(sample) {
     orig_nav_data_rep.push(temp)
   }
   orig_nav_data_rep.push(0);
-  console.log(orig_nav_data_rep);
 
   // Assign range of random colors, setting undefined to blue.
   var rand_color = randomColor({count: nrow * ncol - undefined_count, format: 'rgb'})
@@ -301,6 +300,11 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     if (genes_unq[p.z] != undefined && toggle_hl == 1) {
        hover_cell_name = d3.selectAll('.cell_n_' + genes_unq[p.z]).selectAll(".rect");
        hover_cell_name.style('stroke', 'red').style('stroke-width', 5);
+    }
+    if (g_logged_in_status) {
+      d3.select('.g-signout2').text('Sign Out')
+    } else {
+      d3.select('.g-signout2').text(null)
     }
   }
 

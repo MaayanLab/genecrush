@@ -30,7 +30,8 @@ var margin = { top: 50, right: 10, bottom: 50, left: 10 },
     counter = 0,
     toggle_hl = 0,
     toggle_unq = 0,
-    click_state = 0;
+    click_state = 0,
+    g_logged_in_status = false;
 
 // Global vairables.
 var orders,
@@ -102,14 +103,13 @@ svg.append("text")
   .on('mouseout', function() { d3.select('.library2').style('fill', 'skyblue'); })
   .on("click", function() { window.open("http://amp.pharm.mssm.edu/Enrichr/#stats"); });
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Read in the proper json file.
 
 // d3.json("json/perfect_example.json", function(sample) {
-d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
+// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
 // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
-// d3.json(path, function(sample) {
+d3.json(path, function(sample) {
 
   // Processes the visualizing of the "json"
   make_viz(sample);

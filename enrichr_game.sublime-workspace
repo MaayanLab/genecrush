@@ -4,6 +4,98 @@
 		"selected_items":
 		[
 			[
+				"or",
+				"order"
+			],
+			[
+				"to",
+				"toggle_unq"
+			],
+			[
+				"orig",
+				"orig_nav_data_rep"
+			],
+			[
+				"edge",
+				"edge_line"
+			],
+			[
+				"wi",
+				"stroke-width"
+			],
+			[
+				"nav",
+				"nav_min"
+			],
+			[
+				"cu",
+				"current_index_order"
+			],
+			[
+				"x",
+				"x_corrdinates"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"num",
+				"num_1"
+			],
+			[
+				"sel",
+				"selected_index_2"
+			],
+			[
+				"selec",
+				"selected_index_1"
+			],
+			[
+				"svg",
+				"svg_scale_X"
+			],
+			[
+				"max",
+				"nav_max"
+			],
+			[
+				"undefin",
+				"undefined_count"
+			],
+			[
+				"genes_",
+				"genes_unq_count"
+			],
+			[
+				"temp",
+				"temp_nav_data"
+			],
+			[
+				"sca",
+				"scale_X"
+			],
+			[
+				"scale",
+				"scale_X"
+			],
+			[
+				"nav_sca",
+				"nav_scale_X"
+			],
+			[
+				"curr",
+				"curr_row"
+			],
+			[
+				"sv",
+				"label_svg"
+			],
+			[
+				"rec",
+				"rect_size"
+			],
+			[
 				"that",
 				"that_row"
 			],
@@ -14,10 +106,6 @@
 			[
 				"sq",
 				"sq_size"
-			],
-			[
-				"max",
-				"max_col_length"
 			],
 			[
 				"col",
@@ -92,10 +180,6 @@
 				"newsample"
 			],
 			[
-				"selec",
-				"selectAll"
-			],
-			[
 				"i",
 				"i"
 			],
@@ -164,10 +248,6 @@
 				"undefined"
 			],
 			[
-				"to",
-				"toFixed"
-			],
-			[
 				"next",
 				"next"
 			],
@@ -222,14 +302,6 @@
 			[
 				"gne",
 				"genes_unq"
-			],
-			[
-				"sca",
-				"scale_color"
-			],
-			[
-				"temp",
-				"temp_y"
 			],
 			[
 				"temp2",
@@ -310,26 +382,6 @@
 			[
 				"le",
 				"length"
-			],
-			[
-				"x",
-				"x"
-			],
-			[
-				"scale",
-				"scale_xy"
-			],
-			[
-				"curr",
-				"current_index_order"
-			],
-			[
-				"cu",
-				"current_index_order"
-			],
-			[
-				"sel",
-				"selected_index_1"
 			],
 			[
 				"selected",
@@ -462,58 +514,6 @@
 			[
 				"ape",
 				"appear_4"
-			],
-			[
-				"inst_ap",
-				"inst_appear"
-			],
-			[
-				"inst_app",
-				"inst_appear_genes"
-			],
-			[
-				"ist",
-				"inst_appear_arr"
-			],
-			[
-				"appar",
-				"appear_2"
-			],
-			[
-				"ins",
-				"inst_feat"
-			],
-			[
-				"appear",
-				"appear_4"
-			],
-			[
-				"instli",
-				"inst_list_name"
-			],
-			[
-				"lis_t",
-				"list_name"
-			],
-			[
-				"mou",
-				"mouse_pheno"
-			],
-			[
-				"mult",
-				"mult_list_mut"
-			],
-			[
-				"al",
-				"all_mut"
-			],
-			[
-				"fea_",
-				"feat_other"
-			],
-			[
-				"fou",
-				"fount_feat"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "js/main.js",
 			"settings":
 			{
-				"buffer_size": 2619,
+				"buffer_size": 9809,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,31 +531,7 @@
 			"file": "js/make_viz.js",
 			"settings":
 			{
-				"buffer_size": 15296,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 3032,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/calc_score.js",
-			"settings":
-			{
-				"buffer_size": 12727,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "python/enrichr_request.py",
-			"settings":
-			{
-				"buffer_size": 8970,
+				"buffer_size": 19642,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,7 +539,23 @@
 			"file": "js/re_order.js",
 			"settings":
 			{
-				"buffer_size": 3847,
+				"buffer_size": 10733,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/calc_score.js",
+			"settings":
+			{
+				"buffer_size": 12786,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/start_page.js",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -571,23 +563,23 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2038,
+				"buffer_size": 4450,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "json/Phosphatase_Substrates_SAMPLE.json",
+			"file": "js/FBlogin.js",
 			"settings":
 			{
-				"buffer_size": 1165,
+				"buffer_size": 3372,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/theme.js",
+			"file": "js/Glogin.js",
 			"settings":
 			{
-				"buffer_size": 26,
+				"buffer_size": 230,
 				"line_ending": "Unix"
 			}
 		}
@@ -615,24 +607,52 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 109.0,
-		"last_filter": "push",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
+				"open",
+				"Git: Open..."
+			],
+			[
 				"push",
-				"Git: Push"
+				"Git: Push Current Branch"
 			],
 			[
 				"q",
 				"Git: Quick Commit"
 			],
 			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
 				"add",
 				"Git: Add..."
 			],
 			[
-				"git ad",
+				"merge",
+				"Git: Merge Branch"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"git br",
+				"Git: Push Current Branch"
+			],
+			[
+				"branch",
+				"Git: New Branch"
+			],
+			[
+				"git add",
 				"Git: Add..."
 			],
 			[
@@ -644,20 +664,12 @@
 				"Git: Open..."
 			],
 			[
-				"git add",
-				"Git: Add..."
-			],
-			[
 				"pack",
 				"Package Control: Install Package"
 			],
 			[
 				"instal",
 				"Package Control: Install Package"
-			],
-			[
-				"open",
-				"Git: Open..."
 			],
 			[
 				"inst",
@@ -690,10 +702,6 @@
 			[
 				"gad",
 				"Git: Add..."
-			],
-			[
-				"packa",
-				"Package Control: Install Package"
 			],
 			[
 				"disable",
@@ -999,21 +1007,33 @@
 	],
 	"file_history":
 	[
+		"/Users/AtoTheZ/exp2014/subl",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/css/style.css",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/debug.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/index.html",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/Phosphatase_Substrates_SAMPLE.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/main.js",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/Default (OSX).sublime-keymap",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/enrichr_request.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/perfect_example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/make_viz.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/read_gmt_output_json.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/remove(<3)col_json.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_random_crowd_sourcing/0.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_random_generated_crowdsourced_diseases_top600/01.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/theme.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/calc_score.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/Phosphatase_Substrates_from_DEPOD.json",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/re_order.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/score_bd.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/toggle_bd.js",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer.js",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/css/style.css",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/calc_score.js",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/remove(<3)col_json.py",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/debug.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer_bd.js",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/perfect_example.json",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/file_list.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/list_of_files.js",
-		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/main.js",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/_input_gene_list",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/GeneSigDB.json",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/GO_Biological_Process.json",
@@ -1022,7 +1042,6 @@
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/ChEA.json",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/input_gene_list",
 		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/manual_enrichr_request.py",
-		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/perfect_example.json",
@@ -1115,18 +1134,7 @@
 		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/top_kin_mult_evi.txt",
 		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/kin_evi.json",
 		"/Users/nickfernandez/Documents/cst_python/find_dict_in_list.py",
-		"/Users/nickfernandez/Documents/cst_python/notes_CST_python.txt",
-		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_merge_anti.json",
-		"/Users/nickfernandez/Documents/cst_python/enz_and_tf_lists_gmts/KIN/kin_psite_wpsiteplus.json",
-		"/Users/nickfernandez/Documents/kinase_substrate_gmts/our_kin_sub_gmts/Kinase_psite.gmt",
-		"/Users/nickfernandez/Documents/cst_python/calc_enrichment_gl_gmt.py",
-		"/Users/nickfernandez/Documents/cst_python/cell_lines.txt",
-		"/Users/nickfernandez/Documents/cst_python/CCLE/NSCLC_CCLE_cell_lines.txt",
-		"/Users/nickfernandez/Documents/cst_python/run_x2k_kit.py",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/A549_tf.csv",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/A549_kinase.csv",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/H1781_dn_genes.txt_kinase.csv",
-		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/A549_dn_genes.txt_kinase.csv"
+		"/Users/nickfernandez/Documents/cst_python/notes_CST_python.txt"
 	],
 	"find":
 	{
@@ -1137,6 +1145,8 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"-*min.js, -*.css, -*.php",
+			"-*min.js, -*.css, -qiao",
 			"-*min.js, -*.css",
 			"-*min.js",
 			"js",
@@ -1161,6 +1171,97 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sign",
+			"same",
+			"timer",
+			"signout",
+			"startpage",
+			"button",
+			"topbar",
+			"logged_in",
+			"login",
+			"print_order",
+			"console",
+			"classed",
+			"tooltip",
+			"mouseout",
+			".board",
+			"board",
+			"body",
+			"console",
+			"orig_nav_data",
+			"todo",
+			"domain",
+			"current_ind",
+			"curr_index_order",
+			"LABEL",
+			"label",
+			"tooltip",
+			"line",
+			"z",
+			"nav_scal",
+			"scale_X",
+			"nav_scale_X",
+			"nav_min",
+			"scale_X.do",
+			"scale_x",
+			"scale",
+			"axis",
+			"x_axis",
+			"x axis",
+			"todo",
+			"nav_svg",
+			"todo",
+			"tooltip",
+			"new_data",
+			"calc_s",
+			"for (j",
+			"for (i",
+			"undefined_count",
+			"undefined count",
+			"toggle_hl",
+			"same_g",
+			"unq_gene",
+			"nav_svg",
+			"nav_",
+			"ticks",
+			"library",
+			"tooltip",
+			"5",
+			"tick",
+			"axis",
+			"xAxis",
+			"nav_data",
+			"splice()",
+			"slice()",
+			"splice",
+			"nav_data",
+			"domain",
+			"scale_X",
+			"scale_xy",
+			"rect_size",
+			"width",
+			"rect_size",
+			"todo",
+			"z:",
+			"curr_mat",
+			"sort_des",
+			"orders",
+			"todo",
+			"orange",
+			"oran",
+			"genes_unq_cou",
+			"label_svg",
+			"tool",
+			"#game",
+			"select('#",
+			".wrap",
+			"console",
+			"svg",
+			"width",
+			"body",
+			"svg",
+			"on(",
 			"apply",
 			"google",
 			"skyblue",
@@ -1197,98 +1298,7 @@
 			"console.log(",
 			"+ 1",
 			"1, 2, 3",
-			"test",
-			"xy",
-			"translate",
-			"text",
-			"row",
-			"      \n",
-			"matrix",
-			"azu",
-			".on(",
-			".on(\"click",
-			".on(\"mousedown",
-			".on",
-			"on",
-			"group",
-			"reset",
-			"by Man",
-			"#",
-			"undo",
-			"counter",
-			"green",
-			"count",
-			"group",
-			"size",
-			"font",
-			"transition",
-			"enter",
-			"type",
-			"equal",
-			"cell",
-			"tmp",
-			"row_function",
-			"change",
-			"x2",
-			"console",
-			"nodes",
-			"force",
-			"forcedrag",
-			"drag",
-			"fixed",
-			"order",
-			"delay",
-			"row",
-			"fill",
-			"color",
-			"width",
-			"background",
-			"text",
-			"row text",
-			"delay",
-			"text",
-			"tmp",
-			"active",
-			"row text",
-			"active",
-			"value",
-			"name",
-			"by Name",
-			"choose_protein",
-			"d3",
-			"generate_connect_map_expression",
-			"kinase",
-			"phosphatase",
-			"phophatase",
-			"kinase",
-			"kinase_",
-			"kinase",
-			"generate_connect_map_expression",
-			"tmp",
-			"applications",
-			"x2k_cst/",
-			"x2k_cst",
-			".array",
-			"dn_zscore",
-			"i]",
-			",i",
-			"bloo",
-			"missing",
-			"ccle[",
-			"ptm_31_data/ccle",
-			"load_cell_lines",
-			"ccle",
-			"ccle_updn",
-			"ccle",
-			"predict",
-			"pdgfra",
-			"look",
-			"tf",
-			"int_genes",
-			"egfrn",
-			"egfr",
-			"argsort",
-			"norm"
+			"test"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1330,46 +1340,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2619,
+						"buffer_size": 9809,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2388,
-								2388
+								9332,
+								9332
 							]
 						],
 						"settings":
 						{
-							"highlight_line": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": true,
-								"_vintageous_non_interactive": false,
-								"_vintageous_processing_notation": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_insert",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 201
-							}
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 936.0,
+						"translation.y": 3365.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1378,28 +1370,55 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15296,
+						"buffer_size": 19642,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6625,
-								6625
+								19035,
+								19035
 							]
 						],
 						"settings":
 						{
-							"highlight_line": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 987.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/re_order.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1059,
+								1059
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true,
 							"vintage":
 							{
 								"_vintageous_glue_until_normal_mode": false,
-								"_vintageous_non_interactive": false,
-								"_vintageous_processing_notation": false,
 								"action": null,
 								"action_count": "",
 								"mode": "mode_normal",
@@ -1410,60 +1429,14 @@
 								"partial_sequence": "",
 								"register": "\"",
 								"sequence": "",
-								"xpos": 43
+								"xpos": 40
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 32.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "css/style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3032,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3032,
-								3032
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 342.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1472,42 +1445,24 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12727,
+						"buffer_size": 12786,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6971,
-								6971
+								425,
+								425
 							]
 						],
 						"settings":
 						{
-							"highlight_line": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"_vintageous_non_interactive": false,
-								"_vintageous_processing_notation": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 7
-							}
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 152.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1515,229 +1470,128 @@
 				},
 				{
 					"buffer": 4,
-					"file": "python/enrichr_request.py",
+					"file": "js/start_page.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8970,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5885,
-								6070
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 861.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4450,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2381,
+								2389
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2260.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "js/re_order.js",
+					"buffer": 6,
+					"file": "js/FBlogin.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3847,
+						"buffer_size": 3372,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								717,
-								717
+								3372,
+								3372
 							]
 						],
 						"settings":
 						{
+							"auto_name": "",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": true,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_insert",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 19
-							}
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/Glogin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								230,
+								230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 6,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2038,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1423,
-								1423
-							]
-						],
-						"settings":
-						{
-							"highlight_line": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 45
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 394.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "json/Phosphatase_Substrates_SAMPLE.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1165,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								122,
-								123
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 24
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "js/theme.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 26,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								25,
-								25
-							]
-						],
-						"settings":
-						{
-							"highlight_line": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 25
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1771,7 +1625,7 @@
 		"cols":
 		[
 			0.0,
-			0.735589586762,
+			0.369010416667,
 			1.0
 		],
 		"rows":
@@ -1783,15 +1637,15 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 135.0
+		"height": 257.0
 	},
 	"output.find_results":
 	{
-		"height": 342.0
+		"height": 267.0
 	},
 	"output.git":
 	{
-		"height": 27.0
+		"height": 29.0
 	},
 	"pinned_build_system": "Packages/Python/Python.sublime-build",
 	"project": "enrichr_game.sublime-project",
@@ -1807,12 +1661,56 @@
 		"selected_items":
 		[
 			[
-				"py",
-				"python/enrichr_request.py"
+				"ind",
+				"index.html"
+			],
+			[
+				"css",
+				"css/style.css"
 			],
 			[
 				"samp",
 				"json/Phosphatase_Substrates_SAMPLE.json"
+			],
+			[
+				"timer",
+				"js/timer.js"
+			],
+			[
+				"main",
+				"js/main.js"
+			],
+			[
+				"req",
+				"python/enrichr_request.py"
+			],
+			[
+				"make",
+				"js/make_viz.js"
+			],
+			[
+				"py",
+				"python/enrichr_request.py"
+			],
+			[
+				"json",
+				"python/read_gmt_output_json.py"
+			],
+			[
+				"0.j",
+				"json/from_random_crowd_sourcing/0.json"
+			],
+			[
+				"examp",
+				"json/perfect_example.json"
+			],
+			[
+				"theme",
+				"js/theme.js"
+			],
+			[
+				"calc",
+				"js/calc_score.js"
 			],
 			[
 				"depod",
@@ -1821,14 +1719,6 @@
 			[
 				"reor",
 				"js/re_order.js"
-			],
-			[
-				"calc",
-				"js/calc_score.js"
-			],
-			[
-				"css",
-				"css/style.css"
 			],
 			[
 				".json",
@@ -2231,10 +2121,6 @@
 				"gene_and_AA_lists/card_mut.json"
 			],
 			[
-				"json",
-				"json_scripts.py"
-			],
-			[
 				"process_gene",
 				"process_gene_AA_list.py"
 			],
@@ -2285,34 +2171,6 @@
 			[
 				"clusterram_card_",
 				"gene_and_AA_lists/clustergram_card_mut_uniprot.py"
-			],
-			[
-				"mut_gene_cla",
-				"gene_and_AA_lists/mut_gene_classification.txt"
-			],
-			[
-				"process_card",
-				"gene_and_AA_lists/process_card_prob_results_into_table.py"
-			],
-			[
-				"load_card",
-				"gene_and_AA_lists/load_cardiac_data.py"
-			],
-			[
-				"classif",
-				"gene_and_AA_lists/classify_card_mut_uniprot.py"
-			],
-			[
-				"card_mut_",
-				"gene_and_AA_lists/card_mut_json.txt"
-			],
-			[
-				"check_",
-				"check_mutations_uniprot.py"
-			],
-			[
-				"load",
-				"gene_and_AA_lists/load_cardiac_data.py"
 			]
 		],
 		"width": 0.0
@@ -2335,11 +2193,11 @@
 		],
 		"width": 392.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "its",
-		"_vintageous_last_buffer_search_command": "vi_slash",
+		"_vintageous_last_buffer_search": "rect_size",
+		"_vintageous_last_buffer_search_command": "vi_star",
 		"_vintageous_last_char_search_command": "vi_f",
 		"_vintageous_last_character_search": "j",
 		"_vintageous_reset_during_init": true,
