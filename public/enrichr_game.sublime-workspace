@@ -1,0 +1,2219 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"or",
+				"order"
+			],
+			[
+				"to",
+				"toggle_unq"
+			],
+			[
+				"orig",
+				"orig_nav_data_rep"
+			],
+			[
+				"edge",
+				"edge_line"
+			],
+			[
+				"wi",
+				"stroke-width"
+			],
+			[
+				"nav",
+				"nav_min"
+			],
+			[
+				"cu",
+				"current_index_order"
+			],
+			[
+				"x",
+				"x_corrdinates"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"num",
+				"num_1"
+			],
+			[
+				"sel",
+				"selected_index_2"
+			],
+			[
+				"selec",
+				"selected_index_1"
+			],
+			[
+				"svg",
+				"svg_scale_X"
+			],
+			[
+				"max",
+				"nav_max"
+			],
+			[
+				"undefin",
+				"undefined_count"
+			],
+			[
+				"genes_",
+				"genes_unq_count"
+			],
+			[
+				"temp",
+				"temp_nav_data"
+			],
+			[
+				"sca",
+				"scale_X"
+			],
+			[
+				"scale",
+				"scale_X"
+			],
+			[
+				"nav_sca",
+				"nav_scale_X"
+			],
+			[
+				"curr",
+				"curr_row"
+			],
+			[
+				"sv",
+				"label_svg"
+			],
+			[
+				"rec",
+				"rect_size"
+			],
+			[
+				"that",
+				"that_row"
+			],
+			[
+				"area",
+				"area_of_sq"
+			],
+			[
+				"sq",
+				"sq_size"
+			],
+			[
+				"col",
+				"col_length"
+			],
+			[
+				"ind",
+				"ind"
+			],
+			[
+				"has",
+				"has_right"
+			],
+			[
+				"two",
+				"two_by_two_head"
+			],
+			[
+				"hasbo",
+				"has_bot"
+			],
+			[
+				"twoby",
+				"two_by_two_head"
+			],
+			[
+				"stok",
+				"stroke-width"
+			],
+			[
+				"sele",
+				"selectAll"
+			],
+			[
+				"stroke",
+				"stroke-width"
+			],
+			[
+				"str",
+				"stroke"
+			],
+			[
+				"encodec",
+				"ENCODE_TF_ChIP-seq_2015"
+			],
+			[
+				"transf",
+				"TRANSFAC_and_JASPAR_PWMs"
+			],
+			[
+				"get",
+				"get_right"
+			],
+			[
+				"get_bot",
+				"get_right_bot"
+			],
+			[
+				"getbo",
+				"get_right_bot"
+			],
+			[
+				"has_ri",
+				"has_right_bot"
+			],
+			[
+				"four",
+				"four_block"
+			],
+			[
+				"new",
+				"newsample"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"cla",
+				"calc_vertical"
+			],
+			[
+				"cli",
+				"clicked_cell_1"
+			],
+			[
+				"click",
+				"click_state"
+			],
+			[
+				"file",
+				"file_list"
+			],
+			[
+				"fro",
+				"from_enrichr"
+			],
+			[
+				"twen",
+				"twenty_genes"
+			],
+			[
+				"twenty",
+				"twenty_terms"
+			],
+			[
+				"twe",
+				"twenty_terms"
+			],
+			[
+				"post",
+				"post_url"
+			],
+			[
+				"down",
+				"down"
+			],
+			[
+				"te",
+				"dup_temp"
+			],
+			[
+				"dup",
+				"dup_temp"
+			],
+			[
+				"path",
+				"common_path"
+			],
+			[
+				"remove",
+				"remove2"
+			],
+			[
+				"rem",
+				"remove4"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"next",
+				"next"
+			],
+			[
+				"undei",
+				"undefined"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"count",
+				"count_unq_line_data"
+			],
+			[
+				"value",
+				"value"
+			],
+			[
+				"line",
+				"line_data"
+			],
+			[
+				"del",
+				"delete_index"
+			],
+			[
+				"if",
+				"if	if"
+			],
+			[
+				"remo",
+				"remove_inner_cell"
+			],
+			[
+				"tems",
+				"temps_y"
+			],
+			[
+				"temps",
+				"temps_x"
+			],
+			[
+				"arr",
+				"array_gene_unq"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"gne",
+				"genes_unq"
+			],
+			[
+				"temp2",
+				"temp_2_index"
+			],
+			[
+				"this",
+				"this_row_order"
+			],
+			[
+				"tem",
+				"temp_2_value"
+			],
+			[
+				"temp1",
+				"temp_1_value"
+			],
+			[
+				"temp_",
+				"temp_1_value"
+			],
+			[
+				"h",
+				"header	Tag"
+			],
+			[
+				"temp_y",
+				"temp_y_row"
+			],
+			[
+				"hover",
+				"hover_label"
+			],
+			[
+				"cur",
+				"current_index_order"
+			],
+			[
+				"select",
+				"selected_index_1"
+			],
+			[
+				"row_label",
+				"row_label"
+			],
+			[
+				"se",
+				"selected_index_1"
+			],
+			[
+				"v",
+				"v"
+			],
+			[
+				"clas",
+				"classed"
+			],
+			[
+				"cel",
+				"cell"
+			],
+			[
+				"ran",
+				"rangeBand"
+			],
+			[
+				"range",
+				"rangeBand"
+			],
+			[
+				"scal",
+				"scale_y"
+			],
+			[
+				"current",
+				"current_index_order"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"selected",
+				"selected_index_1"
+			],
+			[
+				"genes",
+				"genes_unq"
+			],
+			[
+				"terms",
+				"terms"
+			],
+			[
+				"name",
+				"name"
+			],
+			[
+				"group",
+				"groupIdx"
+			],
+			[
+				"na",
+				"name"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"selectedr",
+				"selectedRow1"
+			],
+			[
+				"selecte",
+				"selectedRow2"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"fill",
+				"fill-opacity"
+			],
+			[
+				"cells",
+				"cells_of_rows"
+			],
+			[
+				"cell",
+				"cells_of_rows"
+			],
+			[
+				"ins_",
+				"inst_select_class"
+			],
+			[
+				"inst_",
+				"inst_select_class"
+			],
+			[
+				"Color",
+				"color"
+			],
+			[
+				"s",
+				"font-size"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"calc_ra",
+				"calc_rank_of_list〔function〕"
+			],
+			[
+				"calc",
+				"calc_rank_of_list〔function〕"
+			],
+			[
+				"kea",
+				"kea_x2k_sig"
+			],
+			[
+				"combine",
+				"combined_kinase_results"
+			],
+			[
+				"perturb",
+				"perturbations"
+			],
+			[
+				"pv",
+				"pval_bh"
+			],
+			[
+				"ptm_",
+				"ptm_31_data"
+			],
+			[
+				"featre",
+				"feature_type"
+			],
+			[
+				"num_",
+				"num_card_no"
+			],
+			[
+				"num_ca",
+				"num_card_yes"
+			],
+			[
+				"apper",
+				"row_appear_2"
+			],
+			[
+				"appera_",
+				"appear_4"
+			],
+			[
+				"ape",
+				"appear_4"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 9809,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/make_viz.js",
+			"settings":
+			{
+				"buffer_size": 19642,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/re_order.js",
+			"settings":
+			{
+				"buffer_size": 10733,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/calc_score.js",
+			"settings":
+			{
+				"buffer_size": 12786,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/start_page.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4450,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/FBlogin.js",
+			"settings":
+			{
+				"buffer_size": 3372,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/Glogin.js",
+			"settings":
+			{
+				"buffer_size": 230,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"open",
+				"Git: Open..."
+			],
+			[
+				"push",
+				"Git: Push Current Branch"
+			],
+			[
+				"q",
+				"Git: Quick Commit"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"merge",
+				"Git: Merge Branch"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"git br",
+				"Git: Push Current Branch"
+			],
+			[
+				"branch",
+				"Git: New Branch"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"gitad",
+				"Git: Add..."
+			],
+			[
+				"gitop",
+				"Git: Open..."
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Remove Package"
+			],
+			[
+				"remoev",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"g",
+				"Git: Quick Commit"
+			],
+			[
+				"ad",
+				"Git: Add..."
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"gad",
+				"Git: Add..."
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"packag",
+				"Package Control: List Packages"
+			],
+			[
+				"extrac",
+				"Extract Sublime Package: Extract all packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"extract",
+				"Extract Sublime Package: Extract all packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"extrc",
+				"Vintageous: Exit from command mode"
+			],
+			[
+				"git: ad",
+				"Git: Add..."
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git q",
+				"Git: Quick Commit"
+			],
+			[
+				"git",
+				"Git: Open..."
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"c",
+				"Git: Commit"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Quick Commit"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"qui",
+				"Git: Quick Commit"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"quio",
+				"Git: Quick Commit"
+			],
+			[
+				"qu",
+				"Git: Quick Commit"
+			],
+			[
+				"sta",
+				"Git: Status"
+			],
+			[
+				"ADD",
+				"Git: Add..."
+			],
+			[
+				"puah",
+				"Git: Pull Current Branch"
+			],
+			[
+				"qiu",
+				"Git: Quick Commit"
+			],
+			[
+				"QUI",
+				"Git: Quick Commit"
+			],
+			[
+				"diff",
+				"Git: Diff All Files"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"qi",
+				"Git: Quick Commit"
+			],
+			[
+				"q	ui",
+				"Git: Quick Commit"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"a",
+				"Git: Add..."
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"qio",
+				"Git: Quick Commit"
+			],
+			[
+				"puh",
+				"Git: Push"
+			],
+			[
+				"statu",
+				"Git: Status"
+			],
+			[
+				"pul",
+				"Git: Pull"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"pu",
+				"Git: Pull"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git checkout",
+				"Git: Checkout Tag"
+			],
+			[
+				"git check",
+				"Git: Checkout Tag"
+			],
+			[
+				"quick",
+				"Git: Quick Commit"
+			],
+			[
+				"git checkout ",
+				"Git: Checkout Tag"
+			],
+			[
+				"git: push ",
+				"Git: Push"
+			],
+			[
+				"remote",
+				"Git: Track Remote Branch"
+			],
+			[
+				"push ",
+				"Git: Push"
+			],
+			[
+				"git ini",
+				"Git: Init"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: install package ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"FileDiffs",
+				"FileDiffs: Menu"
+			],
+			[
+				"filed",
+				"FileDiffs: Menu"
+			],
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":exit",
+				"Set Syntax: Regular Expressions (Python)"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 51.0,
+		"history":
+		[
+			"git status"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/css",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/lib",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/lib/js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python"
+	],
+	"file_history":
+	[
+		"/Users/AtoTheZ/exp2014/subl",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/css/style.css",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/debug.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/index.html",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/Phosphatase_Substrates_SAMPLE.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/main.js",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/Default (OSX).sublime-keymap",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/enrichr_request.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/perfect_example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/make_viz.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/read_gmt_output_json.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/python/remove(<3)col_json.py",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_random_crowd_sourcing/0.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_random_generated_crowdsourced_diseases_top600/01.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/theme.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/calc_score.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/Phosphatase_Substrates_from_DEPOD.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/re_order.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/score_bd.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/toggle_bd.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/timer_bd.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/file_list.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js/list_of_files.js",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/_input_gene_list",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/GeneSigDB.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/GO_Biological_Process.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/KEA.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/KEGG_2015.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/ChEA.json",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/json/from_enrichr/input_gene_list",
+		"/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/manual_enrichr_request.py",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/perfect_example.json",
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/index(original).html",
+		"/Users/AtoTheZ/Dropbox/Projects/enrichr_game/Phosphatase_Substrates_SAMPLE.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/index2.html",
+		"/Users/AtoTheZ/Desktop/04-basic-3d-geometries-cube.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/style.css",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/perfect_example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/java/ProcessText2json.java",
+		"/Users/AtoTheZ/.Trash/example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/perfect_example.txt",
+		"/Users/AtoTheZ/Documents/workspace/MyCodes/perfect_example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/Phosphatase_Substrates_SAMPLE.txt",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/txt2json.py",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/txt2json.java",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.enrichr.game/game.sublime-workspace",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.ccle.exp/update_adj_matrix.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.19.ccle.exp/js/foundation.topbar.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/example_index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/example.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/miserables.json",
+		"/Users/AtoTheZ/Library/Application Support/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/les.miserables.sublime-workspace",
+		"/Applications/XAMPP/xamppfiles/htdocs/2015.06.17.les.miserables/les.miserables.sublime-project",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/10_scatterplot 2.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/chart.svg",
+		"/Users/AtoTheZ/Desktop/d3_adj_matrix_miserables/example.json",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/09_axes.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/css/foundation.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/js/click_functions.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/css/specific.css",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/05_data_values.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/02_chain_syntax.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/00_empty_page_template.html",
+		"/Users/AtoTheZ/Desktop/scattered-scatterplot-master/01_selecting_elements.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/networks/act_exp_std_0.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/update_adj_matrix.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ccle_exp/js/d3_connect_map_expression.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/cst_ccle_exp_map/js/d3_connect_map.js",
+		"/Users/nickfernandez/Documents/cst_python/kinase_kd_geo/gene_list_files/ABL1_druginhibition_77_GSE24493_dn.txt",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/kea_x2k_sig.json",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr_premerge.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_nslc_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/run_x2k_cst.py",
+		"/Users/nickfernandez/Documents/cst_python/find_evidence_x2k_tfs.py",
+		"/Users/nickfernandez/Documents/cst_python/compare_kin_ptm_x2k_sig.py",
+		"/Users/nickfernandez/Documents/cst_python/calc_kin_enr_CST_phospho_anti_merge.py",
+		"/Users/nickfernandez/Documents/cst_python/proc_ccle_zscore_all_cl.py",
+		"/Users/nickfernandez/Documents/cst_python/calc_kin_enr_CST_phospho.py",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/missing_cell_lines.txt",
+		"/Users/nickfernandez/Documents/cst_python/cst_common.py",
+		"/Users/nickfernandez/Documents/cst_python/run_x2k.py",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_all_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle_updn_backup.json",
+		"/Users/nickfernandez/Documents/cst_python/proc_ccle_exp_enr.py",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/ccle.json",
+		"<untitled 0>",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/CCLE_all_cell_lines/CCLE_Expression_Entrez_2012-09-29.gct",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_merge_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/unused_scripts.py",
+		"/Users/nickfernandez/Documents/cst_python/run_l1000geo_cst.py",
+		"/Users/nickfernandez/Documents/cst_python/make_exp_clustergram.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/ccle_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/notes_after_presentation.txt",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/kin_sig.json",
+		"/Users/nickfernandez/Documents/cst_python/CCLE/CCLE_gene_exp_CST_NSCLC_cell_lines.xlsx",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_cst.json",
+		"/Users/nickfernandez/Documents/cst_python/gather_top_ptms.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn_enr.json",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_prot_updn_enr_merge_anti.json",
+		"/Users/nickfernandez/Documents/cst_python/compare_merge_and_no_merge.py",
+		"/Users/nickfernandez/Documents/cst_python/d3_clustergram.py",
+		"/Users/nickfernandez/Documents/cst_python/tmp.py",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_ptm_updn.json",
+		"/Users/nickfernandez/Documents/cst_python/calc_kin_enr_CST_phospho_anti_merge_working.py",
+		"/Users/nickfernandez/Documents/cst_python/x2k_cst/x2k_output/A549_up_genes.txt_tf.csv",
+		"/Users/nickfernandez/Documents/cst_python/notes_presentation_5-18-2015.txt",
+		"/Users/nickfernandez/Documents/cst_python/enz_and_tf_lists_gmts/KIN/kinase_substrate.gmt",
+		"/Users/nickfernandez/Documents/cst_python/enz_and_tf_lists_gmts/KIN/Kinase_psite.gmt",
+		"/Users/nickfernandez/Documents/cst_python/ptm_31_data/cst_prot_updn_enr.json",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/top_kin_evi_proc.txt",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/top_kin_mult_evi.txt",
+		"/Users/nickfernandez/Documents/cst_python/combined_kinase_results/kin_evi.json",
+		"/Users/nickfernandez/Documents/cst_python/find_dict_in_list.py",
+		"/Users/nickfernandez/Documents/cst_python/notes_CST_python.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"-*min.js, -*.css, -*.php",
+			"-*min.js, -*.css, -qiao",
+			"-*min.js, -*.css",
+			"-*min.js",
+			"js",
+			"",
+			"*.js",
+			"",
+			"*py",
+			"",
+			"*.py",
+			"",
+			"*",
+			"*.py",
+			".py",
+			"",
+			"<open folders>",
+			"C:\\Users\\Nick Fernandez\\Documents\\MATLAB",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sign",
+			"same",
+			"timer",
+			"signout",
+			"startpage",
+			"button",
+			"topbar",
+			"logged_in",
+			"login",
+			"print_order",
+			"console",
+			"classed",
+			"tooltip",
+			"mouseout",
+			".board",
+			"board",
+			"body",
+			"console",
+			"orig_nav_data",
+			"todo",
+			"domain",
+			"current_ind",
+			"curr_index_order",
+			"LABEL",
+			"label",
+			"tooltip",
+			"line",
+			"z",
+			"nav_scal",
+			"scale_X",
+			"nav_scale_X",
+			"nav_min",
+			"scale_X.do",
+			"scale_x",
+			"scale",
+			"axis",
+			"x_axis",
+			"x axis",
+			"todo",
+			"nav_svg",
+			"todo",
+			"tooltip",
+			"new_data",
+			"calc_s",
+			"for (j",
+			"for (i",
+			"undefined_count",
+			"undefined count",
+			"toggle_hl",
+			"same_g",
+			"unq_gene",
+			"nav_svg",
+			"nav_",
+			"ticks",
+			"library",
+			"tooltip",
+			"5",
+			"tick",
+			"axis",
+			"xAxis",
+			"nav_data",
+			"splice()",
+			"slice()",
+			"splice",
+			"nav_data",
+			"domain",
+			"scale_X",
+			"scale_xy",
+			"rect_size",
+			"width",
+			"rect_size",
+			"todo",
+			"z:",
+			"curr_mat",
+			"sort_des",
+			"orders",
+			"todo",
+			"orange",
+			"oran",
+			"genes_unq_cou",
+			"label_svg",
+			"tool",
+			"#game",
+			"select('#",
+			".wrap",
+			"console",
+			"svg",
+			"width",
+			"body",
+			"svg",
+			"on(",
+			"apply",
+			"google",
+			"skyblue",
+			"selectAll('.rect",
+			"current_ind",
+			"curr_mat",
+			"you are",
+			"favicon",
+			"fav.icon",
+			"top",
+			"counter",
+			"toggle",
+			"blue",
+			"console.log",
+			"clicked_cell",
+			"svg",
+			"height",
+			"height * ",
+			"console.",
+			"console",
+			"dup_temp",
+			"conso",
+			"foreach",
+			"\");\n",
+			");\n",
+			"terms_dic",
+			"v++",
+			"scale_xy.y",
+			"console",
+			"d",
+			"scale_xy_",
+			"width",
+			"xy",
+			"console.log(",
+			"+ 1",
+			"1, 2, 3",
+			"test"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"crow_6",
+			"));\n",
+			"",
+			"export_lists",
+			"feature_type",
+			"load_cardiac_data",
+			"rand_sample",
+			"inst_gmt_name",
+			"card_bar",
+			"mut",
+			"card_mut",
+			"mult_list_genes",
+			"feat_pos",
+			"feat_end",
+			"\nfeat_begin"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9332,
+								9332
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3365.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/make_viz.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19035,
+								19035
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 987.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/re_order.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1059,
+								1059
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 40
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 32.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/calc_score.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12786,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								425,
+								425
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 152.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/start_page.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4450,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2381,
+								2389
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2260.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "js/FBlogin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3372,
+								3372
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/Glogin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								230,
+								230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.369010416667,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 257.0
+	},
+	"output.find_results":
+	{
+		"height": 267.0
+	},
+	"output.git":
+	{
+		"height": 29.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "enrichr_game.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"css",
+				"css/style.css"
+			],
+			[
+				"samp",
+				"json/Phosphatase_Substrates_SAMPLE.json"
+			],
+			[
+				"timer",
+				"js/timer.js"
+			],
+			[
+				"main",
+				"js/main.js"
+			],
+			[
+				"req",
+				"python/enrichr_request.py"
+			],
+			[
+				"make",
+				"js/make_viz.js"
+			],
+			[
+				"py",
+				"python/enrichr_request.py"
+			],
+			[
+				"json",
+				"python/read_gmt_output_json.py"
+			],
+			[
+				"0.j",
+				"json/from_random_crowd_sourcing/0.json"
+			],
+			[
+				"examp",
+				"json/perfect_example.json"
+			],
+			[
+				"theme",
+				"js/theme.js"
+			],
+			[
+				"calc",
+				"js/calc_score.js"
+			],
+			[
+				"depod",
+				"json/Phosphatase_Substrates_from_DEPOD.json"
+			],
+			[
+				"reor",
+				"js/re_order.js"
+			],
+			[
+				".json",
+				"networks_nsclczc/dmet_exp_all.json"
+			],
+			[
+				"d3_conn",
+				"js/d3_connect_map_expression.js"
+			],
+			[
+				"update_adj",
+				"update_adj_matrix.js"
+			],
+			[
+				"d3_connect_map_expre",
+				"js/d3_connect_map_expression.js"
+			],
+			[
+				"d3_",
+				"js/d3_connect_map.js"
+			],
+			[
+				"add",
+				"kinase_kd_geo/gene_list_files/ABL1_druginhibition_77_GSE24493_dn.txt"
+			],
+			[
+				"d3_clu",
+				"d3_clustergram.py"
+			],
+			[
+				"make_ex_",
+				"make_exp_clustergram.py"
+			],
+			[
+				"ccle_ns",
+				"CCLE/ccle_nslc_updn.json"
+			],
+			[
+				"proc_ccle_",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"",
+				"proc_ccle_zscore_all_cl.py"
+			],
+			[
+				"ccle_up",
+				"CCLE/ccle_updn.json"
+			],
+			[
+				"ccle.json",
+				"CCLE/ccle.json"
+			],
+			[
+				"unus",
+				"unused_scripts.py"
+			],
+			[
+				"run_x2k_cs",
+				"run_x2k_cst.py"
+			],
+			[
+				"run_l",
+				"run_l1000geo_cst.py"
+			],
+			[
+				"proc_ccle_e",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"make_exp_cls",
+				"make_exp_clustergram.py"
+			],
+			[
+				"find_eviden",
+				"find_evidence_x2k_tfs.py"
+			],
+			[
+				"compare_kin_",
+				"compare_kin_ptm_x2k_sig.py"
+			],
+			[
+				"proc_cc",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"notes",
+				"notes_CST_python.txt"
+			],
+			[
+				"cst_ptm_mer",
+				"ptm_31_data/cst_ptm_merge_updn.json"
+			],
+			[
+				"cst_ptm_",
+				"ptm_31_data/cst_ptm_merge_updn.json"
+			],
+			[
+				"kea_x2k",
+				"combined_kinase_results/kea_x2k_sig.json"
+			],
+			[
+				"un",
+				"unused_scripts.py"
+			],
+			[
+				"top_kin_mult",
+				"combined_kinase_results/top_kin_mult_evi.txt"
+			],
+			[
+				"cst_ptm_enr",
+				"ptm_31_data/cst_ptm_updn_enr_premerge.json"
+			],
+			[
+				"compare",
+				"compare_kin_ptm_x2k_sig.py"
+			],
+			[
+				"ccle_updn",
+				"ptm_31_data/ccle_updn.json"
+			],
+			[
+				"cst",
+				"cst_common.py"
+			],
+			[
+				"cst_ptm",
+				"ptm_31_data/cst_ptm_merge_updn.json"
+			],
+			[
+				"x2k.py",
+				"run_x2k_cst.py"
+			],
+			[
+				"x2k",
+				"x2k_cst/x2k_cst.json"
+			],
+			[
+				"tmp",
+				"tmp.py"
+			],
+			[
+				"d3_clus",
+				"d3_clustergram.py"
+			],
+			[
+				"gather_t",
+				"gather_top_ptms.py"
+			],
+			[
+				"cst_ptm_up",
+				"ptm_31_data/cst_ptm_updn.json"
+			],
+			[
+				"notes_presentation",
+				"notes_presentation_5-18-2015.txt"
+			],
+			[
+				"kinase_substra",
+				"enz_and_tf_lists_gmts/KIN/kinase_substrate.gmt"
+			],
+			[
+				"_psite.gmt",
+				"enz_and_tf_lists_gmts/KIN/Kinase_psite.gmt"
+			],
+			[
+				"cst_prot_",
+				"ptm_31_data/cst_prot_updn_enr_merge_anti.json"
+			],
+			[
+				"cst_updn",
+				"ptm_31_data/cst_ptm_updn.json"
+			],
+			[
+				"cst_comm",
+				"cst_common.py"
+			],
+			[
+				"cst_ptm_updn_enr_merge",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				"tmp.",
+				"tmp.py"
+			],
+			[
+				"gather_top",
+				"gather_top_ptms.py"
+			],
+			[
+				"wpsite",
+				"enz_and_tf_lists_gmts/KIN/kin_psite_wpsiteplus.json"
+			],
+			[
+				"top_kin",
+				"combined_kinase_results/top_kin_mult_evi.txt"
+			],
+			[
+				"kin_ev",
+				"combined_kinase_results/kin_evi.json"
+			],
+			[
+				"find_dic",
+				"find_dict_in_list.py"
+			],
+			[
+				"kin_sig",
+				"CCLE/kin_sig.json"
+			],
+			[
+				"kin_",
+				"CCLE/kin_sig.json"
+			],
+			[
+				"kea_",
+				"combined_kinase_results/kea_x2k_sig.json"
+			],
+			[
+				"cst_ptm_updn",
+				"ptm_31_data/cst_ptm_updn.json"
+			],
+			[
+				"cell_lines",
+				"cell_lines.txt"
+			],
+			[
+				"gather_",
+				"gather_top_ptms.py"
+			],
+			[
+				"x2j",
+				"x2k_cst/x2k_cst.json"
+			],
+			[
+				"nsclc_cel_",
+				"CCLE/NSCLC_CCLE_cell_lines.txt"
+			],
+			[
+				"proc_ccle_exp_",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"x2k_cst.json",
+				"x2k_cst/x2k_cst.json"
+			],
+			[
+				"merge_anti",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				"a549",
+				"x2k_cst/A549_tf.csv"
+			],
+			[
+				"cell_",
+				"cell_lines.txt"
+			],
+			[
+				"test_",
+				"test_x2k.py"
+			],
+			[
+				"test",
+				"x2k_cst/test_x2k.py"
+			],
+			[
+				"calc_enr",
+				"calc_enrichment_gl_gmt.py"
+			],
+			[
+				"ccle_",
+				"ptm_31_data/ccle_updn.json"
+			],
+			[
+				"run_x2k",
+				"run_x2k.py"
+			],
+			[
+				"run_k",
+				"run_x2k_kit.py"
+			],
+			[
+				"ccle",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"cst_ptm_updn_",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				".java",
+				"example_fuzzy.java"
+			],
+			[
+				"prot_cor",
+				"ptm_31_data/prot_corr.json"
+			],
+			[
+				"export",
+				"export_d3_corr_viz.py"
+			],
+			[
+				"interesting",
+				"interesting_proteins.txt"
+			],
+			[
+				"note",
+				"notes_CST_python.txt"
+			],
+			[
+				"cst_merge",
+				"ptm_31_data/cst_ptm_updn_enr_merge_anti.json"
+			],
+			[
+				"calc_",
+				"calc_enrichment_gl_gmt.py"
+			],
+			[
+				"cst_com",
+				"cst_common.py"
+			],
+			[
+				"enr_comb_anti",
+				"ptm_31_data/cst_ptm_updn_enr_comb_anti.json"
+			],
+			[
+				"find_dict_in",
+				"find_dict_in_list.py"
+			],
+			[
+				"gather",
+				"gather_top_ptms.py"
+			],
+			[
+				"d3_cluste",
+				"d3_clustergram.py"
+			],
+			[
+				"make_enr",
+				"make_enr_clust.py"
+			],
+			[
+				"combine",
+				"combine_tf_gmts.py"
+			],
+			[
+				"process",
+				"process_and_load_ptm_31.py"
+			],
+			[
+				"py_te",
+				"ptm_31_data/py_test.txt"
+			],
+			[
+				"driver",
+				"known_drivers/drivers.json"
+			],
+			[
+				"top",
+				"ptm_31_data/top_10.json"
+			],
+			[
+				"d",
+				"d3_clustergram.py"
+			],
+			[
+				"kin_psite_wpsite",
+				"enz_and_tf_lists_gmts/KIN/kin_psite_wpsiteplus.json"
+			],
+			[
+				"proc",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"findptm",
+				"find_PTM_near_eachother.py"
+			],
+			[
+				"cell",
+				"cell_lines.txt"
+			],
+			[
+				"calc_n",
+				"calc_enrichment_gl_gmt.py"
+			],
+			[
+				"tf_enr",
+				"ptm_31_data/tf_enr.json"
+			],
+			[
+				"proc_",
+				"proc_ccle_exp_enr.py"
+			],
+			[
+				"cel_lines",
+				"cell_lines.txt"
+			],
+			[
+				"card_m",
+				"gene_and_AA_lists/card_mut.json"
+			],
+			[
+				"process_gene",
+				"process_gene_AA_list.py"
+			],
+			[
+				"clustergram_card",
+				"clustergram_card_mut_uniprot.py"
+			],
+			[
+				"process_card_prob",
+				"process_card_prob_results_into_table.py"
+			],
+			[
+				"load_cardiac",
+				"load_cardiac_data.py"
+			],
+			[
+				"proc_card_mu",
+				"gene_and_AA_lists/proc_card_mut_uniprot.json"
+			],
+			[
+				"classify",
+				"classify_card_mut_uniprot.py"
+			],
+			[
+				"wave",
+				"gene_and_AA_lists/Wave2_complex_mutations_protein_features.txt"
+			],
+			[
+				"check_wa",
+				"check_wave2_complex.py"
+			],
+			[
+				"card_mut_json",
+				"gene_and_AA_lists/card_mut_json.txt"
+			],
+			[
+				"check",
+				"check_mutations_uniprot.py"
+			],
+			[
+				"checkmutations",
+				"check_mutations_uniprot.py"
+			],
+			[
+				"prob_card",
+				"gene_and_AA_lists/prob_card_gene_classifications.txt"
+			],
+			[
+				"clusterram_card_",
+				"gene_and_AA_lists/clustergram_card_mut_uniprot.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+		"_vintageous_last_buffer_search": "rect_size",
+		"_vintageous_last_buffer_search_command": "vi_star",
+		"_vintageous_last_char_search_command": "vi_f",
+		"_vintageous_last_character_search": "j",
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "/Users/AtoTheZ/Dropbox/Projects/bb_2015_gene_game/js"
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 229.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
