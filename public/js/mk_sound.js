@@ -23,11 +23,15 @@ function createsoundbite(sound){
       html5audio.currentTime=0
       html5audio.play()
     }
+    
     return html5audio
   }
   else{
     return {playclip:function(){throw new Error("Your browser doesn't support HTML5 audio unfortunately")}}
   }
+  html5audio.pause=function() {
+      html5audio.pause()
+    }
 }
 
 var row_swap_sound   = createsoundbite("sounds/tiny_button_push.mp3")
@@ -37,3 +41,6 @@ var ascending_sound  = createsoundbite("sounds/ascending.mp3")
 var descending_sound = createsoundbite("sounds/descending.mp3")
 var reset_sound      = createsoundbite("sounds/explosion.mp3")
 var countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
+var start_game_sound = createsoundbite("sounds/hole_punch.mp3")
+
+var music            = createsoundbite("sounds/music.mp3")

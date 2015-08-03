@@ -18,6 +18,20 @@ function make_viz(sample) {
   nrow = terms.length;
   ncol = 0;
 
+
+svg.append("text")
+  .attr("class", "library2")
+  .attr("x", 0)
+  .attr("y", -20)
+  .attr("dy", ".32em").attr("text-anchor", "front")
+  .attr("font-size", 25)
+  .attr("fill", "skyblue")
+  .text(random)
+  .style("cursor", "pointer")
+  .on('mouseover', function () { d3.select('.library2').style('fill', 'blue'); })
+  .on('mouseout', function() { d3.select('.library2').style('fill', 'skyblue'); })
+  .on("click", function() { window.open("http://amp.pharm.mssm.edu/Enrichr/#stats"); });
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Preprocesses the information about the json
 
@@ -356,7 +370,7 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
 // Helper functions
 
   function swap_rows() {
-    row_swap_sound.playclip();
+    if (toggle_sound) row_swap_sound.playclip();
     var temp_1_index = current_index_order.x.indexOf(selected_index_1.x),
         temp_1_value = current_index_order.x[temp_1_index],
         temp_2_index = current_index_order.x.indexOf(selected_index_2.x),
@@ -374,7 +388,7 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   }
 
   function swap_cols() {
-    col_swap_sound.playclip();
+    if (toggle_sound) col_swap_sound.playclip();
     var temp_1_index = current_index_order.y[selected_index_1.x].indexOf(selected_index_1.y),
         temp_1_value = current_index_order.y[selected_index_1.x][temp_1_index],
         temp_2_index = current_index_order.y[selected_index_1.x].indexOf(selected_index_2.y),
@@ -494,11 +508,6 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   
   // d3.select('#topbar_submit').on('click', post);
 
-  // function post() {
-  //   $.post( "/submit" , function (data) {
-  //       console.log(data);
-  //     })
-  // }
 
   // calculate score and order in initial state
   reset_curr_mat(current_index_order);

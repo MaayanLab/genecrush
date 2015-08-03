@@ -42,7 +42,7 @@ function undo() {
   } else {                                    // Nothing to Undo
     console.log("there is nothing to undo");
   }
-  undo_sound.playclip();
+  if (toggle_sound) undo_sound.playclip();
   curr_duration = default_duration;
 }
 
@@ -62,7 +62,7 @@ function sort_descending(value) {
   order(orders[counter]);
   counter++;
   curr_duration = default_duration;
-  descending_sound.playclip();
+  if (toggle_sound) descending_sound.playclip();
 }
 
 
@@ -79,10 +79,10 @@ function sort_ascending(value) {
   current_index_order = new_order;    // new order is now current order, adds to "orders"
   orders[counter] = new_order;
   order(orders[counter]);
-  console.log(orders[counter]);
+  // console.log(orders[counter]);
   counter++;
   curr_duration = default_duration;
-  ascending_sound.playclip();
+  if (toggle_sound) ascending_sound.playclip();
 }
 
 
@@ -98,7 +98,7 @@ function sort_freq(value) {
 
   current_index_order = new_order;    // new order is now current order, adds to "orders"
   orders[counter] = new_order;
-  console.log(orders);
+  // console.log(orders);
   order(orders[counter]);
   counter++;
   curr_duration = default_duration;
@@ -117,7 +117,7 @@ function sort_alphabet(value) {
 
   current_index_order = new_order;    // new order is now current order, adds to "orders"
   orders[counter] = new_order;
-  console.log(orders[counter]);
+  // console.log(orders[counter]);
   order(orders[counter]);
   counter++;
   curr_duration = default_duration;
@@ -136,7 +136,7 @@ function reset() {
   curr_duration = default_duration;
   d3.selectAll(svg).selectAll('.rect').style('stroke', "blue").style('stroke-width', 1);
   d3.selectAll('.score_board_text').text(0);      // reset score to 0
-  reset_sound.playclip();
+  if (toggle_sound) reset_sound.playclip();
 }
 
 
@@ -176,14 +176,15 @@ d3.select("#unq_gene").on("change", function() {
   curr_duration = default_duration;
 });
 
-// TODO needs to fine detail revise it to make it bug-free
+// Creates new Game.
 function new_data() {
   random = Math.floor(Math.random() * 71);
-  var path = "json/from_random_crowd_sourcing/";
-  path += random;
-  path += '.json'
-  console.log(path);
+  var path = "json/from_random_crowd_sourcing/6478_1_936_6/";
+  path += names_of_the_files[random];
+  path += '_.json'
   d3.select('.svg').remove();
+  orig_nav_data = [];
+  orig_nav_data_rep = [];
   d3.selectAll('.navigator').remove();
   svg = d3.select("#main_game").append("svg").attr('class', 'svg')
       .attr("width", width + margin.left + margin.right)
@@ -199,12 +200,14 @@ function new_data() {
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
+
   // d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
   // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
   d3.json(path, function(sample) {
   //   // Processes the visualizing of the "json"
     make_viz(sample);
   });
+  if (toggle_sound) start_game_sound.playclip();
 }
 
 
@@ -221,7 +224,6 @@ function reset_curr_mat(value) {
 
 
 function submit_this() {
-  // $.post('/submit', function() {
   //   var returning_json = [];
   //   for (var i = 0; i < current_index_order.x.length; i++) { //
   //     var x = current_index_order.x[i]
@@ -232,19 +234,89 @@ function submit_this() {
   //     }
   //     returning_json[terms[x]] = row.slice();
   //   }
-  //   return returning_json;
-  // });
-  var returner = {id:'runner', score:3}
+  //   console.log(returning_json);
+  // var returner = {id:'runner', score:4}
+  var temp = 0;
+  if (played_whole_game) temp = 60;
 
-  console.log('should submit');
-  console.log(returner);
+  var this_data = {
+    username:g_id, 
+    total_score:curr_score, 
+    total_time:temp, 
+    num_games_played:1, 
+    highest_score:curr_score
+  }
+
+  // var this_data = {
+  //   username:'testuser', 
+  //   total_score:50, 
+  //   total_time:60, 
+  //   num_games_played:1, 
+  //   highest_score:50
+  // }
+
+  // console.log(this_data);
+   $.ajax({
+      type: "GET",
+      url: '/user/getTopTen',
+      dataType: 'text', 
+      success: function(userData) {
+        d3.select('.bd_hs_legend').text('Highest Score').style('font-size', '20px')
+        var topTen = JSON.parse(userData);
+        for (var i = 0; i < 10; i++) {
+          var curr = topTen[i];
+          if (curr != undefined && curr.username != undefined) {
+            var n = curr.username.indexOf('@');
+            var text = curr.username;
+            text = text.replaceBetween(2,n-2,'****');
+            text += ' --------->  ';
+            text += curr.highest_score;
+            text += ' pts'
+            d3.select('.bd_hs_' + (i + 1)).text(text);
+          }
+        }
+      },
+      error: function(userData) {
+        console.log('please_sign_in_using_ur_google_account');
+      }
+    });
+
 
   $.ajax({
-            type: 'POST',
-            data: returner,
-            url: '/submit_score',
-            dataType: 'JSON'
-        })
+      type: "POST",
+      data: this_data,
+      url: '/user/pushInfo',
+      dataType: 'text', 
+      success: function(userData) {
+        console.log('submitted');
+        user = JSON.parse(userData);
+        // console.log('success');
+        // console.log(user);
+        if (user.username != undefined && g_logged_in_status) {
+          d3.select(".bd_message").text("Thank you for submitting your score!").style('font-size','20px')
+          d3.select(".bd_username").text("Username : " + user.username)
+          d3.select(".bd_highest_score").text("Highest Score : " + user.highest_score + " points")
+          d3.select(".bd_average_score").text("Average Score : " + parseFloat(user.total_score / user.num_games_played).toFixed(2) + " points")
+          d3.select(".bd_average_time").text("Average time per game : " + parseFloat(user.total_time / user.num_games_played).toFixed(2) + " seconds")
+        }
+        else {
+          d3.select(".bd_message").text("Please sign in to keep track of your scores!").style('font-size', '20px')
+          d3.select(".bd_username").text(null)
+          d3.select(".bd_highest_score").text(null)
+          d3.select(".bd_average_score").text(null)
+          d3.select(".bd_average_time").text(null)
+        }
+      },
+      error: function(userData) {
+        console.log('please_sign_in_using_ur_google_account');
+        console.log(userData);
+      }
+    });
+  d3.select('#start_viz').classed('hidden',false)
+  d3.select('#start_game').classed('hidden',false)
+  d3.select('#startpage').classed('hidden',false)
+  d3.select('#topbar').classed('blocked',true)
+
 }
 
     
@@ -323,15 +395,6 @@ function reset_nav_data(value) {
   d3.select('.nav_line').attr('d', nav_line(curr_nav_data));
 }
 
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
-  g_logged_in_status = true;
-  d3.select('.g-signout2').text('Sign Out')
-}
 
 // d3.select('#topbar').attr('height',35px)
 
@@ -341,6 +404,9 @@ function start_viz() {
   d3.select('#startpage').classed('hidden',true)
   d3.select('#topbar').classed('blocked',false)
   d3.select('.timer_board_text').text('N/A')
+  played_whole_game = false;
+  new_data();
+  if (toggle_sound) start_game_sound.playclip();
 }
 
 function start_game() {
@@ -349,4 +415,44 @@ function start_game() {
   d3.select('#startpage').classed('hidden',true)
   d3.select('#topbar').classed('blocked',false)
   myTimer.start(61);
+  played_whole_game = false;
+  new_data();
+}
+
+function toggle_sound_fx() {
+  if (toggle_sound) {
+    toggle_sound = false;
+    d3.select('#toggle_sound').attr('class', 'btn-danger')
+  } else {
+    toggle_sound = true;
+    d3.select('#toggle_sound').attr('class', 'btn-success')
+  }
+}
+
+function toggle_music_fx() {
+  if (toggle_music) {
+    toggle_music = false;
+    music.pause();
+    d3.select('#toggle_music').attr('class', 'btn-danger')
+    row_swap_sound   = createsoundbite("sounds/tiny_button_push.mp3")
+    col_swap_sound   = createsoundbite("sounds/click.mp3")
+    undo_sound       = createsoundbite("sounds/pop_cork.mp3")
+    ascending_sound  = createsoundbite("sounds/ascending.mp3")
+    descending_sound = createsoundbite("sounds/descending.mp3")
+    reset_sound      = createsoundbite("sounds/explosion.mp3")
+    countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
+    start_game_sound = createsoundbite("sounds/hole_punch.mp3")
+  } else {
+    toggle_music = true;
+    music.playclip();
+    d3.select('#toggle_music').attr('class', 'btn-success')
+    row_swap_sound   = createsoundbite("sounds/bcfire02.mp3") // change
+    col_swap_sound   = createsoundbite("sounds/ltsaberhit01.mp3")
+    undo_sound       = createsoundbite("sounds/forcesee01.mp3")
+    ascending_sound  = createsoundbite("sounds/ESGend0.mp3")
+    descending_sound = createsoundbite("sounds/EMGstop.mp3")
+    reset_sound      = createsoundbite("sounds/explosion.mp3")
+    countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
+    start_game_sound = createsoundbite("sounds/father.mp3")
+  }
 }

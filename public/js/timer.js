@@ -2,7 +2,7 @@ var myTimer = new Timer({
     tick    : 1,
     ontick  : function(sec) { 
     	if (sec > 5) {
-    		if (sec == 10) countdown_sound.playclip();
+    		if (sec == 10 && toggle_sound) countdown_sound.playclip();
     		d3.select('.timer_board_text').text(sec)
 				.attr("font-size", 70).attr("y", height_sc / 2 + 13);
 			d3.select('.timer_board_text').transition().duration(500)
@@ -23,7 +23,10 @@ var myTimer = new Timer({
 			.attr("font-size", 100).attr("y", height_sc / 2 + 13);
 		d3.select('.timer_board_text').transition().duration(500)
 			.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8); 
-		reset_sound.playclip();
+		if (toggle_sound) reset_sound.playclip();
+		played_whole_game = true;
+		submit_this();
     }
 });
 // myTimer.start(15);
+//TODO AZU fix when not playing mode, still keep time. Look up if you can find if it submits upon quitting.

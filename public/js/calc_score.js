@@ -16,18 +16,19 @@ function calc_score(value) {
 	// }
 	// ////////////////////////////////////
 
+	// reset each round
+	d3.selectAll('.common_path').attr('stroke',null);
 
 	// d3.selectAll('.common_path').attr('stroke', null)
-	// var rectangles = get_rect();
+	var rectangles = get_rect();
+	find_modules(rectangles);
 	// for (var i = 0; i < rectangles.length; i++) {
 	// 	draw_rect(rectangles[i]);
 	// }
 	update_score_bd();
-
 }
 
-//TODO cleanup the code here
-// TODO calculate the horizontal
+//TODO cleanup the code here points
 // Calculates repeated occurrences and calcs score for just that.
 function calc_vertical() {
 	dup_temp = [];
@@ -59,7 +60,8 @@ function calc_vertical() {
 		}
 	}
 	prev_score = curr_score;
-	curr_score = score_count;
+	curr_score = 0;
+	// curr_score = score_count;
 }
 
 // Calculates anything that makes rectangle with 4 or more,
@@ -99,33 +101,35 @@ function get_rect() {
 	// }
 	// ////////////////////////////////////
 	// for (var i = 0; i < 5; i++) { //two_by_two_head.length
-	var safety = 20;
-	var exit = false;
-	while (two_by_two_head.length > 0 && !exit)	{
-		safety--;
-		console.log('safety: ' + safety);
-		// console.log('two_by_two_head below: ' + two_by_two_head.length);
-		// for (var i = 0; i < two_by_two_head.length; i++) {
-		// 	console.log(two_by_two_head[i]);
-		// }
-		if (has_right(two_by_two_head[0], two_by_two_head) != -1) {						// has right
-			if (has_bot(two_by_two_head[0], two_by_two_head) != -1
-				&& has_right_bot(two_by_two_head[0], two_by_two_head) != -1) {		// also has bot and bot-right
-				returner.push(look_bot_right(two_by_two_head[0], two_by_two, two_by_two_head));
-			} else {																														// only has right
-				returner.push(look_right(two_by_two_head[0], two_by_two, two_by_two_head));
-			}
-		} else {																															// doesn't have right
-			if (has_bot(two_by_two_head[0], two_by_two_head) != -1) {						// but has bot
-				returner.push(look_bot(two_by_two_head[0], two_by_two, two_by_two_head));
-			} else {																														// don't have right nor bot
-				two_by_two_head.splice(0, 1);
-				returner.push(two_by_two.splice(0, 1)[0]);
-			}
-		}
-		// console.log(returner);
-		if (safety == 0) exit = true;
-	}
+
+
+	// var safety = 20;
+	// var exit = false;
+	// while (two_by_two_head.length > 0 && !exit)	{
+	// 	safety--;
+	// 	console.log('safety: ' + safety);
+	// 	// console.log('two_by_two_head below: ' + two_by_two_head.length);
+	// 	// for (var i = 0; i < two_by_two_head.length; i++) {
+	// 	// 	console.log(two_by_two_head[i]);
+	// 	// }
+	// 	if (has_right(two_by_two_head[0], two_by_two_head) != -1) {						// has right
+	// 		if (has_bot(two_by_two_head[0], two_by_two_head) != -1
+	// 			&& has_right_bot(two_by_two_head[0], two_by_two_head) != -1) {		// also has bot and bot-right
+	// 			returner.push(look_bot_right(two_by_two_head[0], two_by_two, two_by_two_head));
+	// 		} else {																														// only has right
+	// 			returner.push(look_right(two_by_two_head[0], two_by_two, two_by_two_head));
+	// 		}
+	// 	} else {																															// doesn't have right
+	// 		if (has_bot(two_by_two_head[0], two_by_two_head) != -1) {						// but has bot
+	// 			returner.push(look_bot(two_by_two_head[0], two_by_two, two_by_two_head));
+	// 		} else {																														// don't have right nor bot
+	// 			two_by_two_head.splice(0, 1);
+	// 			returner.push(two_by_two.splice(0, 1)[0]);
+	// 		}
+	// 	}
+	// 	// console.log(returner);
+	// 	if (safety == 0) exit = true;
+	// }
 
 	// console.log('========dup_temp==========' + dup_temp.length);
 	// console.log(dup_temp);
@@ -139,8 +143,81 @@ function get_rect() {
 	// console.log('========returner========' + returner.length);
 	// console.log(returner);
 	// console.log('');
-	return returner;
+	return two_by_two_head;
 }
+
+function find_modules(value) {
+
+	// get first this module.
+	var indexes = value.slice();
+
+	while (indexes.length > 0) {
+		var this_module = [];
+		var this_row_module = [];
+		var this_module_height = 1;
+		var temp = indexes.shift();
+		this_row_module.push(temp);
+		while (has_bot(temp, indexes) != -1) {
+			temp = get_bot(temp, indexes);
+			this_row_module.push(temp);
+			this_module_height++;
+		}
+
+		// find maximum length of genes
+		var this_module_max_length = 0;
+		for (var i = 0; i < this_module_height; i++) {
+			temp = this_row_module[i];
+			var row_length = 1;
+			while (has_right(temp, indexes) != -1) {
+				temp = indexes[has_right(temp, indexes)];
+				row_length++;
+			}
+			if (this_module_max_length < row_length) this_module_max_length = row_length;
+		}
+
+		// get the longest row #s
+		var max_row_nums = [];
+		var not_max_row_nums = [];
+		for (var i = 0; i < this_module_height; i++) {
+			temp = this_row_module[i];
+			var row_length = 1;
+			while (has_right(temp, indexes) != -1) {
+				temp = indexes[has_right(temp, indexes)];
+				row_length++;
+			}
+			if (this_module_max_length == row_length) max_row_nums.push(i);
+			else not_max_row_nums.push(i);
+		}
+
+		// add longest rows into this_module
+		for (var i = 0; i < max_row_nums.length; i++) {
+			var temp = this_row_module[max_row_nums[i]];
+			this_module.push(temp);
+			for (var j = 0; j < this_module_max_length - 1; j++) {
+				temp = get_right(temp, indexes);
+				this_module.push(temp);
+			}
+		}
+
+		// remove everything else that went thorugh this module.
+		for (var i = 0; i < not_max_row_nums.length; i++) {
+			var temp = this_row_module[not_max_row_nums[i]];
+			while (has_right(temp, indexes) != -1) {
+				temp = get_right(temp, indexes);
+			}
+		}
+
+
+		//  calculate score
+		curr_score += (((2 * (this_module_max_length + 1)) -1) * Math.pow(max_row_nums.length + 1,2));
+
+		//  draw around this_module
+		draw_rect(this_module);
+	}
+}
+
+
+
 
 function look_bot_right(value, two_by_two, two_by_two_head) {
 	var sq_size = 1;
@@ -181,10 +258,10 @@ function look_bot_right(value, two_by_two, two_by_two_head) {
 			that_row_length++;
 		}
 	}
-	console.log(max_col_length);
-	console.log(that_row);
-	console.log(that_row_length);
-	console.log(value);
+	// console.log(max_col_length);
+	// console.log(that_row);
+	// console.log(that_row_length);
+	// console.log(value);
 	// if ((max_col_length+1) * (that_row_length+1) > area_of_sq) {
 	// 	for (var x = 0; x < max_col_length + 1; x++) {				// get that horiz rect out.
 	// 		for (var y = that_row; y < that_row_length + 1; y++) {
@@ -271,6 +348,8 @@ function indexOf(value, array) {
 	return returner;
 }
 
+//TODO repaint is off drawing rect
+// TODO wrong rectangle highlights due to index issues
 // Draws path of outer set of rectangles.
 function draw_rect(value) {
 
@@ -285,7 +364,7 @@ function draw_rect(value) {
 	var lineFunction = d3.svg.line()
 			.x(function(d) { return d.x; })
 			.y(function(d) { return d.y; })
-			.interpolate("cardinal-closed");
+			.interpolate("linear-closed");
 
 	// Draws the line
 	var lineGraph = svg.append("path").attr("stroke", "white").transition().duration(1000)
@@ -327,6 +406,7 @@ function has_right(value, array) {
 	return returner;
 }
 
+// TODO fix everywhere when you call has_ function, return true or false instead of the index.
 // returns the index of the value if it has it right of the value.
 function has_bot(value, array) {
 	if (array.length == 0) return -1;
@@ -408,6 +488,8 @@ function add_corners(value) {
 		if (value[i].x > right) right = value[i].x;
 	}
 	bottom++;
+	bottom++;
+	right++;
 	right++;
 	var returner = [];
 	top = scale_Y(top);

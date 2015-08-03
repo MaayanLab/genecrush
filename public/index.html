@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
-<title>enrichrgame</title>
+<title>GeneCrush</title>
+<base href="/GeneCrush/">
 
 <!-- Login API -->
 <meta name="google-signin-client_id" content="425402044071-jp4qinssdl7ftbi9235pjbinmui5gvva.apps.googleusercontent.com">
@@ -31,10 +32,11 @@
 
 
 <body>
-    <div><h1 style='margin-top:50px'><center>enrichrgame</center></h1></div>
+    <div><h1 style='margin-top:50px'><center>GeneCrush</center></h1></div>
     
     <div class='container'>
         <div class='right'> 
+            <button style="margin-top:5px" type="button" class='btn-primary' onclick="submit_this()">Submit</button>
             <p style="margin-top:50px;"id="score"></p>
             <p style="margin-top:50px"; id="timer"></p>
             <p style="margin-top:50px"; id="toggle"></p>
@@ -70,8 +72,10 @@
 
 
     <div id="topbar" class='blocked'>
-        <a href="#">Enrichrgame</a>
-        <a id="topbar_submit" href="#">Submit</a>
+        <button id="toggle_sound" style="margin-top:5px" type="button" class='btn-success' onclick="toggle_sound_fx()">Sound</button>
+        <button id="toggle_music" style="margin-top:5px" type="button" class='btn-danger' onclick="toggle_music_fx()">Music</button>
+        <!-- <a href="#">Submit</a> -->
+        <!-- <a id="topbar_submit" href="#">Submit</a> -->
         <!-- <a href="#">Home</a>
         <a href="#">Portfolio</a>
         <a href="#">Our Apps</a>
@@ -79,13 +83,29 @@
         <a href="#">Press</a>
         <a href="#">About</a> -->
             <a href="#" class="g-signout2" onclick="signOut();"></a>
+            <a class="g-signout2_pic"></a>
     <!--         <fb:login-button class='fb-singin2' scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
         <div id="startpage" class='visible'>
             <div>
-                <p><strong><center>Scoreboard</center></strong></p>
-                <div class='live_score_board'></div>
+                <p class='bd_hs_legend'></p>
+                <p class='bd_hs_1'>N/A</p>
+                <p class='bd_hs_2'>N/A</p>
+                <p class='bd_hs_3'>N/A</p>
+                <p class='bd_hs_4'>N/A</p>
+                <p class='bd_hs_5'>N/A</p>
+                <p class='bd_hs_6'>N/A</p>
+                <p class='bd_hs_7'>N/A</p>
+                <p class='bd_hs_8'>N/A</p>
+                <p class='bd_hs_9'>N/A</p>
+                <p class='bd_hs_10'>N/A</p>
+                <p class='bd_message'style="margin-top:20px"></p>
+                <p class='bd_username'></p>
+                <p class='bd_highest_score'></p>
+                <p class='bd_average_score'></p>
+                <p class='bd_average_time'></p>
             </div>
         </div>
         <button id='start_viz' class='btn-primary' type="button", onclick="start_viz()">Want to explore genes</button>

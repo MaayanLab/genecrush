@@ -32,7 +32,13 @@ var margin = { top: 50, right: 10, bottom: 50, left: 10 },
     toggle_hl = 0,
     toggle_unq = 0,
     click_state = 0,
-    g_logged_in_status = false;
+    played_whole_game = false,
+    g_logged_in_status = false,
+    user = {},
+    g_id = {},
+    toggle_sound = true,
+    toggle_music = false;
+
 
 // Global vairables.
 var orders,
@@ -91,28 +97,30 @@ label_svg.append("text")
   .attr("fill", "white")
   .text('LIBRARY :');
 
-svg.append("text")
-  .attr("class", "library2")
-  .attr("x", 0)
-  .attr("y", -20)
-  .attr("dy", ".32em").attr("text-anchor", "front")
-  .attr("font-size", 25)
-  .attr("fill", "skyblue")
-  .text(random)
-  .style("cursor", "pointer")
-  .on('mouseover', function () { d3.select('.library2').style('fill', 'blue'); })
-  .on('mouseout', function() { d3.select('.library2').style('fill', 'skyblue'); })
-  .on("click", function() { window.open("http://amp.pharm.mssm.edu/Enrichr/#stats"); });
-
-// Update leaderboard score
-var live_score_bd = d3.select('.live_score_board').append('svg').append('g');
-$.get( "/get_top_ten_scores" , function (data) {
-  var keys = Object.keys(data);
-  for (var i = 0; i < keys.length; i++) {
-    var output = (i + 1) + "..........." + data[i].id + ": \t\t" + data[i].score + '\n ';
-    live_score_bd.append('text').text(output).attr('y', 30*i + 40)
-  }
-})
+  $.ajax({
+      type: "GET",
+      url: '/user/getTopTen',
+      dataType: 'text', 
+      success: function(userData) {
+        d3.select('.bd_hs_legend').text('Highest Score').style('font-size', '20px')
+        var topTen = JSON.parse(userData);
+        for (var i = 0; i < 10; i++) {
+          var curr = topTen[i];
+          if (curr != undefined && curr.username != undefined) {
+            var n = curr.username.indexOf('@');
+            var text = curr.username;
+            text = text.replaceBetween(2,n-2,'****');
+            text += ' --------->  ';
+            text += curr.highest_score;
+            text += ' pts'
+            d3.select('.bd_hs_' + (i + 1)).text(text);
+          }
+        }
+      },
+      error: function(userData) {
+        console.log('please_sign_in_using_ur_google_account');
+      }
+    });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Read in the proper json file.
@@ -120,8 +128,12 @@ $.get( "/get_top_ten_scores" , function (data) {
 // d3.json("json/perfect_example.json", function(sample) {
 // d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
 // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
-d3.json(path, function(sample) {
+// d3.json(path, function(sample) {
 
-  // Processes the visualizing of the "json"
-  make_viz(sample);
-});
+//   // Processes the visualizing of the "json"
+//   make_viz(sample);
+// });
+
+String.prototype.replaceBetween = function(start, end, what) {
+    return this.substring(0, start) + what + this.substring(end);
+};

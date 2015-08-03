@@ -1,17 +1,17 @@
 {
-    "id": "milestonesViz",
+    "id": "genecrush",
     "instances": 1,
     "cpus": 0.5,
-    "mem": 256,
+    "mem": 1024,
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "146.203.54.165:5000/milestones-viz:1.0",
+            "image": "146.203.54.165:5000/genecrush:1.0",
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [
                 {
-                    "containerPort": 7070,
+                    "containerPort": 1988,
                     "hostPort": 0,
                     "protocol": "tcp"
                 }
