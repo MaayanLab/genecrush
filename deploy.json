@@ -6,7 +6,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "146.203.54.165:5000/genecrush:1.0",
+            "image": "146.203.54.165:5000/genecrush:latest",
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [

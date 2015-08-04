@@ -99,8 +99,8 @@ label_svg.append("text")
 
   $.ajax({
       type: "GET",
-      url: '/user/getTopTen',
-      dataType: 'text', 
+      url: 'user/getTopTen',
+      dataType: 'text',
       success: function(userData) {
         d3.select('.bd_hs_legend').text('Highest Score').style('font-size', '20px')
         var topTen = JSON.parse(userData);

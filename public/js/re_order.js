@@ -261,6 +261,7 @@ function submit_this() {
       url: '/user/getTopTen',
       dataType: 'text', 
       success: function(userData) {
+        console.log('got top ten from db');
         d3.select('.bd_hs_legend').text('Highest Score').style('font-size', '20px')
         var topTen = JSON.parse(userData);
         for (var i = 0; i < 10; i++) {
@@ -442,6 +443,7 @@ function toggle_music_fx() {
     reset_sound      = createsoundbite("sounds/explosion.mp3")
     countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
     start_game_sound = createsoundbite("sounds/hole_punch.mp3")
+    d3.select('#body').attr('class','normal')
   } else {
     toggle_music = true;
     music.playclip();
@@ -454,5 +456,6 @@ function toggle_music_fx() {
     reset_sound      = createsoundbite("sounds/explosion.mp3")
     countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
     start_game_sound = createsoundbite("sounds/father.mp3")
+    d3.select('#body').attr('class','game')
   }
 }

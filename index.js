@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/genecrush');
+mongoose.connect('mongodb://146.203.54.131:27017/genecrush');
 
 var userSchema = mongoose.Schema(
 	{ username:String, 
@@ -25,19 +25,19 @@ var urlencodedParser = bodyParser.urlencoded({limit:'5mb',extended:false});
 app.use('/GeneCrush',express.static(__dirname + '/public'));
 
 // GET the top ten players scores.
-app.get('/user/getTopTen',function(request, response){
+app.get('/GeneCrush/user/getTopTen',function(request, response){
 	User.find().sort({highest_score:-1}).limit(10).exec(function(err, data) {response.send(data);});
 })
 
 // POST to get back the user information.
-app.post('/user/getInfo', urlencodedParser, function(request, response){
+app.post('/GeneCrush/user/getInfo', urlencodedParser, function(request, response){
 	User.findOne(request.body).exec(function(err, data) {
 		if (data == null) {
 			var newUser = new User ({
 				username:request.body.username, 
 				total_score:0, 
 				total_time:0, 
-				num_games_played:0.001, 
+				num_games_played:0.0000001, 
 				highest_score:0
 			})
 			newUser.save(function(err, data) {
@@ -50,7 +50,7 @@ app.post('/user/getInfo', urlencodedParser, function(request, response){
 	})
 })
 
-app.post('/user/pushInfo', urlencodedParser, function(request, response){
+app.post('/GeneCrush/user/pushInfo', urlencodedParser, function(request, response){
 	console.log(request.body.username);
 	User.findOne({username:request.body.username}).exec(function(err, data) {
 		if (data == null) {
@@ -77,18 +77,6 @@ app.post('/user/pushInfo', urlencodedParser, function(request, response){
 				response.send(existingData);
 			})
 		}
-	})
-})
-
-
-app.post('/submit_score', urlencodedParser, function(request, response, next) {
-	var newScore = new User({
-		id: request.body.id,
-		score: request.body.score
-	})
-	newScore.save(function (err, data) {
-		if (err) console.log(err);
-		else console.log('saved ', data);
 	})
 })
 
