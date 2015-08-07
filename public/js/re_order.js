@@ -204,7 +204,7 @@ function new_data(test_data) {
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-  
+
   // d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
   // d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
   // d3.json("json/perfect_example.json", function(sample) {
@@ -365,7 +365,6 @@ function redraw_svg() {
       d3.selectAll('.cell_y'+j).select('.cell_text').attr("x", curr_cell_width / 2)
     }
   }
-  console.log('testing');
 }
 
 

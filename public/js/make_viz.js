@@ -34,36 +34,20 @@ svg.append("text")
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Preprocesses the information about the json
 
-  // // deletes the unique genes from the sample.
-  // ncol = 0;
-  // var new_sample = {}
-  // for (var i = 0; i < terms.length; i++) {
-  //   var curr_row = sample[terms[i]];
-  //   var new_row = [];
-  //   for (var j = 0; j < curr_row.length; j++) 
-  //     if ($.inArray(curr_row[j], unq_gene_names) == -1) new_row.push(curr_row[j]);
-  //   if (ncol < new_row.length) ncol = new_row.length;
-  //   new_sample[terms[i]] = new_row.slice();
-  // }
-  // sample = new_sample;
-
-  // // sorts the names alphabetically.
-  // for (var i = 0; i < terms.length; i++) {
-  //   sample[terms[i]] = sample[terms[i]].sort();
-  // }
-
+  // sorts the names alphabetically.
+  for (var i = 0; i < terms.length; i++) {
+    sample[terms[i]] = sample[terms[i]].sort();
+  }
  
    // "ncol" - max genes in a given set(max col number).
   for (var i = 0; i < nrow; i++) if (sample[terms[i]].length > ncol) ncol = sample[terms[i]].length;
 
-  orig_nav_data.push(0);
+
   for (var i = 0; i < nrow; i++) { curr_row = sample[terms[i]];
     for (var j = 0; j < ncol; j++) { genes.push(curr_row[j]);                   // all genes pushed to the "genes"
       if (genes_unq.indexOf(curr_row[j]) < 0) genes_unq.push(curr_row[j]);  // unique gene pushed to "genes_unq"
     }
-    orig_nav_data.push(curr_row.length);
-  } orig_nav_data.push(0);                                                  // orig_nav_data set.
-  curr_nav_data = orig_nav_data.slice();                                    // curr_nav_data updated
+  }
 
   // "genes_unq_count" has frequency of all the genes count.
   for (var i = 0; i < genes_unq.length; i++) genes_unq_count[genes_unq[i]] = 0;
@@ -90,11 +74,15 @@ svg.append("text")
   ncol = 0;
   for (var i = 0; i < nrow; i++) if (sample[terms[i]].length > ncol) ncol = sample[terms[i]].length;
     genes_unq = [];
-    for (var i = 0; i < nrow; i++) { curr_row = sample[terms[i]];
-      for (var j = 0; j < ncol; j++) { genes.push(curr_row[j]);                   // all genes pushed to the "genes"
-        if (genes_unq.indexOf(curr_row[j]) < 0) genes_unq.push(curr_row[j]);  // unique gene pushed to "genes_unq"
-      }
-    } 
+
+  orig_nav_data.push(0);
+  for (var i = 0; i < nrow; i++) { curr_row = sample[terms[i]];
+    for (var j = 0; j < ncol; j++) { genes.push(curr_row[j]);                   // all genes pushed to the "genes"
+      if (genes_unq.indexOf(curr_row[j]) < 0) genes_unq.push(curr_row[j]);  // unique gene pushed to "genes_unq"
+    }
+    orig_nav_data.push(curr_row.length);
+  } orig_nav_data.push(0);                                                  // orig_nav_data set.
+  curr_nav_data = orig_nav_data.slice();                                    // curr_nav_data updated
 
   // Find index of undefined
   for (var i = 0; i < genes_unq.length; i++) if (genes_unq[i] == undefined) undefined_ind = i;
@@ -569,4 +557,23 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   calc_score(current_index_order);
   // tutorial();
   // d3.select('.svg').attr('width', rect_size*ncol+300);
+
+  curr_cell_width = 59.091;
+  svg.select('.x.axis').call(x_axis);
+  d3.selectAll('.rect').attr('width',curr_cell_width)
+  for (var i = 0; i < nrow; i++) {
+    var curr_row_order = current_index_order.y[i].slice();
+    for (var j = 0; j < ncol; j++) {
+      var x_corrdinates = (curr_cell_width*(curr_row_order.indexOf(j)-nav_min));
+      d3.selectAll('.row_'+i).selectAll('.cell_y'+j).attr('transform','translate('+x_corrdinates+',0)');
+      d3.selectAll('.cell_y'+j).select('.cell_text').attr("x", curr_cell_width / 2)
+    }
+  }
+  for (var i = 0; i < 10; i++) {
+    svg.append('line').attr('class','edge_line')
+        .attr('x1',width + i).attr('y1',2)
+        .attr('x2',width + i).attr('y2',height-4)
+        .style('stroke','white').style('stroke-width',20 - (i*2)) 
+        .style('stroke-opacity',0.1)
+  }
 } 
