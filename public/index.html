@@ -9,6 +9,22 @@
 <!-- <script src="js/FBlogin.js"></script> -->
 <script src="js/Glogin.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 
 <!-- Libraries -->
 <script src="lib/js/d3.min.js"></script>
@@ -17,11 +33,13 @@
 <script src="lib/js/backbone-min.js"></script>
 <script src="lib/js/randomColor.min.js"></script>
 <script src="lib/js/timer.js"></script>
-<script src="lib/js/tourist.min.js"></script>
+<script src="lib/js/angular.min.js"></script>
 
 <!-- External CSS files -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis:400,700" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -32,7 +50,7 @@
 
 
 <body id='body' class='normal'>
-    <div><h1 style='margin-top:50px'><center>GeneCrush</center></h1></div>
+    <div><h1 style='margin-top:50px'>GeneCrush</h1></div>
     
     <div class='container'>
         <div class='right'> 
@@ -42,14 +60,14 @@
             <p style="margin-top:50px"; id="toggle"></p>
             <button style="margin-top:5px" type="button" class='btn-primary' onclick="new_data()">New Game</button>
             <button style="margin-top:5px" type="button" class='btn-primary' onclick="undo()">Undo Last</button>
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="reset()">Reset to Initial</button>
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_descending()">Sort Rows Descending Size</button>
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_ascending()">Sort Rows Ascending Size</button>
+            <p></p>
+            <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="reset()">Reset to Initial</button> -->
+            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_descending()">Sort Rows</button>
+            <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_ascending()">Sort Rows Ascending Size</button> -->
             <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_freq()">Sort Columns Freq</button>
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_alphabet()">Sort Columns Alphabetically</button>
-            <input style="margin-top:5px" id="same_gene" type="checkbox" value="on"> check this to highlight the same genes<br> 
-            <input style="margin-top:5px" id="unq_gene" type="checkbox" value="on"> check this to remove unique genes<br> 
-            <p>Built with <a href="http://d3js.org/">d3.js</a>.
+            <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_alphabet()">Sort Columns Alphabetically</button> -->
+            <!-- <input style="margin-top:5px" id="same_gene" type="checkbox" value="on"> check this to highlight the same genes<br>  -->
+            <!-- <input style="margin-top:5px" id="unq_gene" type="checkbox" value="on"> check this to remove unique genes<br>  -->
             <button style="margin-top:5px" type="button" class='btn-primary' onclick="submit_this()">Submit</button>
         </div>
         <div class='left'></div>
@@ -74,6 +92,8 @@
     <div id="topbar" class='blocked'>
         <button id="toggle_sound" style="margin-top:5px" type="button" class='btn-success' onclick="toggle_sound_fx()">Sound</button>
         <button id="toggle_music" style="margin-top:5px" type="button" class='btn-danger' onclick="toggle_music_fx()">Music</button>
+        <button id="toggle_tutorial" style="margin-top:5px" type="button" class='btn-warning' onclick="tutorial()">Tutorial</button>
+        
         <!-- <a href="#">Submit</a> -->
         <!-- <a id="topbar_submit" href="#">Submit</a> -->
         <!-- <a href="#">Home</a>
@@ -87,6 +107,7 @@
     <!--         <fb:login-button class='fb-singin2' scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div class='games_count'><p id='games_played'></p></div>
 
         <div id="startpage" class='visible'>
             <div>
@@ -108,14 +129,18 @@
                 <p class='bd_average_time'></p>
             </div>
         </div>
-        <button id='start_viz' class='btn-primary' type="button", onclick="start_viz()">Want to explore genes</button>
-        <button id='start_game' class='btn-primary' type="button", onclick="start_game()">Let's play a game</button>
+        <div id='twitter_follow'class='visible'>
+            <a class="twitter-follow-button" href="https://twitter.com/maayanlab" data-show-count='false' data-size="large">Follow @maayanlab</a>
+        </div>
+        <button id='start_viz' class='btn-link' type="button", onclick="start_viz()">Explore gene overlap without playing the game</button>
+        <button id='start_game' class='btn-danger btn-lg' type="button", onclick="start_game()">PLAY</button>
     </div>
 
-
+    <div id='tutorial0' class='visible arrow_box'>Click here to step through our tutorial!</div>
 
     <!-- my codes -->
     <script src="js/theme.js"></script>
+    <script src="js/long_lists.js"></script>
     <script src="js/file_list.js"></script>
     <script src="js/tutorial.js"></script>
     <script src="js/mk_sound.js"></script>

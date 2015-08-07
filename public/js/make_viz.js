@@ -18,7 +18,6 @@ function make_viz(sample) {
   nrow = terms.length;
   ncol = 0;
 
-
 svg.append("text")
   .attr("class", "library2")
   .attr("x", 0)
@@ -26,7 +25,7 @@ svg.append("text")
   .attr("dy", ".32em").attr("text-anchor", "front")
   .attr("font-size", 25)
   .attr("fill", "skyblue")
-  .text(random)
+  .text(transcription_names[names_of_the_files[random] % transcription_names.length])
   .style("cursor", "pointer")
   .on('mouseover', function () { d3.select('.library2').style('fill', 'blue'); })
   .on('mouseout', function() { d3.select('.library2').style('fill', 'skyblue'); })
@@ -35,7 +34,26 @@ svg.append("text")
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Preprocesses the information about the json
 
-  // "ncol" - max genes in a given set(max col number).
+  // // deletes the unique genes from the sample.
+  // ncol = 0;
+  // var new_sample = {}
+  // for (var i = 0; i < terms.length; i++) {
+  //   var curr_row = sample[terms[i]];
+  //   var new_row = [];
+  //   for (var j = 0; j < curr_row.length; j++) 
+  //     if ($.inArray(curr_row[j], unq_gene_names) == -1) new_row.push(curr_row[j]);
+  //   if (ncol < new_row.length) ncol = new_row.length;
+  //   new_sample[terms[i]] = new_row.slice();
+  // }
+  // sample = new_sample;
+
+  // // sorts the names alphabetically.
+  // for (var i = 0; i < terms.length; i++) {
+  //   sample[terms[i]] = sample[terms[i]].sort();
+  // }
+
+ 
+   // "ncol" - max genes in a given set(max col number).
   for (var i = 0; i < nrow; i++) if (sample[terms[i]].length > ncol) ncol = sample[terms[i]].length;
 
   orig_nav_data.push(0);
@@ -52,13 +70,41 @@ svg.append("text")
   for (var i = 0; i < genes.length; i++) genes_unq_count[genes[i]]++;
   for (var unq_genes in genes_unq_count) if (genes_unq_count[unq_genes] == 1) unq_gene_names.push(unq_genes);
 
+  // removes unique genes from 'genes_unq', 'genes_unq_count', and 'sample' and reset ncol 
+  var removeGenes = [];
+  for (var i = 0; i < genes_unq.length; i++) { 
+    if (genes_unq_count[genes_unq[i]] == 1) removeGenes.push(genes_unq[i])
+  }
+  for (var i = 0; i < removeGenes.length; i++) {
+    var index = $.inArray(removeGenes[i], genes_unq)
+    if (index > -1) genes_unq.splice(index, 1);
+    if (removeGenes[i] in genes_unq_count) delete genes_unq_count[removeGenes[i]];
+  }
+  
+  for (var eachRow in sample) {
+    for (var i = 0; i < removeGenes.length; i++) {
+      var index = $.inArray(removeGenes[i], sample[eachRow])
+      if (index > -1) sample[eachRow].splice(index, 1);
+    }
+  }
+  ncol = 0;
+  for (var i = 0; i < nrow; i++) if (sample[terms[i]].length > ncol) ncol = sample[terms[i]].length;
+    genes_unq = [];
+    for (var i = 0; i < nrow; i++) { curr_row = sample[terms[i]];
+      for (var j = 0; j < ncol; j++) { genes.push(curr_row[j]);                   // all genes pushed to the "genes"
+        if (genes_unq.indexOf(curr_row[j]) < 0) genes_unq.push(curr_row[j]);  // unique gene pushed to "genes_unq"
+      }
+    } 
+
   // Find index of undefined
   for (var i = 0; i < genes_unq.length; i++) if (genes_unq[i] == undefined) undefined_ind = i;
+
 
   // Creates matrix with each cell z with index of array in "genes_unq"
   var undefined_count = 0;
   for (var i = 0; i < nrow; i++) { matrix[i] = d3.range(ncol).map(function(j) {
     if (genes_unq.indexOf(sample[terms[i]][j]) == undefined_ind) undefined_count++;
+    // console.log(genes_unq.indexOf(sample[terms[i]][j]));
     return { x: j, y: i, z: genes_unq.indexOf(sample[terms[i]][j]) } });
   } 
 
@@ -73,10 +119,13 @@ svg.append("text")
   }
   orig_nav_data_rep.push(0);
 
+
   // Assign range of random colors, setting undefined to blue.
   var rand_color = randomColor({count: nrow * ncol - undefined_count, format: 'rgb'})
   for (var i = 0; i < genes_unq.length; i++) {
-    if (i == undefined_ind) color_unq.push("rgb(65,105,225)");    // undefined color
+    if (genes_unq[i] == undefined) {
+      color_unq.push("rgb(65,105,225)");    // undefined color
+    }
     else color_unq.push(rand_color.pop());                        // each unq gene gets unq color
   }
 
@@ -254,16 +303,19 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     .attr('class', 'nav_line').attr('fill','grey')
     .attr('d', nav_line(curr_nav_data));
 
+
   var viewport = d3.svg.brush()                                       // creates viewport
     .x(nav_scale_X)
+    .extent([0,11])
     .on("brush", function () {
-        scale_X.domain(viewport.empty() ? 
-          get_ordinal_from_quant(nav_scale_X.domain()): 
-          get_ordinal_from_quant(viewport.extent()));
-        svg_scale_X.domain(viewport.empty() ? 
-          nav_scale_X.domain(): 
-          viewport.extent());
-        redraw_svg();
+      if (viewport.empty()) {
+        scale_X.domain(get_ordinal_from_quant(nav_scale_X.domain()));
+        svg_scale_X.domain(nav_scale_X.domain());
+      } else {
+        scale_X.domain(get_ordinal_from_quant(viewport.extent()));
+        svg_scale_X.domain(viewport.extent());
+      }
+      redraw_svg();
     });
 
   nav_svg.append("g")                                                 // appends viewport on nav_svg
@@ -279,20 +331,23 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     var xPosition = 100 + 25;
     var yPosition = current_index_order.x.indexOf(p[0].y) * (height / nrow) + margin['top'] + 80;
 
+    // console.log(p[0].y);
+    // console.log(p);
     //Update the tooltip position and value
-    d3.select("#tooltip").style("left", xPosition + "px").style("top", yPosition + "px");
-    d3.select('#tooltip').select('#tt_term').text("\"" + terms[p[0].y] + "\"");
-    d3.select('#tooltip').select("#tt_genes").text('(' + sample[terms[p[0].y]].join(', ') + ')');
-    d3.select("#tooltip").classed("hidden", false);
+    // d3.select("#tooltip").style("left", xPosition + "px").style("top", yPosition + "px");
+    // d3.select('#tooltip').select('#tt_term').text("\"" + terms[p[0].y] + "\"");
+    // d3.select('#tooltip').select("#tt_genes").text('(' + sample[terms[p[0].y]].join(', ') + ')');
+    // d3.select("#tooltip").classed("hidden", false);
   }
 
   function mouseout_label(p) {
-    d3.select("#tooltip").classed("hidden", true);
+    // d3.select("#tooltip").classed("hidden", true);
   }
 
   function mouseDown_label(p) {
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p[0].y; });
     selected_index_1 = { 'x': p[0].y };
+    // label_svg.append('rect').attr('x',p.x).attr('y',p.y).attr('width',500).attr('height',500).attr('fill','red')
   }
 
   function mouseUp_label(p) {
@@ -312,7 +367,7 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     d3.selectAll(".row_label_text").classed("active", function(d, i) { return i == p.y; });
     if (genes_unq[p.z] != undefined && toggle_hl == 1) {
        hover_cell_name = d3.selectAll('.cell_n_' + genes_unq[p.z]).selectAll(".rect");
-       hover_cell_name.style('stroke', 'red').style('stroke-width', 5);
+       hover_cell_name.transition().duration(100).style('stroke', 'white').style('stroke-width', 3);
     }
     if (g_logged_in_status) {
       d3.select('.g-signout2').text('Sign Out')
@@ -322,7 +377,7 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   }
 
   function mouseout() {
-    if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.style('stroke', "blue").style('stroke-width', 1);
+    if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.transition().duration(100).style('stroke', "blue").style('stroke-width', 1);
     d3.selectAll("text").classed("active", false);
   }
 
@@ -330,39 +385,39 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
     selected_index_1 = { 'x': p.y, 'y': p.x };
 
-    if (click_state == 0) {
+    // if (click_state == 0) {
       clicked_cell_1 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
       clicked_cell_1.style('stroke', 'red').style('stroke-width', 5);
-    }
-    if (click_state == 1) {
-      clicked_cell_2 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
-      if (selected_index_1.x != selected_index_2.x) swap_rows();
-      if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y) swap_cols();
-      clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
-      clicked_cell_2.style('stroke', "blue").style('stroke-width', 1)
-      click_state = 2;
-    }
+    // }
+    // if (click_state == 1) {
+    //   clicked_cell_2 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
+    //   if (selected_index_1.x != selected_index_2.x) swap_rows();
+    //   if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y) swap_cols();
+    //   clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
+    //   clicked_cell_2.style('stroke', "blue").style('stroke-width', 1)
+    //   click_state = 2;
+    // }
   }
 
   function mouseUp(p) {
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
     selected_index_2 = { 'x': p.y, 'y': p.x };
 
-    if (click_state == 0) {
-      if (selected_index_1.x == selected_index_2.x 
-        && selected_index_1.y == selected_index_2.y) {
-        click_state = 1;
-      } else {
-        if (selected_index_1.x != selected_index_2.x) swap_rows();
+    // if (click_state == 0) {
+    //   if (selected_index_1.x == selected_index_2.x 
+    //     && selected_index_1.y == selected_index_2.y) {
+    //     click_state = 1;
+    //   } else {
+    //     if (selected_index_1.x != selected_index_2.x) swap_rows();
         if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y) swap_cols();
         clicked_cell_1.style('stroke', null);
         clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
-        click_state = 0;
-      }
-    }
-    if (click_state == 2) {
-      click_state = 0;
-    }
+    //     click_state = 0;
+    //   }
+    // }
+    // if (click_state == 2) {
+    //   click_state = 0;
+    // }
   }
 
 

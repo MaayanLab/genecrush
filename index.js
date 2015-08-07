@@ -29,6 +29,16 @@ app.get('/GeneCrush/user/getTopTen',function(request, response){
 	User.find().sort({highest_score:-1}).limit(10).exec(function(err, data) {response.send(data);});
 })
 
+app.get('/GeneCrush/getTotalGamesPlayed',function(request, response){
+	User.find().exec(function(err, data) {
+		var sum = 0;
+		for (var ind in data) {
+			sum += + data[ind].num_games_played;
+		}
+		newsum = {sum: sum};
+		response.send(newsum);});
+})
+
 // POST to get back the user information.
 app.post('/GeneCrush/user/getInfo', urlencodedParser, function(request, response){
 	User.findOne(request.body).exec(function(err, data) {
@@ -49,6 +59,8 @@ app.post('/GeneCrush/user/getInfo', urlencodedParser, function(request, response
 		}
 	})
 })
+
+
 
 app.post('/GeneCrush/user/pushInfo', urlencodedParser, function(request, response){
 	console.log(request.body.username);
@@ -79,7 +91,6 @@ app.post('/GeneCrush/user/pushInfo', urlencodedParser, function(request, respons
 		}
 	})
 })
-
 
 var port = 1988;
 app.listen(port,function(){

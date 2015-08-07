@@ -42,5 +42,6 @@ var descending_sound = createsoundbite("sounds/descending.mp3")
 var reset_sound      = createsoundbite("sounds/explosion.mp3")
 var countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
 var start_game_sound = createsoundbite("sounds/hole_punch.mp3")
+var clock_ticks      = createsoundbite("sounds/clock_ticking.mp3")
 
 var music            = createsoundbite("sounds/music.mp3")
