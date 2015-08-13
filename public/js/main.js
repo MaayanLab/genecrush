@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Global CONSTANTS.
-var margin = { top: 50, right: 10, bottom: 50, left: 10 },
+var margin = { top: 50, right: 10, bottom: 5, left: 7 },
     width = 650,
     height = 800,
     trans_duration = 2000,    // ms
@@ -21,7 +21,7 @@ var margin = { top: 50, right: 10, bottom: 50, left: 10 },
     ncol_shown = 10,
     curr_cell_width = 0,
     nav_width = width,
-    nav_height = 150 - margin.top - margin.bottom,
+    nav_height = 40,
     nav_scale_X = d3.scale.linear().range([0, nav_width]),
     svg_scale_X = d3.scale.linear().range([0, width]),
     nav_scale_Y = d3.scale.linear().range([0, nav_height]),
@@ -72,9 +72,9 @@ var label_svg = d3.select('.left').append('svg').attr('class', 'label_svg')
 
 var nav_svg = d3.select('#main_game').append('svg').attr('class', 'navigator')
     .attr('width', nav_width + margin.left + margin.right)
-    .attr('height', nav_height + margin.top + margin.bottom)
+    .attr('height', nav_height)
     .append('g')
-    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    .attr('transform', 'translate(' + margin.left + ',0 )');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,46 +97,10 @@ label_svg.append("text")
   .attr("dy", ".32em").attr("text-anchor", "end")
   .attr("font-size", 15)
   .attr("fill", "white")
+  .style("text-decoration", "underline")  
   .text('LIBRARY :');
 
-  $.ajax({
-      type: "GET",
-      url: 'user/getTopTen',
-      dataType: 'text',
-      success: function(userData) {
-        d3.select('.bd_hs_legend').text('Leaderboard').style('font-size', '20px')
-        var topTen = JSON.parse(userData);
-        for (var i = 0; i < 10; i++) {
-          var curr = topTen[i];
-          if (curr != undefined && curr.username != undefined) {
-            var n = curr.username.indexOf('@');
-            var text = curr.username;
-            text = text.replaceBetween(2,n-2,'****');
-            text += ' --------->  ';
-            text += curr.highest_score;
-            text += ' pts'
-            d3.select('.bd_hs_' + (i + 1)).text(text);
-          }
-        }
-      },
-      error: function(userData) {
-        console.log('please_sign_in_using_ur_google_account');
-      }
-    });
-
-$.ajax({
-      type: "GET",
-      url: 'getTotalGamesPlayed',
-      dataType: 'text',
-      success: function(userData) {
-        var num_played = JSON.parse(userData);
-        var temp = num_played['sum'] + " games played!"
-        d3.select('#games_played').text(temp).style('font-size', '15px')
-      },
-      error: function(userData) {
-        console.log('something wrong with get');
-      }
-    });
+get_user_gp(g_id);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Read in the proper json file.
 

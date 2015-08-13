@@ -179,6 +179,7 @@ d3.select("#unq_gene").on("change", function() {
 // Creates new Game.
 function new_data(test_data) {
   if (test_data == 'test_data') {
+    hide_everything();
     var path = 'json/Phosphatase_Substrates_SAMPLE.json'
   } else {
     random = Math.floor(Math.random() * names_of_the_files.length);
@@ -200,9 +201,9 @@ function new_data(test_data) {
 
   nav_svg = d3.select('#main_game').append('svg').attr('class', 'navigator')
     .attr('width', nav_width + margin.left + margin.right)
-    .attr('height', nav_height + margin.top + margin.bottom)
+    .attr('height', nav_height)
     .append('g')
-    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    .attr('transform', 'translate(' + margin.left + ',0)');
 
 
   // d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
@@ -244,87 +245,29 @@ function submit_this() {
     highest_score:curr_score
   }
 
+  var user_data;
   // avoid unsigned in user from being at the leaderboard.
-  if (typeof(g_id) != 'string') this_data.highest_score = 0;
+  if (typeof(g_id) != 'string') {
+    d3.select('.bd_0').text('Hey, anonymous user!')
+  } else {
+    get_user_gp(g_id);
+    d3.select('.bd_0').text('Hey, ' + g_id);
+  }
 
-  $.ajax({
-      type: "POST",
-      data: this_data,
-      url: 'user/pushInfo',
-      dataType: 'text', 
-      success: function(userData) {
+  push_info(this_data);
+  show_summary_page();
+  var rand = Math.floor(Math.random() * good_sayings.length);
+  d3.select('.bd_legend').text(good_sayings[rand]);
+  
+  d3.select('.bd_1').text('current score : ' + curr_score + ' points');
+  get_user_hs(g_id); // changes highscore for user
+  // gets number of moves
+  var temp = Object.keys(orders)
+  var max = temp.length - 5;
+  d3.select('.bd_3').text('total moves : ' + max + ' moves');
+  d3.select('.bd_4').text('modules found : ');
+  d3.select('.bd_5').text('blah, blah, and blah')
 
-        // Updates the leaderboard after posting the current game data.
-        $.ajax({
-          type: "GET",
-          url: 'user/getTopTen',
-          dataType: 'text', 
-          success: function(userData) {
-            console.log('got top ten from db');
-            d3.select('.bd_hs_legend').text('Leaderboard').style('font-size', '20px')
-            var topTen = JSON.parse(userData);
-            for (var i = 0; i < 10; i++) {
-            var curr = topTen[i];
-              if (curr != undefined && curr.username != undefined) {
-              var n = curr.username.indexOf('@');
-              var text = curr.username;
-              text = text.replaceBetween(2,n-2,'****');
-              text += ' --------->  ';
-              text += curr.highest_score;
-              text += ' pts'
-              d3.select('.bd_hs_' + (i + 1)).text(text);
-              }
-            }
-          },
-          error: function(userData) {
-            console.log('please_sign_in_using_ur_google_account');
-          }
-        });
-
-        console.log('submitted');
-        user = JSON.parse(userData);
-        if (user.username != undefined && g_logged_in_status) {
-          d3.select(".bd_message").text("Thank you for submitting your score!").style('font-size','20px')
-          d3.select(".bd_username").text("Username : " + user.username)
-          d3.select(".bd_highest_score").text("Highest Score : " + user.highest_score + " points")
-          d3.select(".bd_average_score").text("Average Score : " + parseFloat(user.total_score / user.num_games_played).toFixed(2) + " points")
-          var seconds = parseFloat(user.total_time / user.num_games_played).toFixed(2);
-          if (seconds < 60) seconds = seconds + " seconds";
-          else seconds = Math.floor(seconds/60) + ' minutes';
-          d3.select(".bd_average_time").text("Average time per game : " + seconds);
-        }
-        else {
-          d3.select(".bd_message").text("Please sign in to keep track of your scores!").style('font-size', '20px')
-          d3.select(".bd_username").text(null)
-          d3.select(".bd_highest_score").text(null)
-          d3.select(".bd_average_score").text(null)
-          d3.select(".bd_average_time").text(null)
-        }
-      },
-      error: function(userData) {
-        console.log('please_sign_in_using_ur_google_account');
-        console.log(userData);
-      }
-    });
-  d3.select('#start_viz').classed('hidden',false)
-  d3.select('#start_game').classed('hidden',false)
-  d3.select('#twitter_follow').classed('hidden', false)
-  d3.select('#startpage').classed('hidden',false)
-  d3.select('#topbar').classed('blocked',true)
-
-  $.ajax({
-        type: "GET",
-        url: 'getTotalGamesPlayed',
-        dataType: 'text',
-        success: function(userData) {
-          var num_played = JSON.parse(userData);
-          var temp = num_played['sum'] + " games played!"
-          d3.select('#games_played').text(temp).style('font-size', '15px')
-        },
-        error: function(userData) {
-          console.log('something wrong with get');
-        }
-      });
   myTimer.stop();
   myNewTimer.stop();
 }
@@ -335,6 +278,7 @@ function submit_this() {
 // Extra Stuff
 
 function redraw_svg() {
+  calc_score();
   d3.selectAll(".edge_line").remove()
   if(nav_min != 0) {
     for (var i = 0; i < 10; i++) {
@@ -408,69 +352,4 @@ function reset_nav_data(value) {
 
 // d3.select('#topbar').attr('height',35px)
 
-function start_viz(test_data) {
-  d3.select('#start_viz').classed('hidden',true)
-  d3.select('#start_game').classed('hidden',true)
-  d3.select('#twitter_follow').classed('hidden', true)
-  d3.select('#startpage').classed('hidden',true)
-  d3.select('#topbar').classed('blocked',false)
-  d3.select('#tutorial0').classed('hidden',true)
-  d3.select('.timer_board_text').text('N/A')
-  myNewTimer.start(60*30);
-  played_whole_game = false;
-  new_data(test_data);
-  if (toggle_sound) start_game_sound.playclip();
-}
 
-function start_game(test_data) {
-  d3.select('#start_viz').classed('hidden',true)
-  d3.select('#start_game').classed('hidden',true)
-  d3.select('#twitter_follow').classed('hidden', true)
-  d3.select('#startpage').classed('hidden',true)
-  d3.select('#topbar').classed('blocked',false)
-  d3.select('#tutorial0').classed('hidden',true)
-  myTimer.start(301);
-  myNewTimer.start(60*30);
-  played_whole_game = false;
-  new_data(test_data);
-}
-
-function toggle_sound_fx() {
-  if (toggle_sound) {
-    toggle_sound = false;
-    d3.select('#toggle_sound').attr('class', 'btn-danger')
-  } else {
-    toggle_sound = true;
-    d3.select('#toggle_sound').attr('class', 'btn-success')
-  }
-}
-
-function toggle_music_fx() {
-  if (toggle_music) {
-    toggle_music = false;
-    music.pause();
-    d3.select('#toggle_music').attr('class', 'btn-danger')
-    row_swap_sound   = createsoundbite("sounds/tiny_button_push.mp3")
-    col_swap_sound   = createsoundbite("sounds/click.mp3")
-    undo_sound       = createsoundbite("sounds/pop_cork.mp3")
-    ascending_sound  = createsoundbite("sounds/ascending.mp3")
-    descending_sound = createsoundbite("sounds/descending.mp3")
-    reset_sound      = createsoundbite("sounds/explosion.mp3")
-    countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
-    start_game_sound = createsoundbite("sounds/hole_punch.mp3")
-    d3.select('#body').attr('class','normal')
-  } else {
-    toggle_music = true;
-    music.playclip();
-    d3.select('#toggle_music').attr('class', 'btn-success ')
-    row_swap_sound   = createsoundbite("sounds/bcfire02.mp3") // change
-    col_swap_sound   = createsoundbite("sounds/ltsaberhit01.mp3")
-    undo_sound       = createsoundbite("sounds/forcesee01.mp3")
-    ascending_sound  = createsoundbite("sounds/ESGend0.mp3")
-    descending_sound = createsoundbite("sounds/EMGstop.mp3")
-    reset_sound      = createsoundbite("sounds/explosion.mp3")
-    countdown_sound  = createsoundbite("sounds/countdown(10-0).mp3")
-    start_game_sound = createsoundbite("sounds/father.mp3")
-    d3.select('#body').attr('class','game')
-  }
-}

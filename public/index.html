@@ -1,57 +1,47 @@
 <!DOCTYPE html>
 <head>
-<meta charset="utf-8">
-<title>GeneCrush</title>
-<base href="/GeneCrush/">
+    <meta charset="utf-8">
+    <title>GeneCrush</title>
+    <base href="/GeneCrush/">
 
-<!-- Login API -->
-<meta name="google-signin-client_id" content="425402044071-jp4qinssdl7ftbi9235pjbinmui5gvva.apps.googleusercontent.com">
-<!-- <script src="js/FBlogin.js"></script> -->
-<script src="js/Glogin.js"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
- 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
- 
-  return t;
-}(document, "script", "twitter-wjs"));</script>
+    <script type="text/javascript">
+      <!--
+      if (screen.width <= 800) {
+        window.location = "http://www.cityoforchardlake.com/Page_Under_Construction.jpg";
+      }
+      //-->
+    </script>
 
-<!-- Libraries -->
-<script src="lib/js/d3.min.js"></script>
-<script src="lib/js/jquery-2.1.4.min.js"></script>
-<script src="lib/js/underscore-min.js"></script>
-<script src="lib/js/backbone-min.js"></script>
-<script src="lib/js/randomColor.min.js"></script>
-<script src="lib/js/timer.js"></script>
-<script src="lib/js/angular.min.js"></script>
+    <!-- Login API -->
+    <meta name="google-signin-client_id" content="425402044071-jp4qinssdl7ftbi9235pjbinmui5gvva.apps.googleusercontent.com">
+    <!-- <script src="js/FBlogin.js"></script> -->
+    <script src="js/Glogin.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src='js/twitter.js'></script>
 
-<!-- External CSS files -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/css?family=Terminal+Dosis:400,700" rel="stylesheet" type="text/css">
+    <!-- Libraries -->
+    <script src="lib/js/d3.min.js"></script>
+    <script src="lib/js/jquery-2.1.4.min.js"></script>
+    <script src="lib/js/underscore-min.js"></script>
+    <script src="lib/js/backbone-min.js"></script>
+    <script src="lib/js/randomColor.min.js"></script>
+    <script src="lib/js/timer.js"></script>
+    <script src="lib/js/angular.min.js"></script>
+
+    <!-- External CSS files -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/tutorial.css">
+    <link rel="stylesheet" type="text/css" href="css/pages&buttons.css">
+    <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Terminal+Dosis:400,700" rel="stylesheet" type="text/css">
 </head>
-
-
-
-
-
-
 
 
 <body id='body' class='normal'>
     <div><h1 style='margin-top:50px'>GeneCrush</h1></div>
     
+    <!-- Game Body -->
     <div class='container'>
         <div class='right'> 
             <button style="margin-top:5px" type="button" class='btn-primary' onclick="submit_this()">Submit</button>
@@ -74,44 +64,27 @@
         <div id="main_game" class='center'></div>
     </div>
 
-            <!-- <div
-                class="fb-like"
-                data-share="true"
-                data-width="450"
-                data-show-faces="true">
-            </div> -->
-
-    <div id="tooltip" class="hidden">
-        <p><strong id="tt_term">Terms</strong></p>
-        <p><span id="tt_genes"><i>Genes</i></span></p>
-    </div>
-
-
-
-
+    <!-- Topbar -->
     <div id="topbar" class='blocked'>
-        <button id="toggle_sound" style="margin-top:5px" type="button" class='btn-success' onclick="toggle_sound_fx()">Sound</button>
-        <button id="toggle_music" style="margin-top:5px" type="button" class='btn-danger' onclick="toggle_music_fx()">Music</button>
-        <button id="toggle_tutorial" style="margin-top:5px" type="button" class='btn-warning' onclick="tutorial()">Tutorial</button>
+        <div id='sound_buttons' class='btn-group'>
+            <button id="toggle_sound" style="margin-top:5px" type="button" class='btn btn-success' onclick="toggle_sound_fx()">Sound</button>
+            <button id="toggle_music" style="margin-top:5px" type="button" class='btn btn-danger' onclick="toggle_music_fx()">Music</button>
+        </div>
+        <button id="toggle_tutorial" style="margin-top:5px" type="button" class='btn btn-warning' onclick="tutorial(1)">Tutorial</button>
+        <button id="toggle_leaderboard" style="margin-top:5px" type="button" class='btn btn-info' onclick="show_leaderboard()">Leaderboard</button>
         
-        <!-- <a href="#">Submit</a> -->
-        <!-- <a id="topbar_submit" href="#">Submit</a> -->
-        <!-- <a href="#">Home</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Our Apps</a>
-        <a href="#">Support</a>
-        <a href="#">Press</a>
-        <a href="#">About</a> -->
-            <a href="#" class="g-signout2" onclick="signOut();"></a>
-            <a class="g-signout2_pic"></a>
-    <!--         <fb:login-button class='fb-singin2' scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
+        <a href="#" class="g-signout2" onclick="signOut();"></a>
+        <a class="g-signout2_pic"></a>
+        <!-- <fb:login-button class='fb-singin2' scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <div class='games_count'><p id='games_played'></p></div>
 
-        <div id="startpage" class='visible'>
+        <!-- Leaderboard -->
+        <div id='leaderboard' class='hidden'>
             <div>
-                <p class='bd_hs_legend'></p>
+                <br><br>
+                <p class='bd_hs_legend'></p><br>
                 <p class='bd_hs_1'>N/A</p>
                 <p class='bd_hs_2'>N/A</p>
                 <p class='bd_hs_3'>N/A</p>
@@ -122,24 +95,88 @@
                 <p class='bd_hs_8'>N/A</p>
                 <p class='bd_hs_9'>N/A</p>
                 <p class='bd_hs_10'>N/A</p>
-                <p class='bd_message'style="margin-top:20px"></p>
-                <p class='bd_username'></p>
-                <p class='bd_highest_score'></p>
-                <p class='bd_average_score'></p>
-                <p class='bd_average_time'></p>
+            </div>
+        </div>
+        <div id='lb_buttons' class="btn-group hidden">
+            <button id='lb_highest_score' class='btn btn-default btn-xs' type="button", onclick="get_10hs()">Highest Score</button>
+            <button id='lb_average_score' class='btn btn-default btn-xs' type="button", onclick="get_10as()">Average Score</button>
+            <button id='lb_games_played' class='btn btn-default btn-xs' type="button", onclick="get_10gp()">Games Played</button>
+        </div>
+        <button id='lb_return' class='btn btn-primary hidden' type="button", onclick="show_summary_page()">return</button>
+
+        <!-- Summary Page -->
+        <div id="summary_page" class='visible'>
+            <div>
+                <p class='bd_legend'style="margin-top:20px">Welcome To GeneCrush</p><br><br>
+                <p class='bd_0'></p>
+                <p class='bd_1'></p>
+                <p class='bd_2'></p>
+                <p class='bd_3'></p>
+                <p class='bd_4'></p>
+                <p class='bd_5'></p>
             </div>
         </div>
         <div id='twitter_follow'class='visible'>
             <a class="twitter-follow-button" href="https://twitter.com/maayanlab" data-show-count='false' data-size="large">Follow @maayanlab</a>
         </div>
+        <button id='debug' class='btn btn-info' type="button", onclick="new_data('test_data')">debug</button>
+        <!--         <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+        </div> -->
         <button id='start_viz' class='btn-link' type="button", onclick="start_viz()">Explore gene overlap without playing the game</button>
-        <button id='start_game' class='btn-danger btn-lg' type="button", onclick="start_game()">PLAY</button>
-    </div>
+        <button id='start_game' class='btn btn-danger btn-lg' type="button", onclick="start_game()">PLAY</button>
+    </div> 
 
-    <div id='tutorial0' class='visible arrow_box'>Click here to step through our tutorial!</div>
+    <!-- When Dragging Terms, name follows cursor -->
+    <a id='term_name' class='hidden'>This</a>
+
+    <!-- Tutorials -->
+    <div>
+        <div id='tutorial0' class='tutorial arrow_box'>Click here to step through our tutorial!</div>
+        <div id='tutorial1' class='tutorial arrow_box hidden'>Welcome to the GeneCrush Tutorial! <br> We will show you how the game works and step you through each game play! :) <br><br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(2)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial2' class='tutorial arrow_box hidden'>First, <br> sign in <br> to track <br> your scores. <br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(3)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial3' class='tutorial arrow_box hidden'>Then press play to play games! <br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(4)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial4' class='tutorial arrow_box hidden'>This is a Row Label <br> called 'CDC14A' <br> which is a 'Term'. <br> you can swap them <br> by dragging and <br> dropping them. <br> Give it a try! :P <br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(5)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial5' class='tutorial arrow_box hidden'>This is a cells called 'E' <br> which is name of a 'Gene' <br> you can swap the genes from the same row <br> by dragging and dropping them. <br> Give it a try! :P <br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(6)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial6' class='tutorial arrow_box hidden'>Also, here, we have 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'  <br> genes as modules which means that <br>the same genes are next to each other. <br>The longer and bigger the module are, <br> the greater the points will be rewarded! <br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(7)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial7' class='tutorial arrow_box hidden'> This is a navigation panel. It shows the full extent of the data. <br> Current view is determined by the portion highlighted by the grey box.<br> You can scroll right or left by moving the grey rectangle. <br> Also, you can zoom in by selecting smaller portion of the overall data, and zoom out vice versa.<br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(8)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial8' class='tutorial arrow_box hidden'> These are toggle  <br> buttons for sounds. <br> GREEN is ON <br> RED is OFF. <br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial(9)">Next</button>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+        <div id='tutorial9' class='tutorial arrow_box hidden'>Don't forget to submit<br> at the end. <br><br> H A V E ___ F U N ~! <br><br>
+            <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
+        </div>
+    </div>
 
     <!-- my codes -->
     <script src="js/theme.js"></script>
+    <script src='js/request.js'></script>
+    <script src='js/show_hide_pages.js'></script>
     <script src="js/long_lists.js"></script>
     <script src="js/file_list.js"></script>
     <script src="js/tutorial.js"></script>

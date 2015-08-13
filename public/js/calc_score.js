@@ -17,7 +17,7 @@ function calc_score(value) {
 	// ////////////////////////////////////
 
 	// reset each round
-	d3.selectAll('.common_path').attr('stroke',null);
+	d3.selectAll('.common_path').remove();
 
 	// d3.selectAll('.common_path').attr('stroke', null)
 	var rectangles = get_rect();
@@ -217,8 +217,6 @@ function find_modules(value) {
 }
 
 
-
-
 function look_bot_right(value, two_by_two, two_by_two_head) {
 	var sq_size = 1;
 	var exit = false;
@@ -352,7 +350,6 @@ function indexOf(value, array) {
 // TODO wrong rectangle highlights due to index issues
 // Draws path of outer set of rectangles.
 function draw_rect(value) {
-
 	line_data = add_corners(value).slice();
 	// order_edges();
 	// console.log(line_data);
@@ -367,10 +364,10 @@ function draw_rect(value) {
 			.interpolate("linear-closed");
 
 	// Draws the line
-	var lineGraph = svg.append("path").attr("stroke", "white").transition().duration(1000)
+	var lineGraph = svg.append("path").attr("stroke", "red").transition().duration(1000)
 			.attr('class', 'common_path')
 			.attr("d", lineFunction(line_data))
-			.attr("stroke", "red")
+			.attr("stroke", "white")
 			.attr("stroke-width", 2)
 			.attr("fill", "none");
 }
@@ -477,6 +474,17 @@ function get_its_own(value, array) {
 
 // gets array of coordinates as parameter, sets boundary as rectangle.
 function add_corners(value) {
+	// curr_cell_width = svg_scale_X(2) - svg_scale_X(1);
+ //  svg.select('.x.axis').call(x_axis);
+ //  d3.selectAll('.rect').attr('width',curr_cell_width)
+ //  for (var i = 0; i < nrow; i++) {
+ //    var curr_row_order = current_index_order.y[i].slice();
+ //    for (var j = 0; j < ncol; j++) {
+ //      var x_corrdinates = (curr_cell_width*(curr_row_order.indexOf(j)-nav_min));
+ //      d3.selectAll('.row_'+i).selectAll('.cell_y'+j).attr('transform','translate('+x_corrdinates+',0)');
+ //      d3.selectAll('.cell_y'+j).select('.cell_text').attr("x", curr_cell_width / 2)
+ //    }
+ //  }
 	var top = nrow;
 	var left = ncol;
 	var bottom = 0;
@@ -493,9 +501,9 @@ function add_corners(value) {
 	right++;
 	var returner = [];
 	top = scale_Y(top);
-	left = scale_X(left);
+	left = svg_scale_X(left);
 	bottom = scale_Y(bottom);
-	right = scale_X(right);
+	right = svg_scale_X(right);
 	if (bottom == undefined) bottom = height;
 	if (right == undefined) right = width;
 	returner.push({x:left, y:top});

@@ -4,8 +4,8 @@ import time
 # make the requests to enrichr using requests 
 def main():
 	counter = 0;
-	file_names = ['crowdsourced_diseases_top600.gmt', 'crowdsourced_drugs_top600.gmt', 'crowdsourced_single_gene_pert_top600.gmt']
-	file_len = [1678, 1812, 4920]
+	file_names = ['crowdsourced_diseases_top600.gmt', 'crowdsourced_drugs_top600.gmt', 'crowdsourced_single_gene_pert_top600.gmt'] #
+	file_len = [1678, 1812, 4920] , 
 
 	for num_1 in range(0,3):
 		f = open(file_names[num_1], 'r')
@@ -16,7 +16,6 @@ def main():
 			input_genes = fields[2:len(fields)]
 
 			transc_names = ['ChEA', 'TRANSFAC_and_JASPAR_PWMs', 'Epigenomics_Roadmap_HM_ChIP-seq', 'TargetScan_microRNA', 'ENCODE_TF_ChIP-seq_2015', 'ENCODE_Histone_Modifications_2015', 'Transcription_Factor_PPIs']
-			
 
 			for num_3 in range(0, len(transc_names)):
 				ts = time.time()
@@ -37,7 +36,7 @@ def main():
 						twenty_terms.append(enr[x][1])
 						twenty_genes.append(enr[x][5])
 
-				output_name = str(counter) + "_" + str(num_1) + "_" + str(num_2) + "_" + str(num_3)
+				output_name = str(counter) + "_" + str(num_1) + "_" + str(num_2) + "_" + str(transc_names[num_3])
 
 				file = open(output_name +'.json', 'w+')
 				counter = counter + 1
@@ -86,11 +85,17 @@ def enrichr_request( input_genes, meta='', gmt='' ):
 
 	# get parameters 
 	params = {'backgroundType':gmt, 'userListId':userListId}
-	for x in range(0,100000):
-		print (gmt + " - " + str(x))
+	# for x in range(0,100000):
+	# 	print str(x)
+
 	# make the get request to get the enrichr results 
+	while(str(requests.get( get_url, params=params )) != '<Response [200]>'):
+		print requests.get( get_url, params=params )
+		
 	get_response = requests.get( get_url, params=params )
+
 	print(get_response)
+
 	# load as dictionary 
 	resp_json = json.loads( get_response.text )
 	

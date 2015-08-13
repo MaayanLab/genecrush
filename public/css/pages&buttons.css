@@ -1,0 +1,208 @@
+
+/*Summary Page*/
+#summary_page {
+        font-size: 12px;
+        position: absolute;
+        top: 100px;
+        left: 150px;
+        width: 400px;
+        height: 400px;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+}
+
+#summary_page.hidden {
+        display: none;
+}
+
+.bd_legend {
+        font-family: 'Architects Daughter';
+  font-size: 25px;
+}
+
+#start_viz {
+    position: absolute;
+    top: 475px;
+    left: 220px;
+}
+
+#start_viz.hidden{
+    display:none;
+}
+
+#start_game {
+    position: absolute;
+    font-family: 'Terminal Dosis', bold;
+    font-size: 25px;
+    top: 420px;
+    left: 307px;
+}
+
+#start_game.hidden{
+    display:none;
+}
+
+
+/*LeaderBoard*/
+#leaderboard {
+        position: absolute;
+        top: 100px;
+        left: 150px;
+        width: 400px;
+        height: 400px;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+}
+
+#leaderboard.hidden {
+        display: none;
+}
+
+#lb_return {
+    position: absolute;
+    font-family: 'Terminal Dosis', bold;
+    font-size: 15px;
+    top: 460px;
+    left: 317px;
+}
+
+#lb_return.hidden {
+    display:none;
+}
+
+#lb_buttons {
+    position: absolute;
+    top: 110px;
+    left: 220px;
+}
+
+#lb_buttons.hidden {
+    display:none;    
+}
+
+/*Twitter Follow button*/
+#twitter_follow {
+    position: absolute;
+    bottom: 10px;
+    right:10px;
+}
+
+#twitter_follow.hidden {
+    display:none;
+}
+
+
+/*Top Black Bar*/
+#topbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #ffffff;
+  height: 40px;
+  text-align: center;
+  padding-top: 15px;
+  /* Adds shadow to the bottom of the bar */
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  /* Adds the transparent background */
+  background-color: rgba(1, 1, 1, 0.85);
+  color: rgba(1, 1, 1, 0.85);
+}
+
+#topbar.blocked{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #ffffff;
+  height: 100%;
+  text-align: center;
+  padding-top: 15px;
+  /* Adds shadow to the bottom of the bar */
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  /* Adds the transparent background */
+  background-color: rgba(1, 1, 1, 0.85);
+  color: rgba(1, 1, 1, 0.85);
+}
+
+#topbar a {
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+#topbar a:hover {
+    color: grey;
+}
+
+/*Buttons in Topbar*/
+#sound_buttons {
+  position: absolute;
+  top:0px;
+  left:10px;
+}
+
+#toggle_tutorial {
+    position: absolute;
+    top: 0px;
+    left:190px;
+}
+
+#toggle_leaderboard {
+    position: absolute;
+    top: 0px;
+    left:350px;
+}
+
+#term_name{
+    position:absolute;
+    color:black;
+    font-size:10px;
+    background-color: white
+}
+
+.games_count {
+    position:absolute;
+    top:40px;
+    right:0px;
+}
+
+#games_played {
+    color:white;
+}
+
+.g-signin2 {
+    position:absolute;
+    top:2px;
+    right:0px;
+}
+
+.g-signout2 {
+    position: absolute;
+    top: 10px;
+    right:160px;
+}
+
+.g-signout2_pic {
+    position: absolute;
+    top: 3px;
+    right:110px;
+}

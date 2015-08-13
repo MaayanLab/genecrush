@@ -16,34 +16,6 @@
     border-left: 1px solid #ccc;
 }
 
-.games_count {
-    position:absolute;
-    top:40px;
-    right:0px;
-}
-
-#games_played {
-    color:white;
-}
-
-.g-signin2 {
-    position:absolute;
-    top:2px;
-    right:0px;
-}
-
-.g-signout2 {
-    position: absolute;
-    top: 10px;
-    right:160px;
-}
-
-.g-signout2_pic {
-    position: absolute;
-    top: 3px;
-    right:110px;
-}
-
 
 /*.fb-signin2 {
     position: :absolute;
@@ -331,9 +303,10 @@ blockquote:after {
 }
 
 .navigator .viewport {
-    stroke: grey;
+    stroke: white;
+    stroke-width: 2px;
     fill: black;
-    fill-opacity: 0.2;
+    fill-opacity: 0.4;
 }
 
 body {
@@ -341,156 +314,4 @@ body {
     margin: 0;  /*  on HTML documents */
     font-family: Lucida Grande, Helvetica, Arial, sans-serif;
     font-size: 12px;
-}
-
-#startpage {
-        position: absolute;
-        top: 100px;
-        left: 150px;
-        width: 500px;
-        height: 550px;
-        padding: 10px;
-        background-color: white;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-        pointer-events: none;
-}
-
-#startpage.hidden {
-        display: none;
-}
-
-
-#twitter_follow {
-    position: absolute;
-    bottom: 10px;
-    right:10px;
-}
-
-
-#twitter_follow.hidden {
-    display:none;
-}
-
-#start_viz {
-    position: absolute;
-    top: 625px;
-    left: 265px;
-}
-#start_viz.hidden{
-    display:none;
-}
-
-#start_game {
-    position: absolute;
-    font-family: 'Terminal Dosis', bold;
-    font-size: 25px;
-    top: 570px;
-    left: 350px;
-}
-#start_viz.hidden{
-    display:none;
-}
-
-#topbar{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  color: #ffffff;
-  height: 40px;
-  text-align: center;
-  padding-top: 15px;
-  /* Adds shadow to the bottom of the bar */
-  -webkit-box-shadow: 0px 0px 8px 0px #000000;
-  -moz-box-shadow: 0px 0px 8px 0px #000000;
-  box-shadow: 0px 0px 8px 0px #000000;
-  /* Adds the transparent background */
-  background-color: rgba(1, 1, 1, 0.85);
-  color: rgba(1, 1, 1, 0.85);
-}
-#topbar.blocked{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  color: #ffffff;
-  height: 100%;
-  text-align: center;
-  padding-top: 15px;
-  /* Adds shadow to the bottom of the bar */
-  -webkit-box-shadow: 0px 0px 8px 0px #000000;
-  -moz-box-shadow: 0px 0px 8px 0px #000000;
-  box-shadow: 0px 0px 8px 0px #000000;
-  /* Adds the transparent background */
-  background-color: rgba(1, 1, 1, 0.85);
-  color: rgba(1, 1, 1, 0.85);
-}
-#topbar a {
-    font-size: 14px;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: white;
-    text-decoration: none;
-}
-
-#topbar a:hover {
-    color: grey;
-}
-
-#toggle_sound {
-    position: absolute;
-    top: 5px;
-    left:10px;
-}
-
-#toggle_music {
-    position: absolute;
-    top: 5px;
-    left:70px;
-}
-
-#toggle_tutorial {
-    position: absolute;
-    top: 5px;
-    left:180px;
-}
-
-.arrow_box {
-    position: relative;
-    background: #88b7d5;
-    border: 4px solid #c2e1f5;
-}
-.arrow_box:after, .arrow_box:before {
-    bottom: 100%;
-    left: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-}
-
-.arrow_box:after {
-    border-color: rgba(136, 183, 213, 0);
-    border-bottom-color: #88b7d5;
-    border-width: 15px;
-    margin-left: -15px;
-}
-.arrow_box:before {
-    border-color: rgba(194, 225, 245, 0);
-    border-bottom-color: #c2e1f5;
-    border-width: 21px;
-    margin-left: -21px;
-}
-
-#tutorial0 {
-    position: absolute;
-    font-family: 'Terminal Dosis';    
-    font-size: 20px;
-    top: 5px;
-    left:60px;
 }

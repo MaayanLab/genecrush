@@ -1,0 +1,126 @@
+
+/*Tutorial order and positions.*/
+#tutorial0 {
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 5px;
+    left:80px;
+}
+
+#tutorial1 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 120px;
+    left:65px;
+}
+
+#tutorial2 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 10px;
+    right:5px;
+}
+
+#tutorial3 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 390px;
+    left:230px;
+}
+
+#tutorial4 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 250px;
+    left:2px;
+}
+
+#tutorial5 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 295px;
+    left:225px;
+}
+
+#tutorial6 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 295px;
+    left:210px;
+}
+
+#tutorial7 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 990px;
+    left:140px;
+}
+
+#tutorial8 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 10px;
+    left:10px;
+}
+
+#tutorial9 {
+    text-align: middle;
+    position: absolute;
+    font-family: 'Terminal Dosis';    
+    font-size: 20px;
+    top: 125px;
+    left:785px;
+}
+
+#tutorial_button {
+    position:relative;
+    right:0%;
+} 
+
+
+/* Tutorial Box styles*/
+.arrow_box {
+    position: relative;
+    background: #88b7d5;
+    border: 4px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #88b7d5;
+    border-width: 15px;
+    margin-left: -15px;
+}
+.arrow_box:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #c2e1f5;
+    border-width: 21px;
+    margin-left: -21px;
+}

@@ -14,7 +14,7 @@ var myTimer = new Timer({
 				d3.select('.timer_board_text').text(Math.floor(sec/60)+ ':' + seconds).attr("fill","red")
 					.attr("font-size", 100).attr("y", height_sc / 2 + 13);
 				d3.select('.timer_board_text').transition().duration(500)
-					.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8); 
+					.attr("font-size", 50).attr("fill","black").attr("y", height_sc / 2 + 8);
 			}
 	},
 

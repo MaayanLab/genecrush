@@ -9,7 +9,8 @@ function make_viz(sample) {
       hover_cell,
       hover_cell_name,
       clicked_cell_1,
-      clicked_cell_2;
+      clicked_cell_2,
+      row_drag_button;
 
   // initialize the global variables
   terms = Object.keys(sample);
@@ -204,7 +205,6 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   // creates group "row_label" and appends to the row.
   var row_label = label_row.append("g")
       .attr("class", function(d, i) { return "row_label noselect row_label_" + i })
-      .style("cursor", "pointer")
       .on("mouseover", mouseover_label)
       .on("mouseout", mouseout_label)
       .on("mousedown", mouseDown_label)
@@ -213,22 +213,21 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   // Rectangle attached to "row_label"
   row_label.append("rect")
       .attr("class", "label_rect")
+      .style("cursor", "pointer")
       .attr("x", 0)
       .attr("y", 2)
-      .attr("rx", width / ncol / 8)
-      .attr("ry", height / nrow / 8)
       .attr("width", 100)
       .attr("height", scale_Y.rangeBand() -4)
       .style("fill", "white")
-      .style("fill-opacity", 0.05);
+      .style("fill-opacity", 0);
 
   // Text attached to "row_label".
   row_label.append("text")
       .attr("class", "row_label_text")
-      .attr("x", 90)
+      .attr("x", 70)
       .attr("y", scale_Y.rangeBand() / 2)
       .attr("dy", ".32em").attr("text-anchor", "end")
-      .attr("font-size", 15)
+      .attr("font-size", 12)
       .attr("fill", "white")
       .text(function(d, i) { return terms[i].split('_')[0]; });
 
@@ -245,10 +244,10 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   //     .scale(scale_Y)
   //     .orient('left');
 
-  svg.append('g')                                                  // appends x_axis on main svg
-      .attr('class', 'x axis')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(x_axis);
+  // svg.append('g')                                                  // appends x_axis on main svg
+  //     .attr('class', 'x axis')
+  //     .attr('transform', 'translate(0,' + height + ')')
+  //     .call(x_axis);
 
   // svg.append('g')                                                  // appends x_axis on main svg
   //     .attr('class', 'y axis')
@@ -259,10 +258,10 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     .orient('bottom')
     .ticks(15);
 
-  nav_svg.append('g')                                                // appends x_axis on nav_svg
-    .attr('class', 'x axis')  
-    .attr('transform', 'translate(0,' + nav_height + ')')
-    .call(nav_x_axis);
+  // nav_svg.append('g')                                                // appends x_axis on nav_svg
+  //   .attr('class', 'x axis')  
+  //   .attr('transform', 'translate(0,' + nav_height + ')')
+  //   .call(nav_x_axis);
 
 // for testing only.
 // var nav_y_axis = d3.svg.axis()
@@ -312,16 +311,47 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     .selectAll("rect")
     .attr("height", nav_height);
 
+get_user_gp(g_id);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // mouse events function on labels
-
   function mouseover_label(p) {
     var xPosition = 100 + 25;
     var yPosition = current_index_order.x.indexOf(p[0].y) * (height / nrow) + margin['top'] + 80;
+    row_drag_button = d3.select('.row_label_' + p[0].y).append('g')
 
+    d3.selectAll('.row_label').classed('cursor_change', true);
+    // .style("cursor", "pointer");
+    
+    for (var i = 0; i < 3; i++) {
+      row_drag_button.append('rect').attr('class','row_drag noselect')
+      .attr('x',80).attr('y',14 + (5 * i)).attr('width',20).attr('height',3).attr('fill','white')
+    }
+    
+    // draw rectangle over it so that it wont redraw all the time.
+      row_label.append("rect")
+      .attr("class", "label_rect")
+      .style("cursor", "move")
+      .attr("x", 0)
+      .attr("y", 2)
+      .attr("width", 100)
+      .attr("height", scale_Y.rangeBand() -4)
+      .style("fill", "white")
+      .style("fill-opacity", 0);
+    // row_label.append("rect")
+    //   .attr("class", "label_rect")
+    //   .style("cursor", "pointer")
+    //   .attr("x", 80)
+    //   .attr("y", 2)
+    //   .attr("rx", width / ncol / 8)
+    //   .attr("ry", height / nrow / 8)
+    //   .attr("width", 30)
+    //   .attr("height", scale_Y.rangeBand() -4)
+    //   .style("fill", "white")
+    //   .style("fill-opacity", 0.05);
     // console.log(p[0].y);
     // console.log(p);
-    //Update the tooltip position and value
+    // Update the tooltip position and value
     // d3.select("#tooltip").style("left", xPosition + "px").style("top", yPosition + "px");
     // d3.select('#tooltip').select('#tt_term').text("\"" + terms[p[0].y] + "\"");
     // d3.select('#tooltip').select("#tt_genes").text('(' + sample[terms[p[0].y]].join(', ') + ')');
@@ -329,23 +359,29 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   }
 
   function mouseout_label(p) {
-    // d3.select("#tooltip").classed("hidden", true);
+    row_drag_button.remove();
+    d3.selectAll('.row_label').classed('cursor_change', false)
   }
 
   function mouseDown_label(p) {
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p[0].y; });
-    selected_index_1 = { 'x': p[0].y };
+    selected_index_1 = { 'x': p[0].y};
+    d3.select('#term_name').text(terms[p[0].y]).classed('hidden', false)
     // label_svg.append('rect').attr('x',p.x).attr('y',p.y).attr('width',500).attr('height',500).attr('fill','red')
   }
 
   function mouseUp_label(p) {
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p[0].y; });
     selected_index_2 = { 'x': p[0].y };
-    
     if (selected_index_1.x != selected_index_2.x)
-      swap_rows();
-  }
+       swap_rows();
 
+    d3.select('#term_name').classed('hidden', true)
+  }
+  
+  $(document).mousemove(function(e){
+      $("#term_name").css({left:e.pageX, top:e.pageY - 30});
+  });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // mouse events function on cells
@@ -362,20 +398,33 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     } else {
       d3.select('.g-signout2').text(null)
     }
+
+    row_drag_button = d3.select('.row_label_' + p.y).append('g');
+    
+    for (var i = 0; i < 3; i++) {
+      row_drag_button.append('rect').attr('class','row_drag')
+      .attr('x',80).attr('y',14 + (5 * i)).attr('width',20).attr('height',3).attr('fill','white')
+    }
   }
 
   function mouseout() {
     if (hover_cell_name != undefined && toggle_hl == 1) hover_cell_name.transition().duration(100).style('stroke', "blue").style('stroke-width', 1);
     d3.selectAll("text").classed("active", false);
+    row_drag_button.remove();
   }
 
   function mouseDown(p) {
+    selected_index_1 = undefined;
+    clicked_cell_1 = undefined;
+
     d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
     selected_index_1 = { 'x': p.y, 'y': p.x };
 
     // if (click_state == 0) {
       clicked_cell_1 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
       clicked_cell_1.style('stroke', 'red').style('stroke-width', 5);
+
+      d3.select('#term_name').text(genes_unq[matrix[selected_index_1.x][selected_index_1.y].z]).classed('hidden', false)
     // }
     // if (click_state == 1) {
     //   clicked_cell_2 = d3.selectAll(".cell_x" + selected_index_1.x + ".cell_y" + selected_index_1.y).selectAll(".rect");
@@ -385,6 +434,12 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     //   clicked_cell_2.style('stroke', "blue").style('stroke-width', 1)
     //   click_state = 2;
     // }
+    // console.log('mouseDown:');
+    // console.log('selected_index_1');
+    // console.log(selected_index_1);
+    // console.log('clicked_cell_1');
+    // console.log(clicked_cell_1);
+    // console.log('-------------------');
   }
 
   function mouseUp(p) {
@@ -397,9 +452,20 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
     //     click_state = 1;
     //   } else {
     //     if (selected_index_1.x != selected_index_2.x) swap_rows();
-        if (selected_index_1.x == selected_index_2.x && selected_index_1.y != selected_index_2.y) swap_cols();
-        clicked_cell_1.style('stroke', null);
-        clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
+    if (selected_index_1.x == selected_index_2.x 
+      && selected_index_1.y != selected_index_2.y
+      && selected_index_1.y != undefined) {
+        swap_cols();
+      }
+    clicked_cell_1.style('stroke', null);
+    clicked_cell_1.style('stroke', "blue").style('stroke-width', 1)
+
+    d3.select('#term_name').classed('hidden', true)
+
+    //     console.log('mouseup:');
+    // console.log('selected_index_2');
+    // console.log(selected_index_2);
+    // console.log('-------------------');
     //     click_state = 0;
     //   }
     // }
@@ -413,6 +479,7 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
 // Helper functions
 
   function swap_rows() {
+    console.log('in swap rows');
     if (toggle_sound) row_swap_sound.playclip();
     var temp_1_index = current_index_order.x.indexOf(selected_index_1.x),
         temp_1_value = current_index_order.x[temp_1_index],
@@ -431,6 +498,7 @@ var label_row = label_svg.selectAll(".row").data(matrix).enter().append("g")
   }
 
   function swap_cols() {
+    console.log('in swap cols');
     if (toggle_sound) col_swap_sound.playclip();
     var temp_1_index = current_index_order.y[selected_index_1.x].indexOf(selected_index_1.y),
         temp_1_value = current_index_order.y[selected_index_1.x][temp_1_index],

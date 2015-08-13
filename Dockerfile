@@ -1,11 +1,11 @@
-FROM node:0.10.31
+	FROM node:0.12.4
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+	RUN mkdir -p /usr/src/app
+	WORKDIR /usr/src/app
 
-COPY . /usr/src/app
-RUN npm install -g bower && npm install && bower install --allow-root
+	COPY . /usr/src/app
+	RUN npm install -g bower && npm install && bower install --allow-root
 
-EXPOSE 1988
+	EXPOSE 1988
 
-CMD [ "node", "index.js" ]
+	CMD [ "node", "index.js" ]
