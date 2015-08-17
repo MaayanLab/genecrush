@@ -1,4 +1,7 @@
 // google login
+
+
+// Sign In 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   g_id = profile.getEmail();
@@ -12,6 +15,7 @@ function onSignIn(googleUser) {
 }
 
 
+// Sign Out
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {

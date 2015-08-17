@@ -6,6 +6,6 @@
 	COPY . /usr/src/app
 	RUN npm install -g bower && npm install && bower install --allow-root
 
-	EXPOSE 1988
+	EXPOSE 1999
 
 	CMD [ "node", "index.js" ]

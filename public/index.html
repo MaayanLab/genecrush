@@ -4,22 +4,18 @@
     <title>GeneCrush</title>
     <base href="/GeneCrush/">
 
+    <!-- Redirects to the mobile app when screen size is smaller than 800px -->
     <script type="text/javascript">
-      <!--
-      if (screen.width <= 800) {
-        window.location = "http://www.cityoforchardlake.com/Page_Under_Construction.jpg";
-      }
-      //-->
+      if (screen.width <= 800) { window.location = "http://amp.pharm.mssm.edu/genecrush-mobile"; }
     </script>
 
-    <!-- Login API -->
+    <!-- Login API for Google, twitter -->
     <meta name="google-signin-client_id" content="425402044071-jp4qinssdl7ftbi9235pjbinmui5gvva.apps.googleusercontent.com">
-    <!-- <script src="js/FBlogin.js"></script> -->
     <script src="js/Glogin.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src='js/twitter.js'></script>
 
-    <!-- Libraries -->
+    <!-- JS Libraries -->
     <script src="lib/js/d3.min.js"></script>
     <script src="lib/js/jquery-2.1.4.min.js"></script>
     <script src="lib/js/underscore-min.js"></script>
@@ -28,7 +24,7 @@
     <script src="lib/js/timer.js"></script>
     <script src="lib/js/angular.min.js"></script>
 
-    <!-- External CSS files -->
+    <!-- CSS files && google fonts -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/tutorial.css">
@@ -38,48 +34,66 @@
 </head>
 
 
-<body id='body' class='normal'>
+<body id='body' class='normal noselect'>
+    <!-- Title of the game on top of the page. -->
     <div><h1 style='margin-top:50px'>GeneCrush</h1></div>
     
-    <!-- Game Body -->
-    <div class='container'>
-        <div class='right'> 
+    <!-- ############################################################################################################# -->
+    <!-- Game-playing Panel container Div -->
+    <div class='container noselect'>
+
+        <!-- Right side panel which contains toggle buttons and timer/score panels -->
+        <div class='right noselect'> 
             <button style="margin-top:5px" type="button" class='btn-primary' onclick="submit_this()">Submit</button>
             <p style="margin-top:50px;"id="score"></p>
             <p style="margin-top:50px"; id="timer"></p>
             <p style="margin-top:50px"; id="toggle"></p>
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="new_data()">New Game</button>
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="undo()">Undo Last</button>
-            <p></p>
+            <button style="margin-top:5px" type="button" class='btn-primary' onclick="new_data()">New Game</button><br>
+            <button style="margin-top:5px" type="button" class='btn-primary' onclick="undo()">Undo Last</button><br>
             <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="reset()">Reset to Initial</button> -->
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_descending()">Sort Rows</button>
+            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_descending()">Sort Rows</button><br>
             <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_ascending()">Sort Rows Ascending Size</button> -->
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_freq()">Sort Columns Freq</button>
+            <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_freq()">Sort Columns Freq</button><br>
             <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="sort_alphabet()">Sort Columns Alphabetically</button> -->
             <!-- <input style="margin-top:5px" id="same_gene" type="checkbox" value="on"> check this to highlight the same genes<br>  -->
             <!-- <input style="margin-top:5px" id="unq_gene" type="checkbox" value="on"> check this to remove unique genes<br>  -->
-            <button style="margin-top:5px" type="button" class='btn-primary' onclick="submit_this()">Submit</button>
+            <!-- <button style="margin-top:5px" type="button" class='btn-primary' onclick="submit_this()">Submit</button><br> -->
         </div>
-        <div class='left'></div>
-        <div id="main_game" class='center'></div>
+
+        <!-- Left side panel for row labels -->
+        <div class='left noselect'></div>
+
+        <!-- Main part of the game in the center -->
+        <div id="main_game" class='center noselect'></div>
     </div>
 
-    <!-- Topbar -->
+
+    <!-- ############################################################################################################# -->
+    <!-- Topbar // with toggle buttons and google sign-ins -->
     <div id="topbar" class='blocked'>
+
+        <!-- Sound/Music toggling buttons -->
         <div id='sound_buttons' class='btn-group'>
             <button id="toggle_sound" style="margin-top:5px" type="button" class='btn btn-success' onclick="toggle_sound_fx()">Sound</button>
             <button id="toggle_music" style="margin-top:5px" type="button" class='btn btn-danger' onclick="toggle_music_fx()">Music</button>
         </div>
+        <!-- tutorial toggle button -->
         <button id="toggle_tutorial" style="margin-top:5px" type="button" class='btn btn-warning' onclick="tutorial(1)">Tutorial</button>
+        <!-- leaderboard toggle button -->
         <button id="toggle_leaderboard" style="margin-top:5px" type="button" class='btn btn-info' onclick="show_leaderboard()">Leaderboard</button>
         
+        <!-- Google sign-out link -->
         <a href="#" class="g-signout2" onclick="signOut();"></a>
+        <!-- Google log-in picture -->
         <a class="g-signout2_pic"></a>
-        <!-- <fb:login-button class='fb-singin2' scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
-
+        <!-- Google sign-in button -->
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+        <!-- Number of games a user played -->
         <div class='games_count'><p id='games_played'></p></div>
 
+
+        <!-- ############################################################################################################# -->
         <!-- Leaderboard -->
         <div id='leaderboard' class='hidden'>
             <div>
@@ -97,14 +111,18 @@
                 <p class='bd_hs_10'>N/A</p>
             </div>
         </div>
+        <!-- Leaderboard buttons to switch from 1-highest_score 2-average_score 3-num_games_played -->
         <div id='lb_buttons' class="btn-group hidden">
             <button id='lb_highest_score' class='btn btn-default btn-xs' type="button", onclick="get_10hs()">Highest Score</button>
             <button id='lb_average_score' class='btn btn-default btn-xs' type="button", onclick="get_10as()">Average Score</button>
             <button id='lb_games_played' class='btn btn-default btn-xs' type="button", onclick="get_10gp()">Games Played</button>
         </div>
+        <!-- Return button -->
         <button id='lb_return' class='btn btn-primary hidden' type="button", onclick="show_summary_page()">return</button>
 
-        <!-- Summary Page -->
+
+        <!-- ############################################################################################################# -->
+        <!-- Start Page / Summary Page -->
         <div id="summary_page" class='visible'>
             <div>
                 <p class='bd_legend'style="margin-top:20px">Welcome To GeneCrush</p><br><br>
@@ -119,18 +137,12 @@
         <div id='twitter_follow'class='visible'>
             <a class="twitter-follow-button" href="https://twitter.com/maayanlab" data-show-count='false' data-size="large">Follow @maayanlab</a>
         </div>
-        <button id='debug' class='btn btn-info' type="button", onclick="new_data('test_data')">debug</button>
-        <!--         <div
-            class="fb-like"
-            data-share="true"
-            data-width="450"
-            data-show-faces="true">
-        </div> -->
+        <!-- <button id='debug' class='btn btn-info' type="button", onclick="new_data('test_data')">debug</button> -->
         <button id='start_viz' class='btn-link' type="button", onclick="start_viz()">Explore gene overlap without playing the game</button>
         <button id='start_game' class='btn btn-danger btn-lg' type="button", onclick="start_game()">PLAY</button>
     </div> 
 
-    <!-- When Dragging Terms, name follows cursor -->
+    <!-- When Dragging Row_labels or cells, the corresponding name follows the cursor -->
     <a id='term_name' class='hidden'>This</a>
 
     <!-- Tutorials -->
@@ -148,15 +160,15 @@
             <button id='tutorial_button' class='btn-primary' onclick="tutorial(4)">Next</button>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
         </div>
-        <div id='tutorial4' class='tutorial arrow_box hidden'>This is a Row Label <br> called 'CDC14A' <br> which is a 'Term'. <br> you can swap them <br> by dragging and <br> dropping them. <br> Give it a try! :P <br>
+        <div id='tutorial4' class='tutorial arrow_box hidden'>This is a Row Label <br>  'SUZ-12-20075857 <br> -MESC-Mouse' <br> which is a 'Term'. <br> you can swap them <br> by dragging and <br> dropping them. <br> Give it a try! :P <br>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial(5)">Next</button>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
         </div>
-        <div id='tutorial5' class='tutorial arrow_box hidden'>This is a cells called 'E' <br> which is name of a 'Gene' <br> you can swap the genes from the same row <br> by dragging and dropping them. <br> Give it a try! :P <br>
+        <div id='tutorial5' class='tutorial arrow_box hidden'>This is a cells called 'FAM198B' <br> which is name of a 'Gene' <br> you can swap the genes from the same row <br> by dragging and dropping them. <br> Give it a try! :P <br>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial(6)">Next</button>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
         </div>
-        <div id='tutorial6' class='tutorial arrow_box hidden'>Also, here, we have 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'  <br> genes as modules which means that <br>the same genes are next to each other. <br>The longer and bigger the module are, <br> the greater the points will be rewarded! <br>
+        <div id='tutorial6' class='tutorial arrow_box hidden'>Also, here, we have gene 'ARHGAP18' and 'ARL5A' <br> in a module which means that the <br> same genes are next to each other. <br>The longer and bigger the module are, <br> the greater the points will be rewarded! <br>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial(7)">Next</button>
             <button id='tutorial_button' class='btn-primary' onclick="tutorial('end')">Exit</button>
         </div>

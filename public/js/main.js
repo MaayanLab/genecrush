@@ -37,7 +37,8 @@ var margin = { top: 50, right: 10, bottom: 5, left: 7 },
     user = {},
     g_id = {},
     toggle_sound = true,
-    toggle_music = false;
+    toggle_music = false,
+    found_modules= {};
 
 
 // Global vairables.
@@ -52,11 +53,12 @@ var orders,
     dup_temp,
     nav_line,
     x_axis,
-    y_axis;
+    y_axis,
+    fix_bug_status;
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// SVG's
+///////////////////////////////////////////// svgs  ////////////////////////////////////////////////////////////////////
+// main svg
 var svg = d3.select("#main_game").append("svg").attr('class', 'svg')
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -64,30 +66,19 @@ var svg = d3.select("#main_game").append("svg").attr('class', 'svg')
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
+// svg for labels
 var label_svg = d3.select('.left').append('svg').attr('class', 'label_svg')
     .attr("width", 100)
     .attr("height", height + margin.top + margin.bottom)
     .append('g')
     .attr('transform', 'translate(0,' + margin.top + ")")
 
+// svg for navigator
 var nav_svg = d3.select('#main_game').append('svg').attr('class', 'navigator')
     .attr('width', nav_width + margin.left + margin.right)
     .attr('height', nav_height)
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',0 )');
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Select Random json file.
-
-
-
-random = Math.floor(Math.random() * names_of_the_files.length);
-var path = "json/from_random_crowd_sourcing/6478_1_936_6/";
-path += names_of_the_files[random];
-path += '_.json'
-
-console.log(random);
 
 // Reference them to enrichr library
 label_svg.append("text")
@@ -98,21 +89,7 @@ label_svg.append("text")
   .attr("font-size", 15)
   .attr("fill", "white")
   .style("text-decoration", "underline")  
-  .text('LIBRARY :');
+  .text('library :');
 
+// puts how many games you have played on top right
 get_user_gp(g_id);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Read in the proper json file.
-
-// d3.json("json/perfect_example.json", function(sample) {
-// d3.json("json/Phosphatase_Substrates_SAMPLE.json", function(sample) {
-// d3.json("json/from_enrichr/ENCODE_Histone_Modifications_2015.json", function(sample) {
-// d3.json(path, function(sample) {
-
-//   // Processes the visualizing of the "json"
-//   make_viz(sample);
-// });
-
-String.prototype.replaceBetween = function(start, end, what) {
-    return this.substring(0, start) + what + this.substring(end);
-};

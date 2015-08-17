@@ -1,3 +1,5 @@
+
+// Timer that counts down for the game play.
 var myTimer = new Timer({
     tick    : 1,
     ontick  : function(sec) { 
@@ -32,6 +34,8 @@ var myTimer = new Timer({
     }
 });
 
+
+// Counts time played
 var myNewTimer = new Timer({
     onstart : function() { console.log('new timer started') },
     onstop  : function() { console.log('new timer stop') },

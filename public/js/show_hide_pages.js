@@ -1,10 +1,9 @@
 function show_leaderboard() {
-	// hide everything else
+	// hide
 	d3.select('#summary_page').classed('hidden', true)
 	d3.select('#topbar').classed('blocked', true)
 	d3.select('#start_viz').classed('hidden', true)
 	d3.select('#start_game').classed('hidden', true)
-	
 	// show 
   d3.select('#leaderboard').classed('hidden', false)
   d3.select('#lb_buttons').classed('hidden', false)
@@ -16,7 +15,7 @@ function show_leaderboard() {
 
 
 function show_summary_page() {
-	// hide everything else
+	// hide
 	d3.select('#leaderboard').classed('hidden',true)
   d3.select('#lb_buttons').classed('hidden',true)
   d3.select('#lb_return').classed('hidden', true)
@@ -44,6 +43,7 @@ function hide_everything() {
   d3.select('#twitter_follow').classed('hidden', true)
 }
 
+
 function start_game(test_data) {
   d3.select('#start_viz').classed('hidden',true)
   d3.select('#start_game').classed('hidden',true)
@@ -54,11 +54,11 @@ function start_game(test_data) {
   d3.select('#toggle_leaderboard').classed('disabled', true)
 	d3.select('#toggle_tutorial').classed('disabled', true)
   myTimer.start(60*5);
-  // myTimer.start(15);
   myNewTimer.start(60*30);
   played_whole_game = false;
   new_data(test_data);
 }
+
 
 function start_viz(test_data) {
   d3.select('#start_viz').classed('hidden',true)
@@ -75,6 +75,7 @@ function start_viz(test_data) {
   new_data(test_data);
   if (toggle_sound) start_game_sound.playclip();
 }
+
 
 function toggle_sound_fx() {
   if (toggle_sound) {

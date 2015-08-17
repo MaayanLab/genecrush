@@ -144,20 +144,24 @@ function push_info(value) {
 }
 
 function get_user_gp(username) {
-	$.ajax({
-      type: "POST",
-      data: username,
-      url: 'user/getInfo',
-      dataType: 'text',
-      success: function(userData) {
-        var num_played = JSON.parse(userData);
-        var temp = num_played.num_games_played + " games played!"
-        d3.select('#games_played').text(temp).style('font-size', '15px')
-      },
-      error: function(userData) {
-        console.log('something wrong with get');
-      }
-    });
+  if (typeof(username) == 'object') {
+    d3.select('#games_played').text('0 games played!').style('font-size', '15px')
+  } else {
+    $.ajax({
+        type: "POST",
+        data: username,
+        url: 'user/getInfo',
+        dataType: 'text',
+        success: function(userData) {
+          var num_played = JSON.parse(userData);
+          var temp = num_played.num_games_played + " games played!"
+          d3.select('#games_played').text(temp).style('font-size', '15px')
+        },
+        error: function(userData) {
+          console.log('something wrong with get');
+        }
+      });    
+  }
 }
 
 function get_user_hs(username) {

@@ -1,4 +1,5 @@
-// DEBUG
+// functions for DEBUG 
+
 
 // prints the order of the given value.
 function print_order(value) {
@@ -11,4 +12,3 @@ function print_order(value) {
     console.log("row_"+value.x[i]+": "+temp);
   }
 }
-

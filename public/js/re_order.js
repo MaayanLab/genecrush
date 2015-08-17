@@ -180,7 +180,8 @@ d3.select("#unq_gene").on("change", function() {
 function new_data(test_data) {
   if (test_data == 'test_data') {
     hide_everything();
-    var path = 'json/Phosphatase_Substrates_SAMPLE.json'
+    var path = 'json/tutorial/0_0_0_ChEA.json'
+    random = 'test_data'
   } else {
     random = Math.floor(Math.random() * names_of_the_files.length);
     var path = "json/from_random_crowd_sourcing/6478_1_936_6/";
@@ -353,3 +354,8 @@ function reset_nav_data(value) {
 // d3.select('#topbar').attr('height',35px)
 
 
+
+// method to replace between string characters
+String.prototype.replaceBetween = function(start, end, what) {
+    return this.substring(0, start) + what + this.substring(end);
+};

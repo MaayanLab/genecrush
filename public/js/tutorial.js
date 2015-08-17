@@ -1,5 +1,5 @@
 function tutorial(step) {
-	if (step == 'end') {
+	if (step == 'end') {															// ends the tuotorial
 		d3.select('#tutorial9').classed('hidden', true);
 		d3.selectAll('.tutorial').classed('hidden', true);
 		submit_this();
@@ -32,11 +32,15 @@ function tutorial(step) {
 		d3.select('#tutorial5').classed('hidden', true);
 		d3.select('#tutorial6').classed('hidden', false);
 		start_game_sound.playclip();
-		var line_data = [{x:0,y:78}, {x:590,y:78}, {x:590,y:150}, {x:0,y:150}, {x:0,y:78}]
+
+		location.href = "#";
+		location.href = "#tutorial6";
+		var line_data = [{x:60,y:440}, {x:178,y:440}, {x:178,y:520}, {x:60,y:520}, {x:60,y:440}]
 		var lineFunction = d3.svg.line()
 			.x(function(d) { return d.x; })
 			.y(function(d) { return d.y; })
 			.interpolate("linear-closed");
+			
 	// Draws the line
 		var lineGraph = svg.append("path").attr("stroke", "white").transition().duration(1500)
 			.attr('class', 'tutorial_path')
